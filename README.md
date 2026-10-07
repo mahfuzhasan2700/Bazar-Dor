@@ -110,23 +110,23 @@
 ```mermaid
 graph TD
     subgraph Client ["Client Presentation Layer (Next.js 16 + React 19)"]
-        UI[App Router & Server/Client Hybrid Components]
-        Ticker[Hardware Marquee Ticker]
-        Sort[Bengali Numeric Sorting Engine]
-        Protected[Route Guard & Session Context]
+        UI["App Router & Hybrid Components"]
+        Ticker["Hardware Marquee Ticker"]
+        Sort["Bengali Numeric Sorting Engine"]
+        Protected["Route Guard & Session Context"]
     end
 
     subgraph Auth ["Authentication Engine (BetterAuth)"]
-        BA[BetterAuth Server Engine]
-        OAuthGoogle[Google OAuth 2.0]
-        OAuthGH[GitHub OAuth 2.0]
-        DB[(Embedded Session Store)]
+        BA["BetterAuth Server Engine"]
+        OAuthGoogle["Google OAuth 2.0"]
+        OAuthGH["GitHub OAuth 2.0"]
+        DB[("Embedded Session Store")]
     end
 
     subgraph Data ["Resilient Commodity Data Layer"]
-        PrimaryAPI[Primary Edge API (Cloudflare Workers)]
-        ReplicaAPI[Fallback Replica API]
-        Transformer[Bengali Digit & Unit Converter]
+        PrimaryAPI["Primary Edge API (Cloudflare Workers)"]
+        ReplicaAPI["Fallback Replica API"]
+        Transformer["Bengali Digit & Unit Converter"]
     end
 
     UI --> Protected
