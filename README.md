@@ -5,7 +5,7 @@
 ---
 
 ## 🌐 লাইভ ডেমো ও রিপোজিটরি (Live Links)
-- **Live Demo (Netlify):** *Deploying soon...*
+- **Live Demo (Netlify):** [https://bazar-d0r.netlify.app/](https://bazar-d0r.netlify.app/)
 - **GitHub Repository:** [https://github.com/mahfuzhasan2700/Bazar-Dor](https://github.com/mahfuzhasan2700/Bazar-Dor)
 
 ---
