@@ -179,7 +179,7 @@ npm install
 ### ৪. এনভায়রনমেন্ট ভেরিয়েবল সেটআপ
 প্রজেক্ট রুটে একটি `.env.local` ফাইল তৈরি করুন:
 ```env
-BETTER_AUTH_SECRET=bazardor_super_secret_key_phero_b14_a7
+BETTER_AUTH_SECRET=your_better_auth_secret_here
 BETTER_AUTH_URL=http://localhost:3000
 ```
 

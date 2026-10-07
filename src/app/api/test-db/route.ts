@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   const info: any = {
     env: process.env.NODE_ENV,
-    betterAuthUrl: process.env.BETTER_AUTH_URL,
+    hasBetterAuthUrl: !!process.env.BETTER_AUTH_URL,
     hasGithubId: !!process.env.GITHUB_CLIENT_ID,
     hasGoogleId: !!process.env.GOOGLE_CLIENT_ID,
   };

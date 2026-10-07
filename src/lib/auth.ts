@@ -58,7 +58,9 @@ db.exec(`
 `);
 
 export const auth = betterAuth({
-  secret: process.env.BETTER_AUTH_SECRET || "bazardor_super_secret_key_phero_b14_a7",
+  secret:
+    process.env.BETTER_AUTH_SECRET ||
+    "bazar_dor_default_secure_secret_key_2026",
   database: db,
   baseURL:
     process.env.BETTER_AUTH_URL ||
