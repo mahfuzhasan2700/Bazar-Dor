@@ -109,24 +109,29 @@
 
 ```mermaid
 graph TD
-    subgraph Client ["Client Presentation Layer (Next.js 16 + React 19)"]
-        UI["App Router & Hybrid Components"]
-        Ticker["Hardware Marquee Ticker"]
-        Sort["Bengali Numeric Sorting Engine"]
-        Protected["Route Guard & Session Context"]
+    classDef emerald fill:#ecfdf5,stroke:#059669,stroke-width:2px,color:#064e3b,font-weight:bold;
+    classDef mint fill:#f0fdf4,stroke:#10b981,stroke-width:2px,color:#047857,font-weight:bold;
+    classDef amber fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#92400e,font-weight:bold;
+    classDef sky fill:#f0f9ff,stroke:#0284c7,stroke-width:2px,color:#0369a1,font-weight:bold;
+
+    subgraph Client ["🖥️ Client Presentation Layer (Next.js 16 + React 19)"]
+        UI["App Router & Hybrid Components"]:::emerald
+        Ticker["Hardware Marquee Ticker"]:::emerald
+        Sort["Bengali Numeric Sorting Engine"]:::emerald
+        Protected["Route Guard & Session Context"]:::emerald
     end
 
-    subgraph Auth ["Authentication Engine (BetterAuth)"]
-        BA["BetterAuth Server Engine"]
-        OAuthGoogle["Google OAuth 2.0"]
-        OAuthGH["GitHub OAuth 2.0"]
-        DB[("Embedded Session Store")]
+    subgraph Auth ["🔐 Authentication Engine (BetterAuth)"]
+        BA["BetterAuth Server Engine"]:::mint
+        OAuthGoogle["Google OAuth 2.0"]:::mint
+        OAuthGH["GitHub OAuth 2.0"]:::mint
+        DB[("Embedded SQLite Store")]:::amber
     end
 
-    subgraph Data ["Resilient Commodity Data Layer"]
-        PrimaryAPI["Primary Edge API (Cloudflare Workers)"]
-        ReplicaAPI["Fallback Replica API"]
-        Transformer["Bengali Digit & Unit Converter"]
+    subgraph Data ["📊 Resilient Commodity Data Layer"]
+        PrimaryAPI["Primary Edge API (Cloudflare Workers)"]:::sky
+        ReplicaAPI["Fallback Replica API"]:::sky
+        Transformer["Bengali Digit & Unit Converter"]:::emerald
     end
 
     UI --> Protected
@@ -137,6 +142,10 @@ graph TD
     UI --> Transformer
     Transformer --> PrimaryAPI
     PrimaryAPI -.->|Failover| ReplicaAPI
+
+    style Client fill:#fbfcfb,stroke:#059669,stroke-width:1.5px,color:#065f46
+    style Auth fill:#fbfcfb,stroke:#10b981,stroke-width:1.5px,color:#047857
+    style Data fill:#fbfcfb,stroke:#0284c7,stroke-width:1.5px,color:#0369a1
 ```
 
 ---
