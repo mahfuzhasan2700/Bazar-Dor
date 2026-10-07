@@ -154,19 +154,34 @@ graph TD
 
 <div align="center">
 
-| Layer | Technologies | Badges |
-| :--- | :--- | :--- |
-| **Framework** | Next.js 16.4.0 (Turbopack, App Router) | `next@16.4.0` |
-| **UI Library** | React 19.3.0 (Server Actions, Hooks) | `react@19.3.0` |
-| **Language** | TypeScript 5 (Strict Static Typing) | `typescript@5.0` |
-| **Styling** | Tailwind CSS v4 (Modern CSS Engine) | `tailwindcss@4` |
-| **Authentication** | BetterAuth (Credentials + Google + GitHub) | `better-auth@1.7` |
-| **Persistence** | Better-SQLite3 (Serverless-Safe Embedded DB) | `better-sqlite3@13` |
-| **Iconography** | Lucide React (Pixel-perfect Vector Icons) | `lucide-react@1.52` |
-| **Notifications** | React Hot Toast (Accessible Notifications) | `react-hot-toast@2.6` |
-| **Cloud CI/CD** | Netlify Edge Network & Serverless Functions | `Netlify Continuous Deployment` |
+<a href="https://skillicons.dev">
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,sqlite,nodejs,netlify,git,github,vscode&theme=dark" alt="Tech Stack Icons" />
+</a>
+
+<br /><br />
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Architecture-Modular_App_Router-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Architecture" />
+  <img src="https://img.shields.io/badge/Security-Zero_Secret_Leaks-059669?style=for-the-badge&logo=securityscorecard&logoColor=white" alt="Security" />
+  <img src="https://img.shields.io/badge/Performance-Turbopack_Engine-0284c7?style=for-the-badge&logo=speedtest&logoColor=white" alt="Performance" />
+  <img src="https://img.shields.io/badge/Typography-Hind_Siliguri-7C3AED?style=for-the-badge&logo=google-fonts&logoColor=white" alt="Typography" />
+</p>
 
 </div>
+
+<br />
+
+| Domain / Layer | Technology | Key Capabilities & Responsibility | Ecosystem Badge |
+| :--- | :--- | :--- | :---: |
+| ⚡ **Core Framework** | [**Next.js 16**](https://nextjs.org/) | App Router, Turbopack Bundler, Server/Client Hybrid Components | [![Next.js](https://img.shields.io/badge/Next.js-16.4.0-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/) |
+| ⚛️ **UI Library** | [**React 19**](https://react.dev/) | React Server Actions, Suspense Boundaries, use() Hook API | [![React](https://img.shields.io/badge/React-19.3.0-087EA4?style=flat-square&logo=react&logoColor=white)](https://react.dev/) |
+| 🔷 **Language** | [**TypeScript 5**](https://www.typescriptlang.org/) | Strict Compile-Time Type Safety, Shared Domain Interfaces | [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) |
+| 🎨 **Styling Engine** | [**Tailwind CSS v4**](https://tailwindcss.com/) | Modern CSS Variables, Custom Marquee Keyframes, Responsive Grid | [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) |
+| 🔐 **Authentication** | [**BetterAuth**](https://better-auth.com/) | Credentials Auth, Google OAuth 2.0, GitHub OAuth 2.0, Session Guard | [![BetterAuth](https://img.shields.io/badge/BetterAuth-1.7.7-10B981?style=flat-square&logo=auth0&logoColor=white)](https://better-auth.com/) |
+| 🗄️ **Data Persistence** | [**Better-SQLite3**](https://github.com/WiseLibs/better-sqlite3) | Serverless-Compatible Embedded SQLite Session & User Store | [![SQLite](https://img.shields.io/badge/SQLite-v3-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org/) |
+| 🌐 **Cloud Hosting** | [**Netlify Edge**](https://www.netlify.com/) | Serverless Edge Network, Instant Invalidation, Automated CI/CD | [![Netlify](https://img.shields.io/badge/Netlify-CI%2FCD-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://www.netlify.com/) |
+| 💎 **Iconography** | [**Lucide React**](https://lucide.dev/) | Ultra-Lightweight Pixel-Perfect Vector Icon Library | [![Lucide](https://img.shields.io/badge/Lucide-1.52-F43F5E?style=flat-square&logo=feather&logoColor=white)](https://lucide.dev/) |
+| 🔔 **Notifications** | [**React Hot Toast**](https://react-hot-toast.com/) | Accessible, Non-Blocking Interactive User Toast Notifications | [![React Hot Toast](https://img.shields.io/badge/Hot_Toast-2.6-F59E0B?style=flat-square&logo=safari&logoColor=white)](https://react-hot-toast.com/) |
 
 ---
 
