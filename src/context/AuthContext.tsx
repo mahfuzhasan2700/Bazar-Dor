@@ -21,18 +21,36 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Restore user session on mount
+  // Restore user session on mount directly via BetterAuth
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem("bazardor_user");
-      if (stored) {
-        setUser(JSON.parse(stored));
+    async function initSession() {
+      try {
+        // Query BetterAuth session endpoint
+        const sessionRes = await authClient.getSession();
+        if (sessionRes?.data?.user) {
+          const u = sessionRes.data.user;
+          const currentUser: User = {
+            id: u.id,
+            name: u.name,
+            email: u.email,
+            image: u.image || undefined,
+          };
+          saveUser(currentUser);
+          return;
+        }
+
+        // Secondary fallback to localStorage
+        const stored = localStorage.getItem("bazardor_user");
+        if (stored) {
+          setUser(JSON.parse(stored));
+        }
+      } catch (e) {
+        console.error("Failed to fetch BetterAuth session:", e);
+      } finally {
+        setIsLoading(false);
       }
-    } catch (e) {
-      console.error("Failed to parse stored user", e);
-    } finally {
-      setIsLoading(false);
     }
+    initSession();
   }, []);
 
   const saveUser = (userData: User | null) => {
@@ -47,14 +65,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signIn = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     try {
-      // Try BetterAuth client
-      try {
-        await authClient.signIn.email({
-          email,
-          password,
-        });
-      } catch {
-        // Fallback or demo mode if backend DB cold/ephemeral
+      const res = await authClient.signIn.email({
+        email,
+        password,
+      });
+
+      if (res?.data?.user) {
+        const u = res.data.user;
+        const loggedUser: User = {
+          id: u.id,
+          name: u.name,
+          email: u.email,
+          image: u.image || undefined,
+        };
+        saveUser(loggedUser);
+        toast.success("সফলভাবে লগইন হয়েছে!");
+        return true;
       }
 
       // Check registered users in storage
@@ -71,18 +97,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return false;
       }
 
-      const loggedUser: User = {
-        id: found?.id || `user_${Date.now()}`,
-        name: found?.name || email.split("@")[0],
-        email: email,
-        image: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(
-          email
-        )}`,
-      };
+      if (found) {
+        const loggedUser: User = {
+          id: found.id,
+          name: found.name,
+          email: found.email,
+          image: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(
+            email
+          )}`,
+        };
+        saveUser(loggedUser);
+        toast.success("সফলভাবে লগইন হয়েছে!");
+        return true;
+      }
 
-      saveUser(loggedUser);
-      toast.success("সফলভাবে লগইন হয়েছে!");
-      return true;
+      toast.error("ইমেইল বা পাসওয়ার্ড সঠিক নয়!");
+      return false;
     } catch (error: any) {
       toast.error(error?.message || "লগইন ব্যর্থ হয়েছে!");
       return false;
@@ -98,15 +128,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   ): Promise<boolean> => {
     setIsLoading(true);
     try {
-      // Try BetterAuth client
       try {
         await authClient.signUp.email({
           email,
           password,
           name,
         });
-      } catch {
-        // Handled via local registration store
+      } catch (err) {
+        console.warn("BetterAuth direct sign-up attempt:", err);
       }
 
       const usersRaw = localStorage.getItem("bazardor_registered_users");
@@ -142,26 +171,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  // Real BetterAuth Social Sign In (Redirects to Google / GitHub)
   const socialSignIn = async (provider: "google" | "github"): Promise<boolean> => {
     setIsLoading(true);
     try {
-      const mockEmail = `user.${provider}@bazardor.com`;
-      const mockName = provider === "google" ? "Google User" : "GitHub Developer";
+      const callbackURL =
+        typeof window !== "undefined" ? `${window.location.origin}/` : "/";
 
-      const loggedUser: User = {
-        id: `user_${provider}_${Date.now()}`,
-        name: mockName,
-        email: mockEmail,
-        image: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(
-          provider
-        )}`,
-      };
+      // Call BetterAuth client to initiate OAuth authorization redirect
+      await authClient.signIn.social({
+        provider,
+        callbackURL,
+      });
 
-      saveUser(loggedUser);
-      toast.success(`${provider === "google" ? "Google" : "GitHub"} দিয়ে সফলভাবে লগইন হয়েছে!`);
       return true;
-    } catch {
-      toast.error("সোশ্যাল লগইন ব্যর্থ হয়েছে!");
+    } catch (error: any) {
+      console.error(`BetterAuth social login error for ${provider}:`, error);
+      toast.error(
+        error?.message ||
+          `${provider === "google" ? "Google" : "GitHub"} ক্লায়েন্ট কনফিগারেশন প্রয়োজন!`
+      );
       return false;
     } finally {
       setIsLoading(false);
@@ -190,18 +219,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     try {
       try {
-        // Challenge C3: Follow BetterAuth updateUser API
+        // Follow BetterAuth updateUser API
         await authClient.updateUser({
           name,
         });
-      } catch {
-        // Fallback
+      } catch (err) {
+        console.warn("BetterAuth updateUser attempt:", err);
       }
 
       const updated = { ...user, name };
       saveUser(updated);
 
-      // Update in registered list too
+      // Update in registered list
       const usersRaw = localStorage.getItem("bazardor_registered_users");
       if (usersRaw) {
         const users = JSON.parse(usersRaw);

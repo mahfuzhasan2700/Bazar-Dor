@@ -34,11 +34,8 @@ function SignInForm() {
 
   const handleSocial = async (provider: "google" | "github") => {
     setIsSubmitting(true);
-    const success = await socialSignIn(provider);
+    await socialSignIn(provider);
     setIsSubmitting(false);
-    if (success) {
-      router.push(redirectUrl);
-    }
   };
 
   return (

@@ -60,18 +60,23 @@ db.exec(`
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET || "bazardor_super_secret_key_phero_b14_a7",
   database: db,
-  baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+  baseURL:
+    process.env.BETTER_AUTH_URL ||
+    process.env.URL ||
+    (process.env.NODE_ENV === "production"
+      ? "https://bazar-d0r.netlify.app"
+      : "http://localhost:3000"),
   emailAndPassword: {
     enabled: true,
   },
   socialProviders: {
     github: {
-      clientId: process.env.GITHUB_CLIENT_ID || "demo_github_client_id",
-      clientSecret: process.env.GITHUB_CLIENT_SECRET || "demo_github_client_secret",
+      clientId: process.env.GITHUB_CLIENT_ID || "",
+      clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
     },
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID || "demo_google_client_id",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "demo_google_client_secret",
+      clientId: process.env.GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
     },
   },
   user: {
