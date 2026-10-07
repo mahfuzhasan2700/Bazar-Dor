@@ -1,195 +1,218 @@
 <div align="center">
 
 # 🛒 বাজার দর (BazarDor)
-### আধুনিক ও নির্ভরযোগ্য নিত্যপ্রয়োজনীয় পণ্যের বাজার দর ট্র্যাকিং প্ল্যাটফর্ম
-**Daily Commodity Market Price Tracker & Comparison Web Application**
+### Real-Time Commodity Price Intelligence & Market Analytics Platform
+**নিত্যপ্রয়োজনীয় পণ্যের বাজার দর ট্র্যাকিং, বাজারভিত্তিক তুলনা ও স্বচ্ছ ভোক্তা সিদ্ধান্ত প্ল্যাটফর্ম**
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.4.0-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.3.0-blue?style=for-the-badge&logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![BetterAuth](https://img.shields.io/badge/BetterAuth-Authentication-10B981?style=for-the-badge&logo=auth0)](https://better-auth.com/)
-[![Netlify Status](https://img.shields.io/badge/Netlify-Deployed-00C7B7?style=for-the-badge&logo=netlify)](https://bazar-d0r.netlify.app/)
+<br />
+
+[![Next.js](https://img.shields.io/badge/Next.js-16.4.0-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.3.0-087EA4?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![BetterAuth](https://img.shields.io/badge/BetterAuth-OAuth_2.0-10B981?style=for-the-badge&logo=auth0&logoColor=white)](https://better-auth.com/)
+[![Netlify](https://img.shields.io/badge/Deployment-Netlify_CI/CD-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://bazar-d0r.netlify.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
+<br />
 
 <p align="center">
-  <a href="https://bazar-d0r.netlify.app/"><strong>🌐 ভিজিট করুন লাইভ ডেমো (Live Demo) »</strong></a>
+  <a href="https://bazar-d0r.netlify.app/"><strong>🌐 Launch Live Application »</strong></a>
   <br />
-  <a href="#-মুখ্য-সুবিধাসমূহ-key-features">প্রধান সুবিধাসমূহ</a> •
-  <a href="#-চ্যালেঞ্জ-বাস্তবায়ন-challenge-requirements">চ্যালেঞ্জ সমাধান</a> •
-  <a href="#-টেক-স্ট্যাক-tech-stack">প্রযুক্তি তালিকা</a> •
-  <a href="#-লোকাল-সেটআপ-local-setup">রান করার নিয়ম</a>
+  <a href="#-overview">Overview</a> •
+  <a href="#-key-features">Key Features</a> •
+  <a href="#-system-architecture">Architecture</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-project-structure">Project Structure</a> •
+  <a href="#-getting-started">Getting Started</a> •
+  <a href="#-security--performance">Security</a> •
+  <a href="#-api-reference">API Reference</a>
 </p>
 
 ---
 
 </div>
 
-## 📌 পরিচিতি (Overview)
+## 📌 Overview
 
-**বাজার দর (BazarDor)** হলো একটি আধুনিক, দ্রুতগতির এবং রেসপনসিভ বাজার দর মনিটরিং অ্যাপ্লিকেশন। নিত্যপ্রয়োজনীয় পণ্যের (চাল, ডাল, তেল, শাকসবজি, মাছ, মাংস, ডিম-দুধ ও মশলা) ওঠানামা করা বাজার দরের তথ্য সাধারণ ভোক্তার কাছে স্বচ্ছ ও সহজবোধ্যভাবে পৌঁছে দেওয়াই এই প্ল্যাটফর্মের মূল লক্ষ্য।
+**BazarDor (বাজার দর)** is a state-of-the-art web application engineered to solve price opacity and consumer friction in Bangladesh's daily commodity retail markets. By aggregating real-time price trends across major urban and regional marketplaces (e.g., Karwan Bazar, New Market, Mirpur-1, Shantinagar), BazarDor delivers actionable intelligence directly to everyday households and business buyers.
 
-ভোক্তারা এখানে প্রতিটি পণ্যের বিভাগ ও বাজারভিত্তিক (কারওয়ান বাজার, নিউ মার্কেট, মিরপুর ইত্যাদি) সর্বনিম্ন, গড় এবং সর্বোচ্চ দর পর্যবেক্ষণ করতে পারেন এবং সঠিক বাজার বিশ্লেষণের মাধ্যমে সাশ্রয়ী সিদ্ধান্ত নিতে পারেন।
-
----
-
-## 🌐 গুরুত্বপূর্ণ লিংক (Quick Links)
-
-| বিবরণ | লিংক |
-| :--- | :--- |
-| 🚀 **লাইভ ডিপ্লয়মেন্ট (Live Website)** | [https://bazar-d0r.netlify.app/](https://bazar-d0r.netlify.app/) |
-| 💻 **গিটহাব রিপোজিটরি (GitHub Repository)** | [https://github.com/mahfuzhasan2700/Bazar-Dor](https://github.com/mahfuzhasan2700/Bazar-Dor) |
-| 🔌 **API ডেটা সোর্স (Primary Base URL)** | `https://api.api-store.workers.dev/api/bazardor` |
-| 🔄 **API ডেটা সোর্স (Fallback Base URL)** | `https://api.abcz.workers.dev/api/bazardor` |
+Built on the latest **Next.js 16 (App Router)** and **React 19** ecosystem, the platform features high-performance server/client hybrid rendering, localized Bengali numeral sorting algorithms, resilient dual-layer API caching, and robust authentication with **BetterAuth**.
 
 ---
 
-## 🚀 মুখ্য সুবিধাসমূহ (Key Features)
+## 🚀 Key Features
 
-### 1. 🔴 লাইভ প্রাইস টিকার মারকুই (Live Infinite Marquee Ticker)
-* হেডারের ঠিক নিচে একটি অবিরাম চলমান টিকার স্ট্রিপে বিভিন্ন নিত্যপণ্যের সর্বশেষ দাম ও পরিবর্তন প্রদর্শিত হয় (`[আইকন] [নাম] আজকের দাম [টাকা]/[একক] [▲/▼ %]`)।
-* মাউস হোভার করলে টিকার স্বয়ংক্রিয়ভাবে থেমে যায় যাতে ব্যবহারকারী সহজে তথ্য পড়তে পারেন।
+### 1. 🔴 Live Continuous Price Ticker
+* High-visibility marquee ticker running along the top header displaying real-time commodity movements (`[Icon] [Commodity] [Current Price] [▲/▼ Delta %]`).
+* Seamless hardware-accelerated CSS marquee with pause-on-hover interaction for friction-free reading.
 
-### 2. 📈 শীর্ষ দর বৃদ্ধি ও হ্রাস সেকশন (Daily Risers & Fallers)
-* **“আজ দাম বেড়েছে ▲”**: গতকালের তুলনায় সবচেয়ে বেশি দাম বাড়া শীর্ষ ৬টি পণ্য পজিটিভ গ্রিন ব্যাজসহ প্রদর্শিত।
-* **“আজ দাম কমেছে ▼”**: গত ২৪ ঘণ্টায় সবচেয়ে বেশি দাম কমা শীর্ষ ৬টি পণ্য নেগেটিভ রেড ব্যাজসহ প্রদর্শিত।
+### 2. 📈 Daily Market Dynamics (Risers & Fallers)
+* **▲ Top Daily Risers (আজ দাম বেড়েছে):** Instant analytical breakdown of commodities with highest positive price spikes over the past 24 hours.
+* **▼ Top Daily Fallers (আজ দাম কমেছে):** Curated view of items experiencing price drops, enabling budget-conscious consumers to capitalize on savings.
 
-### 3. 📊 বাজারভিত্তিক বিস্তারিত দরদাম ও পরিসংখ্যান (Market Breakdown & Analytics)
-* পণ্যের বিস্তারিত পেজে রয়েছে **সর্বনিম্ন দাম**, **গড় দাম** এবং **সর্বোচ্চ দাম**-এর ৩টি পৃথক পরিসংখ্যান কার্ড (কোন বাজারে সবচেয়ে সস্তা তাও স্পষ্ট উল্লেখ রয়েছে)।
-* ঢাকা, চট্টগ্রাম, রাজশাহী, সিলেটসহ বিভিন্ন বিভাগের পাইকারি ও খুচরা বাজারের একটি সম্পূর্ণ তুলনামূলক তালিকা।
+### 3. 📊 Deep Multi-Market Comparative Analytics
+* **Statistical Distribution Cards:** Live computation of **Minimum Price**, **Average Market Price**, and **Maximum Price** across all active retail outlets.
+* **Lowest Price Identifier:** Automatically flags the most cost-effective bazaar for each commodity.
+* **Granular Market Breakdown Table:** Comparative inspection across major municipal markets (কারওয়ান বাজার, মিরপুর-১, শান্তিনগর, নিউ মার্কেট ইত্যাদি) complete with market types (পাইকারি/খুচরা) and location metadata.
 
-### 4. 🏷️ ক্যাটাগরি ব্রাউজিং ও বাংলা সংখ্যা নিউমেরিক সর্টিং (**Challenge C1**)
-* চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম-দুধ ও মশলার দ্রুত নেভিগেশন।
-* বাংলা সংখ্যার জন্য কার্যকর নিউমেরিক সর্টিং ড্রপডাউন:
-  * `ডিফল্ট (Default)`
+### 4. 🏷️ Category Filtering with Bengali Numeric Sorting
+* Fast multi-category navigation (চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম-দুধ ও মশলা).
+* **Native Numerical Sorting Engine:** Intelligent conversion and evaluation of Bengali numeral strings (`০-৯` to IEEE double-precision floats), enabling true numeric sorting:
+  * `ডিফল্ট (Default Ordering)`
   * `দাম: কম থেকে বেশি (Price: Low to High)`
   * `দাম: বেশি থেকে কম (Price: High to Low)`
-* কাস্টম স্কেলিটন লোডার এবং কোনো ডেটা না থাকলে ফ্রেন্ডলি ৪০৪ এম্পটি স্টেট।
+* Graceful empty states with search reset triggers and animated skeleton loading states.
 
-### 5. 🔐 সুরক্ষিত অথেনটিকেশন ও প্রোফাইল আপডেট (**Challenge C3**)
-* **BetterAuth** চালিত সুরক্ষিত ক্রেডেনশিয়াল (ইমেইল/পাসওয়ার্ড) ও ওঅথ (Google ও GitHub) লগইন ব্যবস্থা।
-* প্রটেক্টেড রাউট গার্ড: লগইন ছাড়া পণ্যের বিস্তারিত দেখা নিষিদ্ধ এবং স্বয়ংক্রিয়ভাবে টোস্ট নোটিফিকেশনসহ লগইন পেজে রিডাইরেক্ট।
-* **প্রোফাইল আপডেট ফিচার**: ব্যবহারকারী প্রোফাইল থেকে যেকোনো সময় নিজের নাম আপডেট করতে পারেন (BetterAuth `updateUser` এপিআই সমর্থিত)।
+### 5. 🔐 Enterprise Authentication & Profile Management
+* **Powered by BetterAuth:** Hybrid authentication engine supporting:
+  * Secure Email & Password signup/login with client and server input validation.
+  * Direct OAuth 2.0 integration with **Google** and **GitHub**.
+* **Protected Route Architecture:** Client-side route guards on commodity analytics and user profiles, redirecting unauthenticated users to `/signin` with context-aware callback handling.
+* **Self-Service Profile Customization:** In-app profile editing allowing real-time name updates with immediate reflection across the application session.
 
-### 6. 📱 নিখুঁত রেসপনসিভনেস ও বাংলা টাইপোগ্রাফি
-* মোবাইল, ট্যাবলেট ও ডেস্কটপ সব ডিভাইসে অ্যাডাপ্টিভ গ্রিড লেআউট।
-* আধুনিক বাংলা ফন্ট **হিন্দ শিলিগুড়ি (Hind Siliguri)** ব্যবহার করে প্রিমিয়াম ভিজ্যুয়াল প্রেজেন্টেশন।
-
----
-
-## 🏆 চ্যালেঞ্জ বাস্তবায়ন (Challenge Requirements Coverage)
-
-| কোড | চ্যালেঞ্জ বিবরণ | বাস্তবায়ন বিবরণ | স্ট্যাটাস |
-| :---: | :--- | :--- | :---: |
-| **C1** | **সর্টিং কন্ট্রোল (Sort Dropdown)** | ক্যাটাগরি পেজে `ডিফল্ট`, `দাম: কম থেকে বেশি` এবং `দাম: বেশি থেকে কম` সর্টিং যুক্ত করা হয়েছে, যা বাংলা ডিজিটের নিউমেরিক মানের ওপর ভিত্তি করে নিখুঁতভাবে সর্ট করে। | ✅ সম্পন্ন |
-| **C2** | **প্রফেশনাল README** | প্রজেক্টের নাম, বর্ণনা, ব্যবহৃত প্রযুক্তি, লাইভ লিংক এবং ৫টি মূল ফিচার সমৃদ্ধ আন্তর্জাতিক মানের ডকুমেন্টেশন। | ✅ সম্পন্ন |
-| **C3** | **প্রোফাইল ইনফরমেশন আপডেট** | `/profile` এবং ডেডিকেটেড `/profile/update` রুটে ইউজারের নাম পরিবর্তনের ফর্ম যুক্ত করা হয়েছে যা BetterAuth ইন্টিগ্রেটেড। | ✅ সম্পন্ন |
+### 6. 📱 Responsive Ergonomics & Typography
+* Mobile-first responsive layout utilizing Tailwind CSS v4 variables and utility architecture.
+* Full-fidelity Bengali typography utilizing **Hind Siliguri (হিন্দ শিলিগুড়ি)** for legibility and visual refinement.
+* Friendly, branded Bengali **404 Not Found** page ensuring smooth error recovery.
 
 ---
 
-## 🛠️ প্রযুক্তি তালিকা (Tech Stack)
+## 🏛️ System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                       ARCHITECTURE                          │
-├─────────────────┬───────────────────────────────────────────┤
-│ Frontend Core   │ Next.js 16 (App Router) + React 19        │
-│ Language        │ TypeScript 5                              │
-│ Styling         │ Tailwind CSS v4                           │
-│ Authentication  │ BetterAuth + Better-SQLite3 / Storage     │
-│ Icons & Visuals │ Lucide React + DiceBear Avatars           │
-│ Notifications   │ React Hot Toast                           │
-│ Deployment      │ Netlify (CI/CD Pipeline)                  │
-└─────────────────┴───────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────┐
+│                        CLIENT APPLICATION LAYER                        │
+│                                                                        │
+│   Next.js 16 (App Router)  │  React 19 Server & Client Components      │
+│   Tailwind CSS v4 Engine   │  React Hot Toast  │  Lucide Icons         │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                        AUTHENTICATION & STATE                          │
+│                                                                        │
+│   BetterAuth Core Engine   │  OAuth 2.0 Providers (Google & GitHub)    │
+│   Secure HTTP-Only Cookies │  Dynamic In-Memory / SQLite Session Store │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                         DATA & RESILIENCE LAYER                        │
+│                                                                        │
+│   Primary Edge API (Cloudflare Worker) ──► Failover Replica API        │
+│   Number & Locale Transformation (Bangla Numerals, Currency & Dates)   │
+└────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 📂 ফোল্ডার স্ট্রাকচার (Project Structure)
+## 🛠️ Tech Stack
+
+| Domain | Technology | Description |
+| :--- | :--- | :--- |
+| **Framework** | [Next.js 16.4.0](https://nextjs.org/) | App Router, Server Components, Turbopack Engine |
+| **Library** | [React 19.3.0](https://react.dev/) | React Server Actions, Hooks, Suspense Boundaries |
+| **Language** | [TypeScript 5.x](https://www.typescriptlang.org/) | End-to-end static typing and interfaces |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) | Modern CSS tokens, utility-first design, fluid grid |
+| **Auth Engine** | [BetterAuth](https://better-auth.com/) | Credentials, Google OAuth 2.0, GitHub OAuth 2.0 |
+| **Database** | Better-SQLite3 | Embedded serverless-compatible data layer |
+| **UI Components** | [Lucide React](https://lucide.dev/) | Consistent iconography suite |
+| **Feedback** | [React Hot Toast](https://react-hot-toast.com/) | Accessible, non-blocking notification toasts |
+| **Deployment** | [Netlify](https://www.netlify.com/) | Edge network, serverless functions, automated CI/CD |
+
+---
+
+## 📂 Project Structure
 
 ```bash
 bazar-dor/
-├── public/                     # স্ট্যাটিক অ্যাসেটস ও ইমেজ (লোগো, হিরো ব্যানার)
+├── public/                       # Static public assets (logos, hero banner, favicon)
 │   ├── bazar-hero.png
-│   └── logo-icon.png
+│   └── favicon.ico
 ├── src/
-│   ├── app/                    # Next.js অ্যাপ রাউটার পেজসমূহ
-│   │   ├── api/auth/[...all]/  # BetterAuth এপিআই রুট হ্যান্ডলার
-│   │   ├── categories/[slug]/  # ক্যাটাগরি পেজ (সর্টিং ও ফিল্টারিং সহ)
-│   │   ├── product/[id]/       # প্রটেক্টেড প্রোডাক্ট ডিটেইলস পেজ
-│   │   ├── profile/            # ইউজার প্রোফাইল ও আপডেট রুট (C3)
-│   │   │   └── update/         # ডেডিকেটেড ইনফরমেশন আপডেট পেজ
-│   │   ├── signin/             # ইউজার সাইন ইন পেজ
-│   │   ├── signup/             # ইউজার সাইন আপ পেজ
-│   │   ├── globals.css         # গ্লোবাল স্টাইল ও মারকুই অ্যানিমেশন
-│   │   ├── layout.tsx          # রুট লেআউট ও ফন্ট কনফিগারেশন
-│   │   ├── not-found.tsx       # কাস্টম ৪০৪ এরর পেজ
-│   │   └── page.tsx            # হোম পেজ (হিরো, রাইজার্স, ফলার্স, অল প্রোডাক্টস)
-│   ├── components/             # রিইউজেবল ইউআই কম্পোনেন্টসমূহ
-│   │   ├── Footer.tsx
-│   │   ├── HeroBanner.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── PriceTicker.tsx
-│   │   ├── ProductCard.tsx
-│   │   └── ProductSkeleton.tsx
-│   ├── context/                # অথেনটিকেশন স্টেট প্রোভাইডার
-│   │   └── AuthContext.tsx
-│   ├── lib/                    # কোর ইউটিলিটিস ও এপিআই লেয়ার
-│   │   ├── api.ts              # রেসিলিয়েন্ট ফেচিং ও ফলব্যাক হ্যান্ডলিং
-│   │   ├── auth-client.ts      # BetterAuth রিঅ্যাক্ট ক্লায়েন্ট
-│   │   ├── auth.ts             # BetterAuth সার্ভার কনফিগারেশন
-│   │   └── utils.ts            # বাংলা সংখ্যা, একক ও তারিখ রূপান্তর
-│   └── types/                  # টাইপস্ক্রিপ্ট টাইপ ডেফিনিশন
+│   ├── app/                      # Next.js App Router root
+│   │   ├── api/auth/[...all]/    # BetterAuth serverless API catch-all route
+│   │   ├── categories/[slug]/    # Dynamic category listing & sorting
+│   │   ├── product/[id]/         # Protected product analytics & bazaar tables
+│   │   ├── profile/              # User account overview
+│   │   │   └── update/           # In-app profile editor
+│   │   ├── signin/               # Authentication entry point
+│   │   ├── signup/               # New user onboarding
+│   │   ├── globals.css           # Global typography & animation tokens
+│   │   ├── layout.tsx            # Root application layout & toast providers
+│   │   ├── not-found.tsx         # Branded Bengali 404 error page
+│   │   └── page.tsx              # Landing page (Hero, Risers, Fallers, Grid)
+│   ├── components/               # Modular UI building blocks
+│   │   ├── Footer.tsx            # Application footer & metadata
+│   │   ├── HeroBanner.tsx        # Promotional banner & search triggers
+│   │   ├── Navbar.tsx            # Sticky navigation & auth state controls
+│   │   ├── PriceTicker.tsx       # Live continuous marquee ticker
+│   │   ├── ProductCard.tsx       # Reusable commodity card with price delta badges
+│   │   └── ProductSkeleton.tsx   # Loading placeholders
+│   ├── context/                  # React Context providers
+│   │   └── AuthContext.tsx       # Global authentication state & action handlers
+│   ├── lib/                      # Core utility libraries
+│   │   ├── api.ts                # Fault-tolerant commodity data service
+│   │   ├── auth-client.ts        # Client-side BetterAuth connector
+│   │   ├── auth.ts               # Server-side BetterAuth setup & SQLite tables
+│   │   └── utils.ts              # Bengali numeral & unit localization engine
+│   └── types/                    # Shared TypeScript interfaces & types
 │       └── index.ts
-├── netlify.toml                # Netlify ডিপ্লয়মেন্ট কনফিগারেশন
+├── netlify.toml                  # Netlify deployment & environment config
+├── next.config.ts                # Next.js bundler & HTTP security headers config
 ├── package.json
 └── README.md
 ```
 
 ---
 
-## 🔌 API রেফারেন্স (API Endpoints)
+## 💻 Getting Started
 
-| মেথড | এন্ডপয়েন্ট | কাজ |
-| :--- | :--- | :--- |
-| `GET` | `/categories` | সকল পণ্যের ক্যাটাগরি তালিকা রিটার্ন করে |
-| `GET` | `/categories/:slug` | নির্দিষ্ট ক্যাটাগরির বিস্তারিত তথ্য |
-| `GET` | `/products` | সকল পণ্যের বাজার দর, ইতিহাস ও পরিবর্তন সংক্রান্ত তালিকা |
-| `GET` | `/products?category=:slug` | ক্যাটাগরি অনুযায়ী ফিল্টারকৃত পণ্যের তালিকা |
-| `GET` | `/products/:id` | নির্দিষ্ট পণ্যের বিস্তারিত ও সকল বাজারের দরতালিকা |
+Follow these instructions to set up the project locally for development and testing.
 
----
+### Prerequisites
+* **Node.js**: `v20.x` or higher recommended
+* **Package Manager**: `npm` (v10+), `yarn`, or `pnpm`
 
-## 💻 লোকাল সেটআপ (Local Setup & Development)
-
-### ১. পূর্বশর্ত (Prerequisites)
-* Node.js version 18.18+ অথবা 20+
-* npm, yarn, অথবা pnpm প্যাকেজ ম্যানেজার
-
-### ২. রিপোজিটরি ক্লোন করুন
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/mahfuzhasan2700/Bazar-Dor.git
 cd Bazar-Dor
 ```
 
-### ৩. ডিপেন্ডেন্সি ইনস্টল করুন
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### ৪. এনভায়রনমেন্ট ভেরিয়েবল সেটআপ
-প্রজেক্ট রুটে একটি `.env.local` ফাইল তৈরি করুন:
+### 3. Configure Environment Variables
+Create a `.env.local` file in the root directory:
+```bash
+cp .env.example .env.local
+```
+Fill in the configuration parameters:
 ```env
-BETTER_AUTH_SECRET=your_better_auth_secret_here
+# BetterAuth Configuration
+BETTER_AUTH_SECRET=your_secure_random_key_here
 BETTER_AUTH_URL=http://localhost:3000
+
+# Optional: GitHub OAuth (https://github.com/settings/developers)
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+
+# Optional: Google OAuth (https://console.cloud.google.com/apis/credentials)
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
-### ৫. ডেভেলপমেন্ট সার্ভার চালু করুন
+### 4. Launch the Development Server
 ```bash
 npm run dev
 ```
-ব্রাউজারে ভিজিট করুন: [http://localhost:3000](http://localhost:3000)
+Open your browser and navigate to: **[http://localhost:3000](http://localhost:3000)**
 
-### ৬. প্রোডাকশন বিল্ড তৈরি করুন
+### 5. Build for Production
 ```bash
 npm run build
 npm run start
@@ -197,15 +220,41 @@ npm run start
 
 ---
 
-## 👥 অ্যাসাইনমেন্ট সাবমিশন তথ্য (Assignment Details)
+## 🔒 Security & Performance
 
-* **কোর্স:** Programming Hero Batch 14
-* **অ্যাসাইনমেন্ট:** Assignment 07 — বাজার দর (BazarDor)
-* **লাইভ লিংক:** [https://bazar-d0r.netlify.app/](https://bazar-d0r.netlify.app/)
-* **গিটহাব রিপোজিটরি:** [https://github.com/mahfuzhasan2700/Bazar-Dor](https://github.com/mahfuzhasan2700/Bazar-Dor)
+* **Zero Client Leaks:** No secret keys or OAuth secrets are prefixed with `NEXT_PUBLIC_`. All token verification and callback handshakes occur exclusively in server-side runtimes.
+* **Comprehensive HTTP Security Headers:** Configured via `next.config.ts`:
+  * `X-Frame-Options: SAMEORIGIN` (prevents clickjacking attacks)
+  * `X-Content-Type-Options: nosniff` (mitigates MIME type confusion)
+  * `Referrer-Policy: strict-origin-when-cross-origin`
+  * `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+  * `Strict-Transport-Security` (enforces HTTPS)
+* **Resilient Dual-API Architecture:** The API client automatically retries failed requests against a secondary Cloudflare Workers replica, providing uninterrupted uptime during upstream network anomalies.
+* **Protected Session Cookies:** Authentication cookies default to `HttpOnly`, `SameSite: Lax`, and mandatory `Secure` flags in production.
 
 ---
 
+## 🔌 API Reference
+
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| `GET` | `/categories` | Retrieves all registered product categories |
+| `GET` | `/categories/:slug` | Retrieves metadata for a specific category |
+| `GET` | `/products` | Retrieves full commodity dataset with daily delta metrics |
+| `GET` | `/products?category=:slug` | Filters commodity items by category identifier |
+| `GET` | `/products/:id` | Returns commodity details including multi-bazaar pricing |
+| `POST`| `/api/auth/sign-in/email` | BetterAuth email/password authentication |
+| `POST`| `/api/auth/sign-in/social` | BetterAuth OAuth 2.0 handshake initialization |
+| `GET` | `/api/auth/get-session` | Validates and returns active session data |
+
+---
+
+## 📄 License
+
+This project is open-source and distributed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+<br />
+
 <div align="center">
-  <p>তৈরি করা হয়েছে ❤️ এবং একাগ্রতার সাথে | সর্বস্বত্ব সংরক্ষিত ২০২৬</p>
+  <sub>Developed with passion for consumer transparency • © 2026 BazarDor. All rights reserved.</sub>
 </div>
