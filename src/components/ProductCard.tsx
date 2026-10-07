@@ -14,7 +14,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/product/${product.id}`}
-      className="group bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-xs hover:shadow-md hover:border-emerald-200 transition-all duration-200 flex flex-col justify-between"
+      className="group interactive-card bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-xs hover:border-emerald-200 transition-all duration-300 flex flex-col justify-between cursor-pointer"
     >
       <div>
         {/* Top: Emoji Icon & Category Tag */}
