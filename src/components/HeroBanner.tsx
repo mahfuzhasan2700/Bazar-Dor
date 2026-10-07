@@ -44,6 +44,7 @@ export default function HeroBanner() {
                 src="/bazar-hero.png"
                 alt="বাজারের তাজা শাকসবজি ও ফলমূল"
                 fill
+                sizes="(max-width: 768px) 100vw, 320px"
                 priority
                 className="object-contain drop-shadow-md"
               />
