@@ -187,18 +187,52 @@ graph TD
 
 ## 📂 Project Architecture
 
+<div align="center">
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Pattern-Feature--Sliced_App_Router-059669?style=for-the-badge&logo=blueprint&logoColor=white" alt="Pattern" />
+  <img src="https://img.shields.io/badge/Modules-Decoupled_Components-0284c7?style=for-the-badge&logo=dependabot&logoColor=white" alt="Modules" />
+  <img src="https://img.shields.io/badge/TypeScript-100%25_Type_Safe-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="Type Safe" />
+  <img src="https://img.shields.io/badge/Styles-Tailwind_v4_Tokens-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Styles" />
+</p>
+
+</div>
+
+<br />
+
+### 🧩 Architectural Domain Breakdown
+
+| Module / Directory | Primary Responsibility | Key Files & Artifacts | Architectural Highlight |
+| :--- | :--- | :--- | :--- |
+| 🌐 **`src/app/`** | **App Router Pages & Views** | `page.tsx`, `layout.tsx`, `not-found.tsx` | Server/Client hybrid rendering with React 19 concurrent boundaries |
+| 🔐 **`src/app/api/auth/`** | **BetterAuth API Gateway** | `[...all]/route.ts` | Serverless catch-all handler for credentials and OAuth 2.0 callbacks |
+| 🏷️ **`src/app/categories/`** | **Dynamic Category Catalog** | `[slug]/page.tsx` | Parametric routing with native Bengali numeral numeric price sorting |
+| 📊 **`src/app/product/`** | **Protected Analytics View** | `[id]/page.tsx` | Route-guarded comparative market tables and KPI statistics |
+| 👤 **`src/app/profile/`** | **Account & Identity Hub** | `page.tsx`, `update/page.tsx` | Self-service profile management with live session state reflection |
+| 🧩 **`src/components/`** | **Modular UI Component Library** | `Navbar`, `PriceTicker`, `ProductCard` | Micro-interaction hover cards and hardware-accelerated marquee ticker |
+| 🛡️ **`src/context/`** | **Global State Management** | `AuthContext.tsx` | Persistent multi-tab auth session provider and toast notification dispatch |
+| ⚙️ **`src/lib/`** | **Core Services & Utilities** | `api.ts`, `auth.ts`, `utils.ts` | Dual-replica failover API client and Bengali numeral converter |
+| 📐 **`src/types/`** | **Domain Type Definitions** | `index.ts` | Strict TypeScript domain contracts (`Product`, `Category`, `User`) |
+| 🖼️ **`public/`** | **Static CDN Assets** | `hero.png`, `favicon.ico`, `screenshots/` | Optimized responsive images and application showcase media |
+| 🔧 **Configuration** | **Infrastructure & Tooling** | `netlify.toml`, `next.config.ts` | Turbopack loaders, HTTP security headers, and automated CI/CD |
+
+<br />
+
+<details>
+<summary><strong>📁 Click to Expand Full Directory Tree Structure</strong></summary>
+
 ```bash
 bazar-dor/
-├── public/                       # Static public assets
+├── public/                       # Static public assets & documentation media
 │   ├── bazar-hero.png            # Hero visual artwork
 │   ├── favicon.ico               # Branded application favicon
 │   └── screenshots/              # High-resolution application preview images
-│       ├── hero-preview.png
-│       ├── risers-fallers.png
-│       ├── category-sort.png
-│       ├── product-details.png
-│       ├── auth-preview.png
-│       └── profile-preview.png
+│       ├── hero-preview.png      # Hero & marquee ticker showcase
+│       ├── risers-fallers.png    # Top 6 risers & fallers display
+│       ├── category-sort.png     # Category filtering & numeric sort
+│       ├── product-details.png   # Multi-bazaar breakdown table
+│       ├── auth-preview.png      # Google & GitHub OAuth interface
+│       └── profile-preview.png   # Profile view & in-app name update
 ├── src/
 │   ├── app/                      # Next.js App Router root
 │   │   ├── api/auth/[...all]/    # BetterAuth serverless API catch-all
@@ -233,6 +267,8 @@ bazar-dor/
 ├── package.json
 └── README.md
 ```
+
+</details>
 
 ---
 
