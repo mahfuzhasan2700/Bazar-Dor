@@ -274,51 +274,75 @@ bazar-dor/
 
 ## 🚀 Getting Started
 
-Follow these steps to clone, configure, and launch the platform locally:
+<div align="center">
 
-### 1. Prerequisites
-* **Node.js**: `v20.x` or higher installed
-* **Package Manager**: `npm`, `yarn`, or `pnpm`
+<p align="center">
+  <img src="https://img.shields.io/badge/Runtime-Node.js_20+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node" />
+  <img src="https://img.shields.io/badge/Package_Manager-npm_|_pnpm_|_yarn-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm" />
+  <img src="https://img.shields.io/badge/Setup_Duration-~2_Minutes-059669?style=for-the-badge&logo=clock&logoColor=white" alt="Setup Duration" />
+  <img src="https://img.shields.io/badge/Port-localhost:3000-0284c7?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Port" />
+</p>
 
-### 2. Clone Repository
+</div>
+
+<br />
+
+### ⚡ One-Line Express Setup
+```bash
+git clone https://github.com/mahfuzhasan2700/Bazar-Dor.git && cd Bazar-Dor && npm install && cp .env.example .env.local && npm run dev
+```
+
+<br />
+
+### 🛠️ Step-by-Step Installation
+
+#### 1️⃣ Step 01: Clone the Repository
 ```bash
 git clone https://github.com/mahfuzhasan2700/Bazar-Dor.git
 cd Bazar-Dor
 ```
 
-### 3. Install Dependencies
+#### 2️⃣ Step 02: Install Dependencies
 ```bash
 npm install
 ```
 
-### 4. Configure Environment
-Create a `.env.local` file from the example template:
+#### 3️⃣ Step 03: Configure Environment Variables
+Generate your local environment configuration from the template:
 ```bash
 cp .env.example .env.local
 ```
 
-Populate the configuration variables:
+Populate the configuration values in `.env.local`:
 ```env
-# BetterAuth Core
+# -------------------------------------------------------------
+# BetterAuth Core Settings
+# -------------------------------------------------------------
 BETTER_AUTH_SECRET=your_secure_random_key_here
 BETTER_AUTH_URL=http://localhost:3000
 
-# GitHub OAuth (https://github.com/settings/developers)
+# -------------------------------------------------------------
+# Optional: GitHub OAuth (https://github.com/settings/developers)
+# -------------------------------------------------------------
+# Callback: http://localhost:3000/api/auth/callback/github
 GITHUB_CLIENT_ID=your_github_client_id
 GITHUB_CLIENT_SECRET=your_github_client_secret
 
-# Google OAuth (https://console.cloud.google.com/apis/credentials)
+# -------------------------------------------------------------
+# Optional: Google OAuth (https://console.cloud.google.com/apis/credentials)
+# -------------------------------------------------------------
+# Callback: http://localhost:3000/api/auth/callback/google
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
-### 5. Launch Development Server
+#### 4️⃣ Step 04: Launch Local Development Server
 ```bash
 npm run dev
 ```
-Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+Navigate to **[http://localhost:3000](http://localhost:3000)** to experience the platform live.
 
-### 6. Production Bundle Build
+#### 5️⃣ Step 05: Build & Run Production Bundle
 ```bash
 npm run build
 npm run start
@@ -342,33 +366,96 @@ npm run start
 
 ## 🔌 API Documentation
 
-| Method | Route | Description |
-| :--- | :--- | :--- |
-| `GET` | `/categories` | Fetches all commodity category metadata |
-| `GET` | `/categories/:slug` | Retrieves details for a given category |
-| `GET` | `/products` | Retrieves all commodities with daily price trends |
-| `GET` | `/products?category=:slug` | Filters products by category identifier |
-| `GET` | `/products/:id` | Returns product details with comparative bazaar breakdown |
-| `POST`| `/api/auth/sign-in/email` | Authenticates user via email and password |
-| `POST`| `/api/auth/sign-in/social` | Initiates OAuth 2.0 handshake (Google / GitHub) |
-| `GET` | `/api/auth/get-session` | Returns active BetterAuth session payload |
+<div align="center">
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Architecture-RESTful_JSON-059669?style=for-the-badge&logo=fastapi&logoColor=white" alt="REST" />
+  <img src="https://img.shields.io/badge/Format-application%2Fjson-0284c7?style=for-the-badge&logo=json&logoColor=white" alt="JSON" />
+  <img src="https://img.shields.io/badge/CDN_Edge-Cloudflare_Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare" />
+  <img src="https://img.shields.io/badge/Failover-Auto_Replica_Retry-10B981?style=for-the-badge&logo=statuspage&logoColor=white" alt="Failover" />
+</p>
+
+</div>
+
+<br />
+
+| Method | Endpoint Route | Parameters / Payload | Description | Response Type | Status |
+| :---: | :--- | :--- | :--- | :--- | :---: |
+| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/categories` | `None` | Retrieves complete list of commodity categories | `Category[]` | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/categories/:slug` | `:slug` (string) | Fetches specific category details and icon | `Category` | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/products` | `None` | Retrieves all commodities with today's prices & 24h delta | `Product[]` | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/products?category=:slug` | `category` (query) | Filters commodities under a specific category slug | `Product[]` | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/products/:id` | `:id` (string / slug) | Returns product analytics and multi-bazaar pricing matrix | `ProductDetail` | `200 OK` |
+| [![POST](https://img.shields.io/badge/POST-0284c7?style=flat-square&logo=postman&logoColor=white)](https://bazar-d0r.netlify.app/) | `/api/auth/sign-in/email` | `{ email, password }` | Authenticates existing user credentials | `UserSession` | `200 OK` |
+| [![POST](https://img.shields.io/badge/POST-0284c7?style=flat-square&logo=postman&logoColor=white)](https://bazar-d0r.netlify.app/) | `/api/auth/sign-in/social` | `{ provider, callbackURL }` | Initiates OAuth 2.0 handshake for Google or GitHub | `{ url, redirect }` | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/api/auth/get-session` | `Session Cookie` | Validates session token and returns logged-in user | `UserSession` | `200 OK` |
+
+<br />
+
+<details>
+<summary><strong>📄 Click to View Sample JSON Response (Product with Multi-Bazaar Pricing)</strong></summary>
+
+```json
+{
+  "id": "rice-nazirshail",
+  "nameBn": "নাজিরশাইল চাল",
+  "nameEn": "Nazirshail Rice",
+  "category": "rice",
+  "categoryNameBn": "চাল",
+  "unit": "কেজি",
+  "today": 82,
+  "yesterday": 80,
+  "change": {
+    "amount": 2,
+    "dir": "up",
+    "pct": 2.5
+  },
+  "stats": {
+    "min": 78,
+    "max": 86,
+    "avg": 82,
+    "lowestMarket": "কারওয়ান বাজার"
+  },
+  "markets": [
+    { "name": "কারওয়ান বাজার", "price": 78, "type": "পাইকারি", "location": "ঢাকা" },
+    { "name": "মিরপুর-১", "price": 82, "type": "খুচরা", "location": "ঢাকা" },
+    { "name": "শান্তিনগর", "price": 86, "type": "খুচরা", "location": "ঢাকা" },
+    { "name": "নিউ মার্কেট", "price": 84, "type": "খুচরা", "location": "ঢাকা" }
+  ]
+}
+```
+
+</details>
 
 ---
 
-## 📄 License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-<br />
+## 📄 License & Community
 
 <div align="center">
 
-### 🛒 বাজার দর (BazarDor)
-<sub>Engineered with passion for transparency and accessibility in daily commerce.</sub>
+<p align="center">
+  <img src="https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License" />
+  <img src="https://img.shields.io/badge/Contributions-Welcome-059669?style=for-the-badge&logo=git&logoColor=white" alt="Contributions Welcome" />
+  <img src="https://img.shields.io/badge/Status-Active_Production-0284c7?style=for-the-badge&logo=statuspage&logoColor=white" alt="Active" />
+</p>
+
+This software is released under the **[MIT License](https://opensource.org/licenses/MIT)**.  
+You are free to use, modify, distribute, and integrate this software into private or commercial projects.
 
 <br />
 
-[![Live Demo](https://img.shields.io/badge/🌐_Visit_Live_Platform-059669?style=flat-square)](https://bazar-d0r.netlify.app/)
-[![GitHub Repo](https://img.shields.io/badge/💻_View_on_GitHub-24292E?style=flat-square&logo=github)](https://github.com/mahfuzhasan2700/Bazar-Dor)
+### 🛒 বাজার দর (BazarDor)
+<sub>Engineered with passion for transparency, precision analytics, and equitable daily commerce.</sub>
+
+<br /><br />
+
+[![Live Application](https://img.shields.io/badge/🌐_Launch_Live_Platform-https%3A%2F%2Fbazar--d0r.netlify.app%2F-059669?style=for-the-badge)](https://bazar-d0r.netlify.app/)
+&nbsp;&nbsp;
+[![GitHub Repository](https://img.shields.io/badge/💻_Star_on_GitHub-24292E?style=for-the-badge&logo=github)](https://github.com/mahfuzhasan2700/Bazar-Dor)
+
+<br /><br />
+
+<sub>© 2026 BazarDor Platform. All rights reserved.</sub>
 
 </div>
+
