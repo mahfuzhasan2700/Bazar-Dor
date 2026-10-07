@@ -57,17 +57,22 @@ db.exec(`
   );
 `);
 
+const getBaseURL = () => {
+  if (process.env.NODE_ENV === "production") {
+    if (process.env.BETTER_AUTH_URL && !process.env.BETTER_AUTH_URL.includes("localhost")) {
+      return process.env.BETTER_AUTH_URL;
+    }
+    return process.env.URL || "https://bazar-d0r.netlify.app";
+  }
+  return process.env.BETTER_AUTH_URL || "http://localhost:3000";
+};
+
 export const auth = betterAuth({
   secret:
     process.env.BETTER_AUTH_SECRET ||
     "bazar_dor_default_secure_secret_key_2026",
   database: db,
-  baseURL:
-    process.env.BETTER_AUTH_URL ||
-    process.env.URL ||
-    (process.env.NODE_ENV === "production"
-      ? "https://bazar-d0r.netlify.app"
-      : "http://localhost:3000"),
+  baseURL: getBaseURL(),
   trustedOrigins: [
     "https://bazar-d0r.netlify.app",
     "http://localhost:3000",
