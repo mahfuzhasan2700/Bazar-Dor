@@ -46,7 +46,10 @@ export default function Navbar() {
               <div className="text-xl sm:text-2xl font-bold tracking-tight text-emerald-800 flex items-center gap-1">
                 বাজার দর
               </div>
-              <p className="text-[11px] sm:text-xs text-gray-500 font-medium">
+              <p
+                className="text-[11px] sm:text-xs text-gray-500 font-medium"
+                suppressHydrationWarning
+              >
                 {banglaDate}
               </p>
             </div>

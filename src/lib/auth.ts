@@ -66,17 +66,20 @@ export const auth = betterAuth({
     (process.env.NODE_ENV === "production"
       ? "https://bazar-d0r.netlify.app"
       : "http://localhost:3000"),
+  rateLimit: {
+    enabled: false,
+  },
   emailAndPassword: {
     enabled: true,
   },
   socialProviders: {
     github: {
-      clientId: process.env.GITHUB_CLIENT_ID || "",
-      clientSecret: process.env.GITHUB_CLIENT_SECRET || "",
+      clientId: process.env.GITHUB_CLIENT_ID || "github_placeholder_id",
+      clientSecret: process.env.GITHUB_CLIENT_SECRET || "github_placeholder_secret",
     },
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      clientId: process.env.GOOGLE_CLIENT_ID || "google_placeholder_id",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "google_placeholder_secret",
     },
   },
   user: {

@@ -179,17 +179,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         typeof window !== "undefined" ? `${window.location.origin}/` : "/";
 
       // Call BetterAuth client to initiate OAuth authorization redirect
-      await authClient.signIn.social({
+      const res = await authClient.signIn.social({
         provider,
         callbackURL,
       });
+
+      if (res?.error) {
+        console.error("BetterAuth social sign-in error:", res.error);
+        toast.error(
+          res.error.message ||
+            `${provider === "google" ? "Google" : "GitHub"} লগইন কনফিগারেশনে সমস্যা হয়েছে!`
+        );
+        return false;
+      }
+
+      if (res?.data?.url) {
+        window.location.href = res.data.url;
+        return true;
+      }
 
       return true;
     } catch (error: any) {
       console.error(`BetterAuth social login error for ${provider}:`, error);
       toast.error(
         error?.message ||
-          `${provider === "google" ? "Google" : "GitHub"} ক্লায়েন্ট কনফিগারেশন প্রয়োজন!`
+          `${provider === "google" ? "Google" : "GitHub"} লগইন ব্যর্থ হয়েছে!`
       );
       return false;
     } finally {
