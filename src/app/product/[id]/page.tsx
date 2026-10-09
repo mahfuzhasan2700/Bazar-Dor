@@ -125,11 +125,16 @@ export default function ProductDetailPage({
   ];
 
   const markets = product.markets && product.markets.length >= 6 ? product.markets : defaultMarkets;
-  const sortedMarkets = [...markets].sort((a, b) => a.min - b.min);
+  // Sort markets by average ascending matching the reference table order
+  const sortedMarkets = [...markets].sort((a, b) => {
+    const avgA = (a.min + a.max) / 2;
+    const avgB = (b.min + b.max) / 2;
+    return avgA - avgB;
+  });
 
-  const minPrice = sortedMarkets.reduce((min, m) => (m.min < min ? m.min : min), sortedMarkets[0]?.min || product.today);
-  const maxPrice = sortedMarkets.reduce((max, m) => (m.max > max ? m.max : max), sortedMarkets[0]?.max || product.today);
-  const avgPrice = Math.round(sortedMarkets.reduce((acc, m) => acc + (m.min + m.max) / 2, 0) / sortedMarkets.length) || product.today;
+  const minPrice = Math.min(...sortedMarkets.map((m) => m.min));
+  const maxPrice = Math.max(...sortedMarkets.map((m) => m.max));
+  const avgPrice = product.today || Math.round(sortedMarkets.reduce((acc, m) => acc + (m.min + m.max) / 2, 0) / sortedMarkets.length);
 
   const isUp = product.change?.dir === "up";
   const isDown = product.change?.dir === "down";
@@ -180,18 +185,18 @@ export default function ProductDetailPage({
           </div>
 
           {/* Today's Rate Box matching Image 4 */}
-          <div className="w-full md:w-auto bg-[#f8faf8] rounded-xl px-6 py-4 border border-gray-100 text-center min-w-[140px] sm:min-w-[150px] shrink-0">
+          <div className="w-full md:w-auto bg-[#f8faf8] rounded-xl px-6 py-4 border border-gray-100 text-center min-w-[150px] sm:min-w-[160px] shrink-0">
             <span className="text-xs text-gray-500 font-medium block">
               আজকের দাম
             </span>
-            <span className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight block my-0.5">
+            <span className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight block my-0.5 whitespace-nowrap tabular-nums">
               {toBanglaNumber(product.today)}
             </span>
-            <span className="text-xs text-gray-500 block mb-1">
+            <span className="text-xs text-gray-500 block mb-1 whitespace-nowrap">
               টাকা / {unitLabel}
             </span>
             <span
-              className={`font-bold text-xs flex items-center justify-center gap-1 ${
+              className={`font-bold text-xs flex items-center justify-center gap-1 whitespace-nowrap ${
                 isUp
                   ? "text-[#d03739]"
                   : isDown
@@ -217,7 +222,7 @@ export default function ProductDetailPage({
                 সর্বনিম্ন দাম
               </span>
               <div className="my-1.5">
-                <span className="text-2xl sm:text-3xl font-black text-[#05893e]">
+                <span className="text-2xl sm:text-3xl font-black text-[#05893e] whitespace-nowrap block tabular-nums">
                   {toBanglaNumber(minPrice)} টাকা
                 </span>
               </div>
@@ -232,7 +237,7 @@ export default function ProductDetailPage({
                 সর্বাধিক দাম
               </span>
               <div className="my-1.5">
-                <span className="text-2xl sm:text-3xl font-black text-[#d03739]">
+                <span className="text-2xl sm:text-3xl font-black text-[#d03739] whitespace-nowrap block tabular-nums">
                   {toBanglaNumber(maxPrice)} টাকা
                 </span>
               </div>
@@ -247,7 +252,7 @@ export default function ProductDetailPage({
                 গড় দাম
               </span>
               <div className="my-1.5">
-                <span className="text-2xl sm:text-3xl font-black text-[#05893e]">
+                <span className="text-2xl sm:text-3xl font-black text-[#05893e] whitespace-nowrap block tabular-nums">
                   {toBanglaNumber(avgPrice)} টাকা
                 </span>
               </div>
@@ -275,7 +280,7 @@ export default function ProductDetailPage({
                     <th className="py-3 px-6 text-right">গড়</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-50">
+                <tbody className="divide-y divide-gray-100/70">
                   {sortedMarkets.map((m, idx) => {
                     const rowAvg = (m.min + m.max) / 2;
                     const formattedAvg =
@@ -286,21 +291,23 @@ export default function ProductDetailPage({
                     return (
                       <tr
                         key={idx}
-                        className="hover:bg-gray-50/70 transition-colors"
+                        className={`${
+                          idx % 2 === 1 ? "bg-[#f8faf8]" : "bg-white"
+                        } hover:bg-emerald-50/40 transition-colors`}
                       >
-                        <td className="py-3.5 px-6 font-medium text-gray-900">
+                        <td className="py-3.5 px-6 font-semibold text-gray-900 whitespace-nowrap">
                           {m.market}
                         </td>
-                        <td className="py-3.5 px-6 text-gray-600">
+                        <td className="py-3.5 px-6 text-gray-600 whitespace-nowrap">
                           {m.division}
                         </td>
-                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium">
+                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium whitespace-nowrap tabular-nums">
                           {toBanglaNumber(m.min)} টাকা
                         </td>
-                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium">
+                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium whitespace-nowrap tabular-nums">
                           {toBanglaNumber(m.max)} টাকা
                         </td>
-                        <td className="py-3.5 px-6 text-right text-gray-900 font-semibold">
+                        <td className="py-3.5 px-6 text-right text-gray-900 font-bold whitespace-nowrap tabular-nums">
                           {formattedAvg} টাকা
                         </td>
                       </tr>

@@ -12,12 +12,11 @@ const banglaDigits: { [key: string]: string } = {
 };
 
 export function toBanglaNumber(value: number | string | undefined | null): string {
-  if (value === undefined || value === null || isNaN(Number(value))) {
+  if (value === undefined || value === null || (typeof value === "string" && value.trim() === "")) {
     return "০";
   }
-  const formatted = typeof value === "number" ? Math.round(value * 10) / 10 : value;
-  return formatted
-    .toString()
+  const str = typeof value === "string" ? value : value.toString();
+  return str
     .split("")
     .map((char) => banglaDigits[char] || char)
     .join("");
