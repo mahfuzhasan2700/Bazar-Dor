@@ -6,7 +6,7 @@
 
 <br />
 
-<a href="https://bazar-d0r.netlify.app/">
+<a href="https://bazar-dor-perseus11.vercel.app/">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1200&color=047857&center=true&vCenter=true&width=650&lines=%E2%9A%A1+Live+Commodity+Price+Intelligence;%E2%96%B2+%E0%A6%86%E0%A6%9C+%E0%A6%A6%E0%A6%BE%E0%A6%AE+%E0%A6%AC%E0%A7%87%E0%A6%A1%E0%A6%BC%E0%A7%87%E0%A6%9B%E0%A7%87+%E2%80%A2+%E2%96%BC+%E0%A6%86%E0%A6%9C+%E0%A6%A6%E0%A6%BE%E0%A6%AE+%E0%A6%95%E0%A6%AE%E0%A7%87%E0%A6%9B%E0%A7%87;%F0%9F%93%8A+Multi-Bazaar+Comparative+Analytics;%F0%9F%94%90+BetterAuth+OAuth+2.0+(Google+%26+GitHub);%F0%9F%8F%B7%EF%B8%8F+Native+Bengali+Numeral+Sorting+Engine" alt="Typing SVG" />
 </a>
 
@@ -17,12 +17,12 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-0284C7?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![BetterAuth](https://img.shields.io/badge/BetterAuth-OAuth_2.0-047857?style=for-the-badge&logo=auth0&logoColor=white)](https://better-auth.com/)
-[![Netlify](https://img.shields.io/badge/Netlify-Deployed_Live-0E1E25?style=for-the-badge&logo=netlify&logoColor=00C7B7)](https://bazar-d0r.netlify.app/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed_Live-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://bazar-dor-perseus11.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-B45309?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 <br />
 
-[![Live Demo](https://img.shields.io/badge/🌐_Launch_Live_Platform-bazar--d0r.netlify.app-047857?style=for-the-badge)](https://bazar-d0r.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/🌐_Launch_Live_Platform-bazar--dor--perseus11.vercel.app-047857?style=for-the-badge)](https://bazar-dor-perseus11.vercel.app/)
 
 <p align="center">
   <a href="#-application-showcase--interactive-preview">📸 App Showcase</a> •
@@ -52,15 +52,15 @@
 
 | 🏠 **Landing Page & Infinite Price Ticker** | 📈 **Daily Risers & Fallers Analysis** |
 | :---: | :---: |
-| <a href="https://bazar-d0r.netlify.app/"><img src="./public/screenshots/hero-preview.png" width="460" alt="BazarDor Hero Section" /></a><br /><sub>`⚡ Hardware-Accelerated Marquee Ribbon with Pause-on-Hover`</sub> | <a href="https://bazar-d0r.netlify.app/"><img src="./public/screenshots/risers-fallers.png" width="460" alt="Daily Risers & Fallers" /></a><br /><sub>`📊 Top 6 Spiking (▲) & Discounted (▼) Commodities in 24h`</sub> |
+| <a href="https://bazar-dor-perseus11.vercel.app/"><img src="./public/screenshots/hero-preview.png" width="460" alt="BazarDor Hero Section" /></a><br /><sub>`⚡ Hardware-Accelerated Marquee Ribbon with Pause-on-Hover`</sub> | <a href="https://bazar-dor-perseus11.vercel.app/"><img src="./public/screenshots/risers-fallers.png" width="460" alt="Daily Risers & Fallers" /></a><br /><sub>`📊 Top 6 Spiking (▲) & Discounted (▼) Commodities in 24h`</sub> |
 
 | 🏷️ **Category Catalog & Bengali Sorter** | 📊 **Multi-Market Breakdown & Statistics** |
 | :---: | :---: |
-| <a href="https://bazar-d0r.netlify.app/categories/rice"><img src="./public/screenshots/category-sort.png" width="460" alt="Category Sorting" /></a><br /><sub>`🔢 Unicode Bengali Numeral Parser & Numeric Sorter (০-৯)`</sub> | <a href="https://bazar-d0r.netlify.app/"><img src="./public/screenshots/product-details.png" width="460" alt="Product Details & Bazaar Table" /></a><br /><sub>`🏬 Comparative Wholesale & Retail Rates across 4+ Major Markets`</sub> |
+| <a href="https://bazar-dor-perseus11.vercel.app/categories/chal"><img src="./public/screenshots/category-sort.png" width="460" alt="Category Sorting" /></a><br /><sub>`🔢 Unicode Bengali Numeral Parser & Numeric Sorter (০-৯)`</sub> | <a href="https://bazar-dor-perseus11.vercel.app/"><img src="./public/screenshots/product-details.png" width="460" alt="Product Details & Bazaar Table" /></a><br /><sub>`🏬 Comparative Wholesale & Retail Rates across 4+ Major Markets`</sub> |
 
 | 🔐 **OAuth 2.0 (Google & GitHub) Gateway** | 👤 **Self-Service Profile Customization** |
 | :---: | :---: |
-| <a href="https://bazar-d0r.netlify.app/signin"><img src="./public/screenshots/auth-preview.png" width="460" alt="Authentication Page" /></a><br /><sub>`🛡️ Multi-Provider OAuth 2.0 with Server-Side Session Isolation`</sub> | <a href="https://bazar-d0r.netlify.app/profile"><img src="./public/screenshots/profile-preview.png" width="460" alt="Profile Management" /></a><br /><sub>`✏️ Dynamic Profile Modification with Immediate Multi-Tab Sync`</sub> |
+| <a href="https://bazar-dor-perseus11.vercel.app/signin"><img src="./public/screenshots/auth-preview.png" width="460" alt="Authentication Page" /></a><br /><sub>`🛡️ Multi-Provider OAuth 2.0 with Server-Side Session Isolation`</sub> | <a href="https://bazar-dor-perseus11.vercel.app/profile"><img src="./public/screenshots/profile-preview.png" width="460" alt="Profile Management" /></a><br /><sub>`✏️ Dynamic Profile Modification with Immediate Multi-Tab Sync`</sub> |
 
 </div>
 
@@ -168,7 +168,7 @@ graph TD
 <div align="center">
 
 <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,sqlite,nodejs,netlify,git,github,vscode&theme=dark" alt="Tech Stack Icons" />
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,sqlite,nodejs,vercel,git,github,vscode&theme=dark" alt="Tech Stack Icons" />
 </a>
 
 <br /><br />
@@ -192,7 +192,7 @@ graph TD
 | 🎨 **Styling Engine** | [**Tailwind CSS v4**](https://tailwindcss.com/) | Modern CSS Variables, Custom Marquee Keyframes, Responsive Grid | [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-0284C7?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) |
 | 🔐 **Authentication** | [**BetterAuth**](https://better-auth.com/) | Credentials Auth, Google OAuth 2.0, GitHub OAuth 2.0, Session Guard | [![BetterAuth](https://img.shields.io/badge/BetterAuth-1.7.7-047857?style=flat-square&logo=auth0&logoColor=white)](https://better-auth.com/) |
 | 🗄️ **Data Persistence** | [**Better-SQLite3**](https://github.com/WiseLibs/better-sqlite3) | Serverless-Compatible Embedded SQLite Session & User Store | [![SQLite](https://img.shields.io/badge/SQLite-v3-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org/) |
-| 🌐 **Cloud Hosting** | [**Netlify Edge**](https://www.netlify.com/) | Serverless Edge Network, Instant Invalidation, Automated CI/CD | [![Netlify](https://img.shields.io/badge/Netlify-CI%2FCD-0E1E25?style=flat-square&logo=netlify&logoColor=00C7B7)](https://www.netlify.com/) |
+| 🌐 **Cloud Hosting** | [**Vercel Edge Network**](https://vercel.com/) | Serverless Global Edge, Instant Invalidation, Zero-Config CI/CD | [![Vercel](https://img.shields.io/badge/Vercel-CI%2FCD-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/) |
 | 💎 **Iconography** | [**Lucide React**](https://lucide.dev/) | Ultra-Lightweight Pixel-Perfect Vector Icon Library | [![Lucide](https://img.shields.io/badge/Lucide-1.52-F43F5E?style=flat-square&logo=feather&logoColor=white)](https://lucide.dev/) |
 | 🔔 **Notifications** | [**React Hot Toast**](https://react-hot-toast.com/) | Accessible, Non-Blocking Interactive User Toast Notifications | [![React Hot Toast](https://img.shields.io/badge/Hot_Toast-2.6-B45309?style=flat-square&logo=safari&logoColor=white)](https://react-hot-toast.com/) |
 
@@ -227,7 +227,7 @@ graph TD
 | ⚙️ **`src/lib/`** | **Core Services & Utilities** | `api.ts`, `auth.ts`, `utils.ts` | Dual-replica failover API client and Bengali numeral converter |
 | 📐 **`src/types/`** | **Domain Type Definitions** | `index.ts` | Strict TypeScript domain contracts (`Product`, `Category`, `User`) |
 | 🖼️ **`public/`** | **Static Assets & Screenshots** | `bazar-hero.png`, `screenshots/` | Optimized responsive images and application showcase media |
-| 🔧 **Configuration** | **Infrastructure & Tooling** | `netlify.toml`, `next.config.ts` | Turbopack loaders, HTTP security headers, and automated CI/CD |
+| 🔧 **Configuration** | **Infrastructure & Tooling** | `next.config.ts`, `package.json` | Turbopack loaders, HTTP security headers, and automated CI/CD |
 
 <br />
 
@@ -275,7 +275,6 @@ bazar-dor/
 │   │   └── utils.ts              # Bengali numeral & unit localization engine
 │   └── types/                    # Shared TypeScript interfaces & types
 │       └── index.ts
-├── netlify.toml                  # Netlify deployment configuration
 ├── next.config.ts                # Next.js bundler & HTTP security headers
 ├── package.json
 └── README.md
@@ -484,7 +483,7 @@ You are free to use, modify, distribute, and integrate this software into privat
 
 <br /><br />
 
-[![Live Application](https://img.shields.io/badge/🌐_Launch_Live_Platform-bazar--d0r.netlify.app-047857?style=for-the-badge)](https://bazar-d0r.netlify.app/)
+[![Live Application](https://img.shields.io/badge/🌐_Launch_Live_Platform-bazar--dor--perseus11.vercel.app-047857?style=for-the-badge)](https://bazar-dor-perseus11.vercel.app/)
 &nbsp;&nbsp;
 [![GitHub Repository](https://img.shields.io/badge/💻_Star_on_GitHub-24292E?style=for-the-badge&logo=github)](https://github.com/mahfuzhasan2700/Bazar-Dor)
 

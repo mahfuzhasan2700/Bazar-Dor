@@ -3,7 +3,7 @@ import Database from "better-sqlite3";
 import path from "path";
 import os from "os";
 
-// In serverless environments like Netlify/Vercel, write to temp dir
+// In serverless environments like Vercel, write to temp dir
 const dbPath =
   process.env.NODE_ENV === "production"
     ? path.join(os.tmpdir(), "auth.db")
@@ -62,7 +62,13 @@ const getBaseURL = () => {
     if (process.env.BETTER_AUTH_URL && !process.env.BETTER_AUTH_URL.includes("localhost")) {
       return process.env.BETTER_AUTH_URL;
     }
-    return process.env.URL || "https://bazar-d0r.netlify.app";
+    if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+      return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+    }
+    if (process.env.VERCEL_URL) {
+      return `https://${process.env.VERCEL_URL}`;
+    }
+    return process.env.URL || "https://bazar-dor-perseus11.vercel.app";
   }
   return process.env.BETTER_AUTH_URL || "http://localhost:3000";
 };
@@ -74,7 +80,7 @@ export const auth = betterAuth({
   database: db,
   baseURL: getBaseURL(),
   trustedOrigins: [
-    "https://bazar-d0r.netlify.app",
+    "https://bazar-dor-perseus11.vercel.app",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
   ],
