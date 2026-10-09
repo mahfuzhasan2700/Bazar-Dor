@@ -10,19 +10,26 @@ import { User as UserIcon, LogOut, ChevronDown } from "lucide-react";
 
 const CATEGORIES = [
   { slug: "chal", name: "চাল", icon: "🍚" },
-  { slug: "dal", name: "ডাল", icon: "🫘" },
+  { slug: "dal", name: "ডাল", icon: "🍲" },
   { slug: "tel", name: "তেল", icon: "🛢️" },
-  { slug: "sobji", name: "সবজি", icon: "🥬" },
+  { slug: "sobji", name: "সবজি", icon: "🥦" },
   { slug: "mach", name: "মাছ", icon: "🐟" },
-  { slug: "mangsho", name: "মাংস", icon: "🍗" },
+  { slug: "mangsho", name: "মাংস", icon: "🥩" },
   { slug: "dim-dui", name: "ডিম-দুধ", icon: "🥛" },
-  { slug: "mosla", name: "মসলা", icon: "🌶️" },
+  { slug: "mosla", name: "মশলা", icon: "🌶️" },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
   const { user, signOut } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  // Standalone auth pages don't show the global header
+  if (pathname === "/signin" || pathname === "/signup") {
+    return null;
+  }
+
+  const displayName = user?.name ? user.name.split(" ")[0] : "";
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-gray-100/60 shadow-xs">
@@ -58,7 +65,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-2 p-1.5 rounded-full hover:bg-gray-100 transition border border-gray-200"
+                  className="flex items-center gap-2 p-1 rounded-full hover:bg-gray-100/80 transition cursor-pointer"
                   aria-expanded={dropdownOpen}
                 >
                   {user.image ? (
@@ -72,8 +79,8 @@ export default function Navbar() {
                       {user.name.charAt(0).toUpperCase()}
                     </div>
                   )}
-                  <span className="hidden sm:inline-block text-xs font-semibold text-gray-800 max-w-[120px] truncate">
-                    {user.name}
+                  <span className="hidden sm:inline-block text-xs font-semibold text-gray-800">
+                    {displayName}
                   </span>
                   <ChevronDown className="w-4 h-4 text-gray-500" />
                 </button>
@@ -133,31 +140,21 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Second Row: Category Navigation Links */}
+        {/* Second Row: Category Navigation Links matching Image 1 layout */}
         <nav
-          className="flex items-center gap-1.5 sm:gap-2 py-2.5 overflow-x-auto no-scrollbar scroll-smooth"
+          className="flex items-center justify-start sm:justify-center gap-1.5 sm:gap-4 py-2 overflow-x-auto no-scrollbar scroll-smooth"
           aria-label="Category Navigation"
         >
-          <Link
-            href="/"
-            className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-150 ${
-              pathname === "/"
-                ? "bg-emerald-700 text-white shadow-xs"
-                : "text-gray-600 hover:text-emerald-700 hover:bg-gray-100"
-            }`}
-          >
-            🏠 সব
-          </Link>
           {CATEGORIES.map((cat) => {
             const isActive = pathname === `/categories/${cat.slug}`;
             return (
               <Link
                 key={cat.slug}
                 href={`/categories/${cat.slug}`}
-                className={`flex items-center gap-1 px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-150 ${
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-150 ${
                   isActive
                     ? "bg-emerald-700 text-white shadow-xs"
-                    : "text-gray-600 hover:text-emerald-700 hover:bg-gray-100"
+                    : "text-gray-700 hover:text-emerald-700 hover:bg-gray-100/70"
                 }`}
               >
                 <span>{cat.icon}</span>

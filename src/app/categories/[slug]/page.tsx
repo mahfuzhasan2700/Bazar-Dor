@@ -75,12 +75,12 @@ export default function CategoryPage({
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
         {/* Breadcrumb & Back */}
-        <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-gray-500">
           <Link href="/" className="hover:text-emerald-700 transition">
             হোম
           </Link>
-          <span>/</span>
-          <span className="text-gray-800 font-semibold">
+          <span className="text-gray-400">&gt;</span>
+          <span className="text-gray-700 font-medium">
             {category?.nameBn || slug}
           </span>
         </div>

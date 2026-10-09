@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="bn" className={hindSiliguri.variable} suppressHydrationWarning>
       <body
-        className="min-h-screen flex flex-col bg-[#fbfcfb] text-[#1c2621] antialiased"
+        className="min-h-screen flex flex-col bg-[#edf2ee] text-[#1c2621] antialiased"
         suppressHydrationWarning
       >
         <AuthProvider>

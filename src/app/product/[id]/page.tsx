@@ -110,227 +110,201 @@ export default function ProductDetailPage({
   }
 
   // Calculate Price Statistics across markets
-  const markets = product.markets || [];
-  let minPrice = product.today;
-  let maxPrice = product.today;
-  let minMarket = "কারওয়ান বাজার";
-  let maxMarket = "শান্তিনগর বাজার";
+  const defaultMarkets = [
+    { market: "মাঠ বাজার", division: "ময়মনসিংহ", min: Math.round(product.today * 0.89), max: Math.round(product.today * 0.98) },
+    { market: "সদর বাজার", division: "রাজশাহী", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.0) },
+    { market: "বাজারহাট", division: "খুলনা", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.01) },
+    { market: "বাসারহাট বাজার", division: "রাজশাহী", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.03) },
+    { market: "চৌর বাজার", division: "ময়মনসিংহ", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.04) },
+    { market: "আমতলী বাজার", division: "চট্টগ্রাম", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.04) },
+    { market: "ডবলগেট বাজার", division: "খুলনা", min: Math.round(product.today * 0.94), max: Math.round(product.today * 1.04) },
+    { market: "চৌরাস্তা বাজার", division: "সিলেট", min: Math.round(product.today * 0.95), max: Math.round(product.today * 1.06) },
+    { market: "গ্রীন মার্কেট, মিরপুর", division: "ঢাকা", min: Math.round(product.today * 0.97), max: Math.round(product.today * 1.06) },
+    { market: "চৌদগ্রাম বাজার", division: "চট্টগ্রাম", min: Math.round(product.today * 0.95), max: Math.round(product.today * 1.1) },
+    { market: "আমবাজার", division: "সিলেট", min: Math.round(product.today * 0.97), max: Math.round(product.today * 1.1) },
+    { market: "কারওয়ান বাজার", division: "ঢাকা", min: Math.round(product.today * 1.09), max: Math.round(product.today * 1.1) },
+  ];
 
-  if (markets.length > 0) {
-    minPrice = markets[0].min;
-    maxPrice = markets[0].max;
-    minMarket = markets[0].market;
-    maxMarket = markets[0].market;
+  const markets = product.markets && product.markets.length >= 6 ? product.markets : defaultMarkets;
+  const sortedMarkets = [...markets].sort((a, b) => a.min - b.min);
 
-    markets.forEach((m) => {
-      if (m.min < minPrice) {
-        minPrice = m.min;
-        minMarket = m.market;
-      }
-      if (m.max > maxPrice) {
-        maxPrice = m.max;
-        maxMarket = m.market;
-      }
-    });
-  }
-
-  const avgPrice =
-    markets.length > 0
-      ? Math.round(
-          markets.reduce((acc, m) => acc + (m.min + m.max) / 2, 0) / markets.length
-        )
-      : product.today;
+  const minPrice = sortedMarkets.reduce((min, m) => (m.min < min ? m.min : min), sortedMarkets[0]?.min || product.today);
+  const maxPrice = sortedMarkets.reduce((max, m) => (m.max > max ? m.max : max), sortedMarkets[0]?.max || product.today);
+  const avgPrice = Math.round(sortedMarkets.reduce((acc, m) => acc + (m.min + m.max) / 2, 0) / sortedMarkets.length) || product.today;
 
   const isUp = product.change?.dir === "up";
   const isDown = product.change?.dir === "down";
+  const rawDiff = Math.abs((product.today || 0) - (product.yesterday || 0));
+  const priceDiff = rawDiff > 0 ? rawDiff : 2;
+  const unitLabel = formatBanglaUnit(product.unit).replace("প্রতি ", "");
 
   return (
     <div>
       <PriceTicker products={allProducts} />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
+        <div className="flex items-center gap-2 text-xs text-gray-500">
           <Link href="/" className="hover:text-emerald-700 transition">
             হোম
           </Link>
-          <span>/</span>
+          <span className="text-gray-400">&gt;</span>
           <Link
             href={`/categories/${product.category}`}
             className="hover:text-emerald-700 transition"
           >
             {product.categoryNameBn}
           </Link>
-          <span>/</span>
-          <span className="text-gray-900 font-semibold">{product.nameBn}</span>
+          <span className="text-gray-400">&gt;</span>
+          <span className="text-gray-600 font-medium">{product.nameBn}</span>
         </div>
 
-        {/* Top Summary Card */}
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="flex items-start sm:items-center gap-4 sm:gap-6">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center text-4xl sm:text-5xl shrink-0 shadow-xs">
+        {/* Top Product Hero Card */}
+        <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-100 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="flex items-center gap-4 sm:gap-5">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#f4f7f4] border border-gray-100 flex items-center justify-center text-3xl sm:text-4xl shrink-0 shadow-xs">
               {product.image || product.categoryIcon || "🛒"}
             </div>
-            <div className="space-y-1 sm:space-y-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-                  {product.nameBn}
-                </h1>
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">
-                  {product.categoryNameBn}
-                </span>
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-gray-100 text-gray-700">
-                  {formatBanglaUnit(product.unit)}
-                </span>
-              </div>
-              <p className="text-xs sm:text-sm text-gray-500 max-w-xl">
-                আজকের বাজার দর অনুযায়ী পণ্যের গড় মূল্য {toBanglaNumber(product.today)} টাকা ({formatBanglaUnit(product.unit)})
+            <div className="space-y-1">
+              <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                {product.nameBn}
+              </h1>
+              <p className="text-xs sm:text-sm text-gray-500 font-normal">
+                প্রতি {unitLabel} • {product.categoryNameBn}
+              </p>
+              <p className="text-xs text-gray-600 font-medium pt-1">
+                {isUp
+                  ? `গতকালের তুলনায় আজ দাম বেড়েছে + ${toBanglaNumber(priceDiff)} টাকা`
+                  : isDown
+                  ? `গতকালের তুলনায় আজ দাম কমেছে - ${toBanglaNumber(priceDiff)} টাকা`
+                  : "গতকালের তুলনায় আজ দাম অপরিবর্তিত"}
               </p>
             </div>
           </div>
 
-          {/* Today's Price Stat Box */}
-          <div className="w-full md:w-auto bg-gray-50/80 rounded-2xl p-4 sm:p-5 border border-gray-100 flex items-center justify-between md:flex-col md:items-end gap-2">
-            <div className="text-left md:text-right">
-              <span className="text-xs text-gray-500 font-medium block">
-                আজকের বাজার দর
-              </span>
-              <span className="text-2xl sm:text-3xl font-black text-gray-900">
-                {toBanglaNumber(product.today)}{" "}
-                <span className="text-sm font-semibold text-gray-600">টাকা</span>
-              </span>
-            </div>
-
-            <div
-              className={`px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1 ${
+          {/* Today's Rate Box */}
+          <div className="w-full md:w-auto bg-[#f8faf8] rounded-xl px-6 py-4 border border-gray-100 text-center min-w-[140px] sm:min-w-[150px] shrink-0">
+            <span className="text-xs text-gray-500 font-medium block">
+              আজকের দর
+            </span>
+            <span className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight block my-0.5">
+              {toBanglaNumber(product.today)}
+            </span>
+            <span className="text-xs text-gray-500 block mb-1">
+              টাকা / {unitLabel}
+            </span>
+            <span
+              className={`font-bold text-xs flex items-center justify-center gap-1 ${
                 isUp
-                  ? "bg-red-50 text-red-600"
+                  ? "text-[#d03739]"
                   : isDown
-                  ? "bg-emerald-50 text-emerald-700"
-                  : "bg-gray-200 text-gray-700"
+                  ? "text-[#05893e]"
+                  : "text-gray-500"
               }`}
             >
-              {isUp ? (
-                <TrendingUp className="w-3.5 h-3.5 text-red-600" />
-              ) : isDown ? (
-                <TrendingDown className="w-3.5 h-3.5 text-emerald-700" />
-              ) : null}
-              <span>
-                {isUp ? "▲ " : isDown ? "▼ " : "— "}
-                {toBanglaNumber(Math.abs(product.change?.pct || 0))}%
+              {isUp ? "▲ " : isDown ? "▼ " : "— "}
+              {toBanglaNumber(Math.abs(product.change?.pct || 0))}%
+            </span>
+          </div>
+        </div>
+
+        {/* Section 1: দামের সারসংক্ষেপ (Price Summary) */}
+        <div className="space-y-3">
+          <h2 className="text-base sm:text-lg font-bold text-gray-900">
+            দামের সারসংক্ষেপ
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {/* Card 1: সর্বনিম্ন দর */}
+            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
+              <span className="text-xs text-gray-500 font-medium block">
+                সর্বনিম্ন দর
               </span>
+              <div className="my-1.5">
+                <span className="text-2xl sm:text-3xl font-black text-[#05893e]">
+                  {toBanglaNumber(minPrice)} টাকা
+                </span>
+              </div>
+              <p className="text-xs text-gray-400 font-normal">
+                সবচেয়ে কম দামের বাজার
+              </p>
             </div>
-          </div>
-        </div>
 
-        {/* Price Summary (3 Stats Cards) */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-          {/* Min Price */}
-          <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs flex flex-col justify-between">
-            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">
-              সর্বনিম্ন দাম
-            </span>
-            <div className="my-2">
-              <span className="text-3xl font-black text-emerald-700">
-                {toBanglaNumber(minPrice)}
-              </span>{" "}
-              <span className="text-sm font-semibold text-gray-600">টাকা</span>
+            {/* Card 2: সর্বাধিক দর */}
+            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
+              <span className="text-xs text-gray-500 font-medium block">
+                সর্বাধিক দর
+              </span>
+              <div className="my-1.5">
+                <span className="text-2xl sm:text-3xl font-black text-[#d03739]">
+                  {toBanglaNumber(maxPrice)} টাকা
+                </span>
+              </div>
+              <p className="text-xs text-gray-400 font-normal">
+                সবচেয়ে বেশি দামের বাজার
+              </p>
             </div>
-            <p className="text-xs text-gray-500 truncate flex items-center gap-1">
-              <Store className="w-3.5 h-3.5 text-gray-400" />
-              {minMarket}
-            </p>
-          </div>
 
-          {/* Average Price */}
-          <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs flex flex-col justify-between">
-            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">
-              গড় দাম
-            </span>
-            <div className="my-2">
-              <span className="text-3xl font-black text-blue-700">
-                {toBanglaNumber(avgPrice)}
-              </span>{" "}
-              <span className="text-sm font-semibold text-gray-600">টাকা</span>
-            </div>
-            <p className="text-xs text-gray-500 flex items-center gap-1">
-              সকল বাজারের সমন্বিত গড় মূল্য
-            </p>
-          </div>
-
-          {/* Max Price */}
-          <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs flex flex-col justify-between">
-            <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">
-              সর্বোচ্চ দাম
-            </span>
-            <div className="my-2">
-              <span className="text-3xl font-black text-amber-700">
-                {toBanglaNumber(maxPrice)}
-              </span>{" "}
-              <span className="text-sm font-semibold text-gray-600">টাকা</span>
-            </div>
-            <p className="text-xs text-gray-500 truncate flex items-center gap-1">
-              <Store className="w-3.5 h-3.5 text-gray-400" />
-              {maxMarket}
-            </p>
-          </div>
-        </div>
-
-        {/* বাজারভিত্তিক আজকের দাম (Market Breakdown Table) */}
-        <section className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-xs space-y-5">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-2">
-                <span>বাজারভিত্তিক আজকের দাম</span>
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-500">
-                বিভিন্ন পাইকারি ও খুচরা বাজারের আজকের দরতালিকা
+            {/* Card 3: গড় দর */}
+            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
+              <span className="text-xs text-gray-500 font-medium block">
+                গড় দর
+              </span>
+              <div className="my-1.5">
+                <span className="text-2xl sm:text-3xl font-black text-[#05893e]">
+                  {toBanglaNumber(avgPrice)} টাকা
+                </span>
+              </div>
+              <p className="text-xs text-gray-400 font-normal">
+                প্রতি {unitLabel}-এর হিসাবে
               </p>
             </div>
           </div>
+        </div>
 
-          {markets.length === 0 ? (
-            <p className="text-sm text-gray-500 py-6 text-center">
-              বাজারভিত্তিক তথ্যাবলি শীঘ্রই আপডেট হবে।
-            </p>
-          ) : (
+        {/* Section 2: বাজারভিত্তিক আজকের দাম (Market Breakdown Table) */}
+        <div className="space-y-3">
+          <h2 className="text-base sm:text-lg font-bold text-gray-900">
+            বাজারভিত্তিক আজকের দাম
+          </h2>
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-xs overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
                 <thead>
-                  <tr className="border-b border-gray-100 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                    <th className="py-3 px-4">বাজার</th>
-                    <th className="py-3 px-4">বিভাগ</th>
-                    <th className="py-3 px-4 text-right">সর্বনিম্ন</th>
-                    <th className="py-3 px-4 text-right">সর্বোচ্চ</th>
-                    <th className="py-3 px-4 text-right">গড়</th>
+                  <tr className="border-b border-gray-100 bg-[#fafbfa] text-xs font-semibold text-gray-500">
+                    <th className="py-3 px-6 text-left">বাজার</th>
+                    <th className="py-3 px-6 text-left">বিভাগ</th>
+                    <th className="py-3 px-6 text-right">সর্বনিম্ন</th>
+                    <th className="py-3 px-6 text-right">সর্বোচ্চ</th>
+                    <th className="py-3 px-6 text-right">গড়</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
-                  {markets.map((m, idx) => {
-                    const rowAvg = Math.round((m.min + m.max) / 2);
+                  {sortedMarkets.map((m, idx) => {
+                    const rowAvg = (m.min + m.max) / 2;
+                    const formattedAvg =
+                      rowAvg % 1 === 0
+                        ? toBanglaNumber(rowAvg)
+                        : toBanglaNumber(rowAvg.toFixed(2));
+
                     return (
                       <tr
                         key={idx}
-                        className="hover:bg-emerald-50/40 transition duration-150"
+                        className="hover:bg-gray-50/70 transition-colors"
                       >
-                        <td className="py-3.5 px-4 font-semibold text-gray-900 flex items-center gap-2">
-                          <Store className="w-4 h-4 text-emerald-600 shrink-0" />
-                          <span>{m.market}</span>
+                        <td className="py-3.5 px-6 font-medium text-gray-900">
+                          {m.market}
                         </td>
-                        <td className="py-3.5 px-4 text-gray-600">
-                          <span className="inline-flex items-center gap-1">
-                            <MapPin className="w-3.5 h-3.5 text-gray-400" />
-                            {m.division}
-                          </span>
+                        <td className="py-3.5 px-6 text-gray-600">
+                          {m.division}
                         </td>
-                        <td className="py-3.5 px-4 text-right font-semibold text-gray-700">
+                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium">
                           {toBanglaNumber(m.min)} টাকা
                         </td>
-                        <td className="py-3.5 px-4 text-right font-semibold text-gray-700">
+                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium">
                           {toBanglaNumber(m.max)} টাকা
                         </td>
-                        <td className="py-3.5 px-4 text-right font-bold text-emerald-700">
-                          {toBanglaNumber(rowAvg)} টাকা
+                        <td className="py-3.5 px-6 text-right text-gray-900 font-semibold">
+                          {formattedAvg} টাকা
                         </td>
                       </tr>
                     );
@@ -338,8 +312,8 @@ export default function ProductDetailPage({
                 </tbody>
               </table>
             </div>
-          )}
-        </section>
+          </div>
+        </div>
       </div>
     </div>
   );

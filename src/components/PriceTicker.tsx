@@ -37,12 +37,12 @@ export default function PriceTicker({ products = [] }: PriceTickerProps) {
                 {toBanglaNumber(item.today)} টাকা/{formatBanglaUnit(item.unit).replace("প্রতি ", "")}
               </span>
               <span
-                className={`flex items-center font-semibold text-[11px] px-1 py-0.5 rounded ${
+                className={`font-semibold text-xs ml-0.5 ${
                   isUp
-                    ? "text-red-600 bg-red-100/60"
+                    ? "text-[#d03739]"
                     : isDown
-                    ? "text-emerald-700 bg-emerald-100/60"
-                    : "text-gray-600 bg-gray-100"
+                    ? "text-[#05893e]"
+                    : "text-gray-500"
                 }`}
               >
                 {isUp ? "▲ " : isDown ? "▼ " : "— "}
