@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri } from "next/font/google";
+import { Hind_Siliguri, Noto_Sans_Bengali } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
@@ -10,6 +10,13 @@ const hindSiliguri = Hind_Siliguri({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["bengali", "latin"],
   variable: "--font-hind-siliguri",
+  display: "swap",
+});
+
+const notoSansBengali = Noto_Sans_Bengali({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["bengali"],
+  variable: "--font-noto-bengali",
   display: "swap",
 });
 
@@ -25,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn" className={hindSiliguri.variable} suppressHydrationWarning>
+    <html lang="bn" className={`${hindSiliguri.variable} ${notoSansBengali.variable}`} suppressHydrationWarning>
       <body
         className="min-h-screen flex flex-col bg-[#edf2ee] text-[#1c2621] antialiased"
         suppressHydrationWarning

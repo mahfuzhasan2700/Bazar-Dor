@@ -311,13 +311,13 @@ export default function ProductDetailPage({
                         <td className="py-3.5 px-4 sm:px-5 text-gray-500 font-normal whitespace-nowrap truncate">
                           {m.division}
                         </td>
-                        <td className="py-3.5 px-3 text-center text-gray-700 font-medium whitespace-nowrap tabular-nums">
+                        <td className="py-3.5 px-3 text-center text-gray-700 font-medium whitespace-nowrap">
                           {toBanglaNumber(m.min)} টাকা
                         </td>
-                        <td className="py-3.5 px-3 text-center text-gray-700 font-medium whitespace-nowrap tabular-nums">
+                        <td className="py-3.5 px-3 text-center text-gray-700 font-medium whitespace-nowrap">
                           {toBanglaNumber(m.max)} টাকা
                         </td>
-                        <td className="py-3.5 pr-6 sm:pr-8 text-right text-gray-900 font-bold whitespace-nowrap tabular-nums">
+                        <td className="py-3.5 pr-6 sm:pr-8 text-right text-gray-900 font-bold whitespace-nowrap">
                           {formattedAvg} টাকা
                         </td>
                       </tr>
