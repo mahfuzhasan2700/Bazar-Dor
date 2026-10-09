@@ -272,7 +272,7 @@ export default function ProductDetailPage({
             <div className="overflow-x-auto">
               <table className="w-full min-w-[620px] table-fixed text-sm border-collapse">
                 <thead>
-                  <tr className="border-b border-[#e2e6e2] bg-[#fafcfa] text-xs font-semibold text-gray-500">
+                  <tr className="border-b border-[#5e6b5f] bg-[#fafcfa] text-xs font-semibold text-gray-500">
                     <th className="w-[27%] py-3.5 pl-6 sm:pl-7 text-left font-semibold text-gray-500">
                       বাজার
                     </th>
@@ -301,8 +301,8 @@ export default function ProductDetailPage({
                     return (
                       <tr
                         key={idx}
-                        className={`border-b border-[#e2e6e2] last:border-b-0 ${
-                          idx % 2 === 1 ? "bg-[#f0f5f0]" : "bg-white"
+                        className={`border-b border-[#5e6b5f] last:border-b-0 ${
+                          idx % 2 === 0 ? "bg-[#f0f5f0]" : "bg-white"
                         } hover:bg-[#e4ece4] transition-colors`}
                       >
                         <td className="py-3.5 pl-6 sm:pl-7 font-semibold text-gray-900 whitespace-nowrap truncate">
