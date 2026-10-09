@@ -162,9 +162,9 @@ export default function ProductDetailPage({
         </div>
 
         {/* Top Product Hero Card */}
-        <div className="bg-white rounded-2xl p-6 sm:p-7 border border-gray-100 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#e2e6e2] shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-4 sm:gap-5">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#f4f7f4] border border-gray-100 flex items-center justify-center text-3xl sm:text-4xl shrink-0 shadow-xs">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#f4f7f4] border border-[#e2e6e2] flex items-center justify-center text-3xl sm:text-4xl shrink-0 shadow-xs">
               {product.image || product.categoryIcon || "🛒"}
             </div>
             <div className="space-y-1">
@@ -185,7 +185,7 @@ export default function ProductDetailPage({
           </div>
 
           {/* Today's Rate Box matching Image 4 */}
-          <div className="w-full md:w-auto bg-[#f8faf8] rounded-xl px-6 py-4 border border-gray-100 text-center min-w-[150px] sm:min-w-[160px] shrink-0">
+          <div className="w-full md:w-auto bg-[#f8faf8] rounded-xl px-6 py-4 border border-[#e2e6e2] text-center min-w-[150px] sm:min-w-[160px] shrink-0">
             <span className="text-xs text-gray-500 font-medium block">
               আজকের দাম
             </span>
@@ -217,7 +217,7 @@ export default function ProductDetailPage({
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* Card 1: সর্বনিম্ন দাম */}
-            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
+            <div className="bg-white rounded-2xl p-5 border border-[#e2e6e2] shadow-xs">
               <span className="text-xs text-gray-500 font-medium block">
                 সর্বনিম্ন দাম
               </span>
@@ -232,7 +232,7 @@ export default function ProductDetailPage({
             </div>
 
             {/* Card 2: সর্বাধিক দাম */}
-            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
+            <div className="bg-white rounded-2xl p-5 border border-[#e2e6e2] shadow-xs">
               <span className="text-xs text-gray-500 font-medium block">
                 সর্বাধিক দাম
               </span>
@@ -247,7 +247,7 @@ export default function ProductDetailPage({
             </div>
 
             {/* Card 3: গড় দাম */}
-            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
+            <div className="bg-white rounded-2xl p-5 border border-[#e2e6e2] shadow-xs">
               <span className="text-xs text-gray-500 font-medium block">
                 গড় দাম
               </span>
@@ -268,19 +268,29 @@ export default function ProductDetailPage({
           <h2 className="text-base sm:text-lg font-bold text-gray-900">
             বাজারভিত্তিক আজকের দাম
           </h2>
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-xs overflow-hidden">
+          <div className="bg-white rounded-2xl border border-[#e2e6e2] shadow-xs overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
+              <table className="w-full min-w-[620px] table-fixed text-sm border-collapse">
                 <thead>
-                  <tr className="border-b border-gray-100 bg-[#fafbfa] text-xs font-semibold text-gray-500">
-                    <th className="py-3 px-6 text-left">বাজার</th>
-                    <th className="py-3 px-6 text-left">বিভাগ</th>
-                    <th className="py-3 px-6 text-right">সর্বনিম্ন</th>
-                    <th className="py-3 px-6 text-right">সর্বাধিক</th>
-                    <th className="py-3 px-6 text-right">গড়</th>
+                  <tr className="border-b border-[#e2e6e2] bg-[#fafcfa] text-xs font-semibold text-gray-500">
+                    <th className="w-[27%] py-3.5 pl-6 sm:pl-7 text-left font-semibold text-gray-500">
+                      বাজার
+                    </th>
+                    <th className="w-[21%] py-3.5 px-4 sm:px-5 text-left font-semibold text-gray-500">
+                      বিভাগ
+                    </th>
+                    <th className="w-[17%] py-3.5 px-3 text-center font-semibold text-gray-500">
+                      সর্বনিম্ন
+                    </th>
+                    <th className="w-[17%] py-3.5 px-3 text-center font-semibold text-gray-500">
+                      সর্বাধিক
+                    </th>
+                    <th className="w-[18%] py-3.5 pr-6 sm:pr-8 text-right font-semibold text-gray-500">
+                      গড়
+                    </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100/70">
+                <tbody>
                   {sortedMarkets.map((m, idx) => {
                     const rowAvg = (m.min + m.max) / 2;
                     const formattedAvg =
@@ -291,23 +301,23 @@ export default function ProductDetailPage({
                     return (
                       <tr
                         key={idx}
-                        className={`${
-                          idx % 2 === 1 ? "bg-[#f8faf8]" : "bg-white"
-                        } hover:bg-emerald-50/40 transition-colors`}
+                        className={`border-b border-[#e2e6e2] last:border-b-0 ${
+                          idx % 2 === 1 ? "bg-[#f0f5f0]" : "bg-white"
+                        } hover:bg-[#e4ece4] transition-colors`}
                       >
-                        <td className="py-3.5 px-6 font-semibold text-gray-900 whitespace-nowrap">
+                        <td className="py-3.5 pl-6 sm:pl-7 font-semibold text-gray-900 whitespace-nowrap truncate">
                           {m.market}
                         </td>
-                        <td className="py-3.5 px-6 text-gray-600 whitespace-nowrap">
+                        <td className="py-3.5 px-4 sm:px-5 text-gray-500 font-normal whitespace-nowrap truncate">
                           {m.division}
                         </td>
-                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium whitespace-nowrap tabular-nums">
+                        <td className="py-3.5 px-3 text-center text-gray-700 font-medium whitespace-nowrap tabular-nums">
                           {toBanglaNumber(m.min)} টাকা
                         </td>
-                        <td className="py-3.5 px-6 text-right text-gray-700 font-medium whitespace-nowrap tabular-nums">
+                        <td className="py-3.5 px-3 text-center text-gray-700 font-medium whitespace-nowrap tabular-nums">
                           {toBanglaNumber(m.max)} টাকা
                         </td>
-                        <td className="py-3.5 px-6 text-right text-gray-900 font-bold whitespace-nowrap tabular-nums">
+                        <td className="py-3.5 pr-6 sm:pr-8 text-right text-gray-900 font-bold whitespace-nowrap tabular-nums">
                           {formattedAvg} টাকা
                         </td>
                       </tr>
