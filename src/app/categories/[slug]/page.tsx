@@ -95,7 +95,7 @@ export default function CategoryPage({
               {category?.nameBn || slug}
             </h1>
             <p className="text-xs sm:text-sm text-gray-500 font-normal mt-0.5">
-              প্রতি পণ্যের আজকের দাম ও পরিবর্তন
+              {toBanglaNumber(products.length)}টি পণ্যের আজকের দাম ও পরিবর্তন
             </p>
           </div>
         </div>

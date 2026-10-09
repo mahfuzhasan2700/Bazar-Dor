@@ -18,8 +18,8 @@ export default function HeroBanner() {
             </h1>
 
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed max-w-xl">
-              চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মশলার দাম — বাজারভিত্তিক বিস্তারিত,
-              গড়, সর্বনিম্ন-সর্বোচ্চ এবং শতকরা পরিবর্তন এক জায়গায়
+              চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার দাম — বাজারভিত্তিক বিস্তারিত,
+              গড়, সর্বনিম্ন-সর্বাধিক এবং শতকরা পরিবর্তন এক জায়গায়।
             </p>
 
             <div className="pt-2 flex justify-center md:justify-start">

@@ -33,11 +33,11 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Price Row & Change Badge matching Image 3 & Image 4 */}
+      {/* Price Row & Change Badge matching Image 1, 3, 4, 5 */}
       <div className="mt-4 flex items-end justify-between">
         <div>
           <span className="block text-[11px] text-gray-400 font-normal">
-            আজকের দর
+            আজকের দাম
           </span>
           <span className="text-base sm:text-lg font-bold text-gray-900">
             {toBanglaNumber(product.today)}{" "}
@@ -45,14 +45,14 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Change Indicator: UP is RED, DOWN is GREEN, Flat is GRAY */}
+        {/* Change Indicator matching Image 1 & 3 */}
         <div
-          className={`text-xs font-semibold flex items-center gap-1 ${
+          className={`text-xs font-semibold flex items-center gap-1 px-2 py-0.5 rounded-md ${
             isUp
-              ? "text-[#d03739]"
+              ? "text-[#d03739] bg-red-50"
               : isDown
-              ? "text-[#05893e]"
-              : "text-gray-400"
+              ? "text-[#05893e] bg-emerald-50"
+              : "text-gray-500 bg-gray-100"
           }`}
         >
           <span>{isUp ? "▲ " : isDown ? "▼ " : "— "}</span>

@@ -115,14 +115,14 @@ export default function ProductDetailPage({
     { market: "সদর বাজার", division: "রাজশাহী", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.0) },
     { market: "বাজারহাট", division: "খুলনা", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.01) },
     { market: "বাসারহাট বাজার", division: "রাজশাহী", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.03) },
-    { market: "চৌর বাজার", division: "ময়মনসিংহ", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.04) },
+    { market: "চোর বাজার", division: "ময়মনসিংহ", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.04) },
     { market: "আমতলী বাজার", division: "চট্টগ্রাম", min: Math.round(product.today * 0.91), max: Math.round(product.today * 1.04) },
     { market: "ডবলগেট বাজার", division: "খুলনা", min: Math.round(product.today * 0.94), max: Math.round(product.today * 1.04) },
     { market: "চৌরাস্তা বাজার", division: "সিলেট", min: Math.round(product.today * 0.95), max: Math.round(product.today * 1.06) },
     { market: "গ্রীন মার্কেট, মিরপুর", division: "ঢাকা", min: Math.round(product.today * 0.97), max: Math.round(product.today * 1.06) },
-    { market: "চৌদগ্রাম বাজার", division: "চট্টগ্রাম", min: Math.round(product.today * 0.95), max: Math.round(product.today * 1.1) },
-    { market: "আমবাজার", division: "সিলেট", min: Math.round(product.today * 0.97), max: Math.round(product.today * 1.1) },
-    { market: "কারওয়ান বাজার", division: "ঢাকা", min: Math.round(product.today * 1.09), max: Math.round(product.today * 1.1) },
+    { market: "চৌদ্দগ্রাম বাজার", division: "চট্টগ্রাম", min: Math.round(product.today * 0.98), max: Math.round(product.today * 1.1) },
+    { market: "আম্বরখানা", division: "সিলেট", min: Math.round(product.today * 0.97), max: Math.round(product.today * 1.1) },
+    { market: "কারওয়ান বাজার", division: "ঢাকা", min: Math.round(product.today * 0.98), max: Math.round(product.today * 1.11) },
   ];
 
   const markets = product.markets && product.markets.length >= 6 ? product.markets : defaultMarkets;
@@ -170,22 +170,22 @@ export default function ProductDetailPage({
                 {product.nameBn}
               </h1>
               <p className="text-xs sm:text-sm text-gray-500 font-normal">
-                প্রতি {unitLabel} • {product.categoryNameBn}
+                প্রতি {unitLabel} · {product.categoryNameBn}
               </p>
               <p className="text-xs text-gray-600 font-medium pt-1">
                 {isUp
-                  ? `গতকালের তুলনায় আজ দাম বেড়েছে + ${toBanglaNumber(priceDiff)} টাকা`
+                  ? `গতকালের তুলনায় আজ দাম বেড়েছে · ${toBanglaNumber(priceDiff)} টাকা`
                   : isDown
-                  ? `গতকালের তুলনায় আজ দাম কমেছে - ${toBanglaNumber(priceDiff)} টাকা`
+                  ? `গতকালের তুলনায় আজ দাম কমেছে · ${toBanglaNumber(priceDiff)} টাকা`
                   : "গতকালের তুলনায় আজ দাম অপরিবর্তিত"}
               </p>
             </div>
           </div>
 
-          {/* Today's Rate Box */}
+          {/* Today's Rate Box matching Image 4 */}
           <div className="w-full md:w-auto bg-[#f8faf8] rounded-xl px-6 py-4 border border-gray-100 text-center min-w-[140px] sm:min-w-[150px] shrink-0">
             <span className="text-xs text-gray-500 font-medium block">
-              আজকের দর
+              আজকের দাম
             </span>
             <span className="text-3xl sm:text-4xl font-black text-gray-900 leading-tight block my-0.5">
               {toBanglaNumber(product.today)}
@@ -214,10 +214,10 @@ export default function ProductDetailPage({
             দামের সারসংক্ষেপ
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {/* Card 1: সর্বনিম্ন দর */}
+            {/* Card 1: সর্বনিম্ন দাম */}
             <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
               <span className="text-xs text-gray-500 font-medium block">
-                সর্বনিম্ন দর
+                সর্বনিম্ন দাম
               </span>
               <div className="my-1.5">
                 <span className="text-2xl sm:text-3xl font-black text-[#05893e]">
@@ -229,10 +229,10 @@ export default function ProductDetailPage({
               </p>
             </div>
 
-            {/* Card 2: সর্বাধিক দর */}
+            {/* Card 2: সর্বাধিক দাম */}
             <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
               <span className="text-xs text-gray-500 font-medium block">
-                সর্বাধিক দর
+                সর্বাধিক দাম
               </span>
               <div className="my-1.5">
                 <span className="text-2xl sm:text-3xl font-black text-[#d03739]">
@@ -244,10 +244,10 @@ export default function ProductDetailPage({
               </p>
             </div>
 
-            {/* Card 3: গড় দর */}
+            {/* Card 3: গড় দাম */}
             <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
               <span className="text-xs text-gray-500 font-medium block">
-                গড় দর
+                গড় দাম
               </span>
               <div className="my-1.5">
                 <span className="text-2xl sm:text-3xl font-black text-[#05893e]">
@@ -274,7 +274,7 @@ export default function ProductDetailPage({
                     <th className="py-3 px-6 text-left">বাজার</th>
                     <th className="py-3 px-6 text-left">বিভাগ</th>
                     <th className="py-3 px-6 text-right">সর্বনিম্ন</th>
-                    <th className="py-3 px-6 text-right">সর্বোচ্চ</th>
+                    <th className="py-3 px-6 text-right">সর্বাধিক</th>
                     <th className="py-3 px-6 text-right">গড়</th>
                   </tr>
                 </thead>

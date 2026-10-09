@@ -29,12 +29,12 @@ export default async function HomePage() {
       <HeroBanner />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-12 sm:space-y-14">
-        {/* Section A: আজকে দাম বেড়েছে */}
+        {/* Section A: আজ দাম বেড়েছে */}
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#d03739]"></span>
-            <h2 className="text-lg sm:text-xl font-bold text-gray-900">
-              আজকে দাম বেড়েছে
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
+              <span className="text-[#d03739]">▲</span>
+              <span>আজ দাম বেড়েছে</span>
             </h2>
           </div>
 
@@ -45,12 +45,12 @@ export default async function HomePage() {
           </div>
         </section>
 
-        {/* Section B: আজকে দাম কমেছে */}
+        {/* Section B: আজ দাম কমেছে */}
         <section className="space-y-4">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#05893e]"></span>
-            <h2 className="text-lg sm:text-xl font-bold text-gray-900">
-              আজকে দাম কমেছে
+            <h2 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center gap-2">
+              <span className="text-[#05893e]">▼</span>
+              <span>আজ দাম কমেছে</span>
             </h2>
           </div>
 
