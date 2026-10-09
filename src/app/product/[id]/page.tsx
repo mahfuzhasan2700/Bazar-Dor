@@ -7,7 +7,6 @@ import { useAuth } from "@/context/AuthContext";
 import { getProductByIdOrSlug, getAllProducts } from "@/lib/api";
 import { Product } from "@/types";
 import { toBanglaNumber, formatBanglaUnit } from "@/lib/utils";
-import PriceTicker from "@/components/PriceTicker";
 import toast from "react-hot-toast";
 import {
   TrendingUp,
@@ -140,8 +139,6 @@ export default function ProductDetailPage({
 
   return (
     <div>
-      <PriceTicker products={allProducts} />
-
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-gray-500">

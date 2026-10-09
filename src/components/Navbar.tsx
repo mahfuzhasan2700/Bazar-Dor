@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import BanglaDate from "@/components/BanglaDate";
+import PriceTicker from "@/components/PriceTicker";
 import { User as UserIcon, ChevronDown } from "lucide-react";
 
 const CATEGORIES = [
@@ -23,11 +24,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const { user, signOut } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  // Standalone auth pages don't show the global header
-  if (pathname === "/signin" || pathname === "/signup") {
-    return null;
-  }
 
   const displayName = user?.name ? user.name.split(" ")[0] : "";
 
@@ -137,16 +133,16 @@ export default function Navbar() {
                 )}
               </div>
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5 sm:gap-3">
                 <Link
                   href="/signin"
-                  className="px-3.5 py-1.5 text-xs sm:text-sm font-medium text-emerald-700 hover:text-emerald-800 hover:bg-emerald-50 rounded-lg transition"
+                  className="px-2 py-1 text-xs sm:text-sm font-semibold text-gray-800 hover:text-emerald-700 transition"
                 >
                   সাইন ইন
                 </Link>
                 <Link
                   href="/signup"
-                  className="px-3.5 py-1.5 text-xs sm:text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-xs transition"
+                  className="px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#09793c] hover:bg-[#076833] rounded-lg shadow-xs transition"
                 >
                   সাইন আপ
                 </Link>
@@ -179,6 +175,9 @@ export default function Navbar() {
           })}
         </nav>
       </div>
+
+      {/* Third Row: Price Ticker across all pages */}
+      <PriceTicker />
     </header>
   );
 }

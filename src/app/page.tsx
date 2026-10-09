@@ -1,6 +1,5 @@
 import React from "react";
 import HeroBanner from "@/components/HeroBanner";
-import PriceTicker from "@/components/PriceTicker";
 import ProductCard from "@/components/ProductCard";
 import { getAllProducts } from "@/lib/api";
 import { toBanglaNumber } from "@/lib/utils";
@@ -22,9 +21,6 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-10 sm:space-y-14 pb-16">
-      {/* Price Ticker directly under Navbar */}
-      <PriceTicker products={products} />
-
       {/* Hero Banner with CTA smooth scroll to #সব-পণ্য */}
       <HeroBanner />
 
