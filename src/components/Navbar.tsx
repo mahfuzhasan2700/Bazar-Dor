@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import BanglaDate from "@/components/BanglaDate";
-import { User as UserIcon, LogOut, ChevronDown } from "lucide-react";
+import { User as UserIcon, ChevronDown } from "lucide-react";
 
 const CATEGORIES = [
   { slug: "chal", name: "চাল", icon: "🍚" },
@@ -85,39 +85,54 @@ export default function Navbar() {
                   <ChevronDown className="w-4 h-4 text-gray-500" />
                 </button>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown Menu matching Image 1 */}
                 {dropdownOpen && (
                   <div
-                    className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-100"
+                    className="absolute right-0 mt-2 w-60 bg-white rounded-2xl shadow-xl border border-gray-100 p-5 z-50 animate-in fade-in zoom-in-95 duration-100"
                     onMouseLeave={() => setDropdownOpen(false)}
                   >
-                    <div className="px-4 py-2 border-b border-gray-100">
-                      <p className="text-sm font-semibold text-gray-800 truncate">
+                    <div className="mb-4">
+                      <p className="text-base font-bold text-gray-900 leading-snug">
                         {user.name}
                       </p>
-                      <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                      <p className="text-xs text-gray-400 font-normal mt-0.5 truncate">
+                        {user.email}
+                      </p>
                     </div>
 
-                    <Link
-                      href="/profile"
-                      onClick={() => setDropdownOpen(false)}
-                      className="flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-emerald-50 hover:text-emerald-800 transition"
-                    >
-                      <UserIcon className="w-4 h-4 text-emerald-600" />
-                      আমার প্রোফাইল
-                    </Link>
+                    <div className="space-y-3 pt-1">
+                      <Link
+                        href="/profile"
+                        onClick={() => setDropdownOpen(false)}
+                        className="flex items-center gap-2.5 text-sm font-medium text-gray-800 hover:text-emerald-700 transition"
+                      >
+                        <UserIcon className="w-4 h-4 text-slate-500 fill-slate-500 shrink-0" />
+                        <span>আমার প্রোফাইল</span>
+                      </Link>
 
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setDropdownOpen(false);
-                        signOut();
-                      }}
-                      className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition text-left"
-                    >
-                      <LogOut className="w-4 h-4 text-red-500" />
-                      লগ আউট
-                    </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDropdownOpen(false);
+                          signOut();
+                        }}
+                        className="w-full flex items-center gap-2.5 text-sm font-medium text-[#d03739] hover:opacity-80 transition text-left cursor-pointer"
+                      >
+                        <svg
+                          className="w-4 h-4 text-[#d03739] shrink-0"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M9 14L4 9l5-5" />
+                          <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11" />
+                        </svg>
+                        <span>সাইন আউট</span>
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>

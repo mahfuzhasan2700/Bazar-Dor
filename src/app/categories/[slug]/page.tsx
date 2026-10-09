@@ -85,50 +85,54 @@ export default function CategoryPage({
           </span>
         </div>
 
-        {/* Category Header & Sort Dropdown */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-gray-100">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100/70 text-emerald-800 flex items-center justify-center text-2xl shadow-xs">
-              {category?.icon || "🛒"}
-            </div>
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
-                {category?.nameBn || slug}
-              </h1>
-              <p className="text-xs sm:text-sm text-gray-500">
-                প্রতি পণ্যের বাজার দর ও পরিবর্তন
-                {products.length > 0 && ` (${toBanglaNumber(products.length)}টি পণ্য)`}
-              </p>
+        {/* Category Header Card matching Image 3 */}
+        <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs flex items-center gap-4">
+          <div className="w-14 h-14 rounded-2xl bg-[#f4f7f4] border border-gray-100 flex items-center justify-center text-3xl shrink-0 shadow-xs">
+            {category?.icon || "🛒"}
+          </div>
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
+              {category?.nameBn || slug}
+            </h1>
+            <p className="text-xs sm:text-sm text-gray-500 font-normal mt-0.5">
+              প্রতি পণ্যের আজকের দাম ও পরিবর্তন
+            </p>
+          </div>
+        </div>
+
+        {/* Sort Bar Card matching Image 3 */}
+        <div className="bg-white rounded-2xl px-6 py-3.5 border border-gray-100 shadow-xs flex items-center justify-end">
+          <div className="flex items-center gap-2">
+            <label htmlFor="sort-select" className="text-xs sm:text-sm font-medium text-gray-600">
+              সাজান
+            </label>
+            <div className="relative">
+              <select
+                id="sort-select"
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value as SortOption)}
+                className="appearance-none bg-white border border-gray-200 text-gray-800 text-xs sm:text-sm rounded-lg pl-3 pr-8 py-1.5 font-medium focus:outline-none focus:ring-2 focus:ring-[#09793c]/20 focus:border-[#09793c] cursor-pointer shadow-xs"
+              >
+                <option value="default">ডিফল্ট</option>
+                <option value="price_asc">দাম: কম থেকে বেশি</option>
+                <option value="price_desc">দাম: বেশি থেকে কম</option>
+              </select>
+              <ChevronDown className="w-4 h-4 text-gray-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
-
-          {/* C1: Sort Dropdown */}
-          {products.length > 0 && (
-            <div className="flex items-center gap-2 self-start sm:self-auto">
-              <label htmlFor="sort-select" className="text-xs sm:text-sm font-medium text-gray-600">
-                সাজান:
-              </label>
-              <div className="relative">
-                <select
-                  id="sort-select"
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="appearance-none bg-white border border-gray-200 text-gray-800 text-xs sm:text-sm rounded-xl pl-3 pr-8 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 cursor-pointer shadow-xs"
-                >
-                  <option value="default">ডিফল্ট</option>
-                  <option value="price_asc">দাম: কম থেকে বেশি</option>
-                  <option value="price_desc">দাম: বেশি থেকে কম</option>
-                </select>
-                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-              </div>
-            </div>
-          )}
         </div>
+
+        {/* Product Count Label */}
+        {products.length > 0 && (
+          <p className="text-xs sm:text-sm text-gray-500 font-medium">
+            মোট {toBanglaNumber(products.length)}টি পণ্য দেখানো হচ্ছে
+          </p>
+        )}
 
         {/* Loading State */}
         {isLoading && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {Array.from({ length: 8 }).map((_, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {Array.from({ length: 6 }).map((_, i) => (
               <ProductSkeleton key={i} />
             ))}
           </div>
@@ -158,9 +162,9 @@ export default function CategoryPage({
           </div>
         )}
 
-        {/* Product List Grid */}
+        {/* Product List Grid (3 columns matching Image 3) */}
         {!isLoading && products.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {sortedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

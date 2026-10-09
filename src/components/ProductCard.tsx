@@ -33,29 +33,29 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Price Row & Change Badge */}
-      <div className="pt-3 border-t border-gray-50 flex items-center justify-between">
+      {/* Price Row & Change Badge matching Image 3 & Image 4 */}
+      <div className="mt-4 flex items-end justify-between">
         <div>
-          <span className="block text-[11px] text-gray-400 font-medium">
-            আজকের দাম
+          <span className="block text-[11px] text-gray-400 font-normal">
+            আজকের দর
           </span>
-          <span className="text-base sm:text-lg font-extrabold text-gray-900">
+          <span className="text-base sm:text-lg font-bold text-gray-900">
             {toBanglaNumber(product.today)}{" "}
-            <span className="text-xs font-semibold text-gray-600">টাকা</span>
+            <span className="text-xs font-normal text-gray-700">টাকা</span>
           </span>
         </div>
 
-        {/* Change Badge: UP is RED, DOWN is GREEN */}
+        {/* Change Indicator: UP is RED, DOWN is GREEN, Flat is GRAY */}
         <div
-          className={`px-2 py-1 rounded-md text-xs font-bold flex items-center gap-1 ${
+          className={`text-xs font-semibold flex items-center gap-1 ${
             isUp
-              ? "bg-red-50 text-red-600"
+              ? "text-[#d03739]"
               : isDown
-              ? "bg-emerald-50 text-emerald-700"
-              : "bg-gray-100 text-gray-600"
+              ? "text-[#05893e]"
+              : "text-gray-400"
           }`}
         >
-          <span>{isUp ? "▲" : isDown ? "▼" : "—"}</span>
+          <span>{isUp ? "▲ " : isDown ? "▼ " : "— "}</span>
           <span>{toBanglaNumber(Math.abs(product.change?.pct || 0))}%</span>
         </div>
       </div>

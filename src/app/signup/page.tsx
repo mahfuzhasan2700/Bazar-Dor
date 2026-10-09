@@ -53,13 +53,13 @@ export default function SignUpPage() {
   return (
     <div className="min-h-[75vh] flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-[430px]">
-        {/* Title & Subtitle outside Card */}
+        {/* Title & Subtitle outside Card matching Image 2 */}
         <div className="text-center mb-6 sm:mb-8 space-y-1.5">
           <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-            সাইন আপ
+            অ্যাকাউন্ট তৈরি করুন
           </h1>
           <p className="text-xs sm:text-sm text-gray-600">
-            নিত্য পণ্যের বাজার দর জানতে এবং আপডেট পেতে অ্যাকাউন্ট তৈরি করুন।
+            বিনা খরচে সাইন আপ করে সব বিস্তারিত দাম দেখুন।
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default function SignUpPage() {
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="আপনার পুরো নাম"
+                placeholder="যেমন: রহিম উদ্দিন"
                 className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#09793c]/20 focus:border-[#09793c] transition bg-white"
               />
             </div>
@@ -133,7 +133,7 @@ export default function SignUpPage() {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="পুনরায় পাসওয়ার্ড লিখুন"
+                placeholder="আবার লিখুন"
                 className="w-full px-3.5 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#09793c]/20 focus:border-[#09793c] transition bg-white"
               />
             </div>
@@ -143,7 +143,7 @@ export default function SignUpPage() {
               disabled={isSubmitting}
               className="w-full py-3 rounded-lg bg-[#09793c] hover:bg-[#076833] active:bg-[#065b2c] disabled:opacity-50 text-white font-semibold text-sm transition shadow-sm cursor-pointer"
             >
-              {isSubmitting ? "অ্যাকাউন্ট তৈরি হচ্ছে..." : "সাইন আপ করুন"}
+              {isSubmitting ? "অ্যাকাউন্ট তৈরি হচ্ছে..." : "অ্যাকাউন্ট তৈরি করুন"}
             </button>
           </form>
 
@@ -201,9 +201,9 @@ export default function SignUpPage() {
             </button>
           </div>
 
-          {/* Switch to SignIn */}
+          {/* Switch to SignIn matching Image 2 */}
           <p className="text-center text-xs sm:text-sm text-gray-600 pt-2">
-            ইতিমধ্যে অ্যাকাউন্ট আছে?{" "}
+            অ্যাকাউন্ট আছে?{" "}
             <Link
               href="/signin"
               className="text-[#09793c] font-semibold hover:underline"
