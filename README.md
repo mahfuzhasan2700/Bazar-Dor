@@ -7,30 +7,32 @@
 <br />
 
 <a href="https://bazar-d0r.netlify.app/">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1200&color=059669&center=true&vCenter=true&width=650&lines=%E2%9A%A1+Live+Commodity+Price+Intelligence;%E2%96%B2+%E0%A6%86%E0%A6%9C+%E0%A6%A6%E0%A6%BE%E0%A6%AE+%E0%A6%AC%E0%A7%87%E0%A6%A1%E0%A6%BC%E0%A7%87%E0%A6%9B%E0%A7%87+%E2%80%A2+%E2%96%BC+%E0%A6%86%E0%A6%9C+%E0%A6%A6%E0%A6%BE%E0%A6%AE+%E0%A6%95%E0%A6%AE%E0%A7%87%E0%A6%9B%E0%A7%87;%F0%9F%93%8A+Multi-Bazaar+Comparative+Analytics;%F0%9F%94%90+BetterAuth+OAuth+2.0+(Google+%26+GitHub);%F0%9F%8F%B7%EF%B8%8F+Native+Bengali+Numeral+Sorting+Engine" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1200&color=047857&center=true&vCenter=true&width=650&lines=%E2%9A%A1+Live+Commodity+Price+Intelligence;%E2%96%B2+%E0%A6%86%E0%A6%9C+%E0%A6%A6%E0%A6%BE%E0%A6%AE+%E0%A6%AC%E0%A7%87%E0%A6%A1%E0%A6%BC%E0%A7%87%E0%A6%9B%E0%A7%87+%E2%80%A2+%E2%96%BC+%E0%A6%86%E0%A6%9C+%E0%A6%A6%E0%A6%BE%E0%A6%AE+%E0%A6%95%E0%A6%AE%E0%A7%87%E0%A6%9B%E0%A7%87;%F0%9F%93%8A+Multi-Bazaar+Comparative+Analytics;%F0%9F%94%90+BetterAuth+OAuth+2.0+(Google+%26+GitHub);%F0%9F%8F%B7%EF%B8%8F+Native+Bengali+Numeral+Sorting+Engine" alt="Typing SVG" />
 </a>
 
 <br />
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.4.0-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.3.0-087EA4?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![BetterAuth](https://img.shields.io/badge/BetterAuth-OAuth_2.0-10B981?style=for-the-badge&logo=auth0&logoColor=white)](https://better-auth.com/)
-[![Netlify](https://img.shields.io/badge/Netlify-Deployed_Live-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://bazar-d0r.netlify.app/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-0284C7?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![BetterAuth](https://img.shields.io/badge/BetterAuth-OAuth_2.0-047857?style=for-the-badge&logo=auth0&logoColor=white)](https://better-auth.com/)
+[![Netlify](https://img.shields.io/badge/Netlify-Deployed_Live-0E1E25?style=for-the-badge&logo=netlify&logoColor=00C7B7)](https://bazar-d0r.netlify.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-B45309?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 <br />
 
-[![Live Demo](https://img.shields.io/badge/🌐_Launch_Live_Platform-https%3A%2F%2Fbazar--d0r.netlify.app%2F-059669?style=for-the-badge)](https://bazar-d0r.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/🌐_Launch_Live_Platform-bazar--d0r.netlify.app-047857?style=for-the-badge)](https://bazar-d0r.netlify.app/)
 
 <p align="center">
-  <a href="#-application-preview">📸 App Showcase</a> •
-  <a href="#-key-features">✨ Core Features</a> •
+  <a href="#-application-showcase--interactive-preview">📸 App Showcase</a> •
+  <a href="#-executive-overview">📌 Overview</a> •
+  <a href="#-key-features--technical-innovations">✨ Core Features</a> •
   <a href="#-system-architecture">🏛️ Architecture</a> •
-  <a href="#-tech-stack">🛠️ Tech Stack</a> •
+  <a href="#-tech-stack--ecosystem">🛠️ Tech Stack</a> •
+  <a href="#-project-architecture">📂 Project Structure</a> •
   <a href="#-getting-started">🚀 Quick Start</a> •
-  <a href="#-security--performance">🔒 Security</a> •
+  <a href="#-security--performance-engineering">🔒 Security</a> •
   <a href="#-api-documentation">🔌 API Reference</a>
 </p>
 
@@ -43,9 +45,9 @@
 <div align="center">
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Interface-Responsive_Web_App-059669?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Interface" />
+  <img src="https://img.shields.io/badge/Interface-Responsive_Web_App-047857?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Interface" />
   <img src="https://img.shields.io/badge/Resolution-Retina_High_DPI-0284c7?style=for-the-badge&logo=speedtest&logoColor=white" alt="Resolution" />
-  <img src="https://img.shields.io/badge/Environment-Production_Live-10B981?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status" />
+  <img src="https://img.shields.io/badge/Environment-Production_Live-047857?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status" />
 </p>
 
 | 🏠 **Landing Page & Infinite Price Ticker** | 📈 **Daily Risers & Fallers Analysis** |
@@ -54,11 +56,11 @@
 
 | 🏷️ **Category Catalog & Bengali Sorter** | 📊 **Multi-Market Breakdown & Statistics** |
 | :---: | :---: |
-| <a href="https://bazar-d0r.netlify.app/categories/rice"><img src="./public/screenshots/category-sort.png" width="460" alt="Category Sorting" /></a><br /><sub>`🔢 IEEE-754 Safe Bengali Numeral Sorter Engine (০-৯)`</sub> | <a href="https://bazar-d0r.netlify.app/"><img src="./public/screenshots/product-details.png" width="460" alt="Product Details & Bazaar Table" /></a><br /><sub>`🏬 Comparative Wholesale & Retail Rates across 4+ Major Markets`</sub> |
+| <a href="https://bazar-d0r.netlify.app/categories/rice"><img src="./public/screenshots/category-sort.png" width="460" alt="Category Sorting" /></a><br /><sub>`🔢 Unicode Bengali Numeral Parser & Numeric Sorter (০-৯)`</sub> | <a href="https://bazar-d0r.netlify.app/"><img src="./public/screenshots/product-details.png" width="460" alt="Product Details & Bazaar Table" /></a><br /><sub>`🏬 Comparative Wholesale & Retail Rates across 4+ Major Markets`</sub> |
 
 | 🔐 **OAuth 2.0 (Google & GitHub) Gateway** | 👤 **Self-Service Profile Customization** |
 | :---: | :---: |
-| <a href="https://bazar-d0r.netlify.app/signin"><img src="./public/screenshots/auth-preview.png" width="460" alt="Authentication Page" /></a><br /><sub>`🛡️ Zero-Secret Leakage BetterAuth Multi-Provider Authentication`</sub> | <a href="https://bazar-d0r.netlify.app/profile"><img src="./public/screenshots/profile-preview.png" width="460" alt="Profile Management" /></a><br /><sub>`✏️ Dynamic Profile Modification with Immediate Multi-Tab Sync`</sub> |
+| <a href="https://bazar-d0r.netlify.app/signin"><img src="./public/screenshots/auth-preview.png" width="460" alt="Authentication Page" /></a><br /><sub>`🛡️ Multi-Provider OAuth 2.0 with Server-Side Session Isolation`</sub> | <a href="https://bazar-d0r.netlify.app/profile"><img src="./public/screenshots/profile-preview.png" width="460" alt="Profile Management" /></a><br /><sub>`✏️ Dynamic Profile Modification with Immediate Multi-Tab Sync`</sub> |
 
 </div>
 
@@ -69,15 +71,15 @@
 <div align="center">
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Domain-Commodity_Price_Intelligence-059669?style=for-the-badge&logo=target&logoColor=white" alt="Domain" />
+  <img src="https://img.shields.io/badge/Domain-Commodity_Price_Intelligence-047857?style=for-the-badge&logo=target&logoColor=white" alt="Domain" />
   <img src="https://img.shields.io/badge/Region-Bangladesh_Retail_Markets-0284c7?style=for-the-badge&logo=google-maps&logoColor=white" alt="Region" />
-  <img src="https://img.shields.io/badge/Cadence-Real--Time_Daily_Deltas-F59E0B?style=for-the-badge&logo=clock&logoColor=white" alt="Cadence" />
+  <img src="https://img.shields.io/badge/Cadence-Daily_Price_Deltas-B45309?style=for-the-badge&logo=clock&logoColor=white" alt="Cadence" />
   <img src="https://img.shields.io/badge/Audience-Consumers_•_Traders_•_Buyers-7C3AED?style=for-the-badge&logo=users&logoColor=white" alt="Audience" />
 </p>
 
 </div>
 
-**BazarDor (বাজার দর)** is an enterprise-grade digital commodity intelligence platform engineered to eliminate retail price asymmetry across Bangladesh's agricultural markets. By aggregating, analyzing, and contrasting live consumer commodity prices across premier municipal wholesale and retail trading hubs (such as Karwan Bazar, Mirpur-1, New Market, and Shantinagar), BazarDor delivers transparent pricing signals directly to household consumers and institutional purchasers.
+**BazarDor (বাজার দর)** is a modern digital commodity intelligence platform engineered to eliminate retail price asymmetry across Bangladesh's agricultural markets. By aggregating, analyzing, and contrasting live consumer commodity prices across premier municipal wholesale and retail trading hubs (such as Karwan Bazar, Mirpur-1, New Market, and Shantinagar), BazarDor delivers transparent pricing signals directly to household consumers and institutional purchasers.
 
 <br />
 
@@ -87,8 +89,8 @@
 | :--- | :--- | :--- | :---: |
 | 🟢 **Price Transparency** | Eliminates regional broker opacity by comparing identical commodities across markets | Normalized multi-outlet schema aggregating retail and wholesale quotes | **100% Transparent** |
 | ⚡ **Market Velocity** | Instant detection of daily price volatility and inflation trends | Real-time percentage delta calculations (`▲ আজ দাম বেড়েছে`, `▼ আজ দাম কমেছে`) | **Sub-Second Calculation** |
-| 🇧🇩 **Native Localization** | Designed specifically for Bengali shoppers and local commerce habits | Custom Unicode Bengali numeral collation (`০-৯`) and Hind Siliguri font | **Frictionless UX** |
-| 🛡️ **Enterprise Security** | Protects consumer privacy and identity without leaking secrets | BetterAuth serverless engine with Google & GitHub OAuth 2.0 | **Zero Secret Exposure** |
+| 🇧🇩 **Native Localization** | Designed specifically for Bengali shoppers and local commerce habits | Custom Unicode Bengali numeral parsing (`০-৯`) and Hind Siliguri typography | **Frictionless UX** |
+| 🛡️ **Session Security** | Protects consumer privacy and identity without exposing secrets | BetterAuth serverless engine with Google & GitHub OAuth 2.0 | **Zero Public Leaks** |
 
 ---
 
@@ -99,9 +101,9 @@
 | 🔴 **Continuous Marquee Ticker** | Hardware-accelerated CSS marquee with pause-on-hover interaction | High-visibility streaming ticker ribbon detailing real-time commodity movements | `CSS Animation Engine` |
 | 📈 **Daily Price Velocity (Risers/Fallers)** | Automated 24h mathematical delta evaluation algorithm | Highlights the top 6 price spikes and discounts to guide smart purchasing | `Statistical Analytics` |
 | 📊 **Multi-Bazaar Pricing Matrix** | Statistical computation of Min, Max, and Average market rates | Granular price comparison across wholesale and retail hubs with best-market badges | `Dynamic Aggregation` |
-| 🏷️ **Native Bengali Numeral Sorter** | Unicode numeral transformation to IEEE-754 double precision floats | Accurate ascending and descending price sorting without unicode collation bugs | `Custom Sorter Engine` |
+| 🏷️ **Native Bengali Numeral Sorter** | Unicode numeral parser converting Bengali digits (`০-৯`) into numeric floats | Accurate ascending and descending price sorting without unicode collation bugs | `Custom Sorter Engine` |
 | 🔐 **OAuth 2.0 & Session Management** | BetterAuth edge runtime with SQLite session store | Frictionless email credentials and one-click Google & GitHub social authentication | `BetterAuth + OAuth` |
-| 📱 **Fluid Responsive Ergonomics** | Tailwind CSS v4 variables with Hind Siliguri typography | Optimized cross-device layout with accessible 404 recovery page | `Tailwind v4 + Font` |
+| 📱 **Fluid Responsive Ergonomics** | Tailwind CSS v4 design tokens with Hind Siliguri typography | Optimized cross-device layout with accessible 404 recovery page | `Tailwind v4 + Font` |
 
 <br />
 
@@ -110,7 +112,7 @@
 * ⚡ **Live Hardware Marquee Ticker**: Continuous horizontal ribbon providing at-a-glance commodity pricing (`[আইকন] [নাম] আজকের দাম [টাকা]/[একক] [▲/▼ %]`). Automatically suspends animation upon mouse hover for effortless reading.
 * 📈 **Daily Volatility Analytics**: Top Risers (**▲ আজ দাম বেড়েছে**) showcase commodities under inflationary pressure, while Top Fallers (**▼ আজ দাম কমেছে**) highlight savings opportunities.
 * 📊 **Multi-Bazaar Statistical Cards**: Dynamic calculation of **Minimum Price**, **Average Market Price**, and **Maximum Price**, accompanied by an automatic **Best Market** indicator badge.
-* 🏷️ **Bengali Numeral Sorting Engine**: Normalizes and evaluates Bengali numeral glyphs (`০-৯`) into floating-point numbers, supporting `ডিফল্ট`, `দাম: কম থেকে বেশি`, and `দাম: বেশি থেকে কম`.
+* 🏷️ **Bengali Numeral Sorting Engine**: Parses and normalizes Bengali numeral glyphs (`০-৯`) into numeric values, enabling accurate sorting (`ডিফল্ট`, `দাম: কম থেকে বেশি`, and `দাম: বেশি থেকে কম`) without collation glitches.
 * 🔐 **Secure OAuth 2.0 & Profile Management**: BetterAuth edge integration enabling credentials and one-click Google & GitHub social login with context-aware route shielding.
 * 📱 **Tailwind v4 & Bengali Typography**: High-legibility **Hind Siliguri** font paired with fluid Tailwind CSS v4 design tokens and an accessible custom 404 error page.
 
@@ -120,10 +122,10 @@
 
 ```mermaid
 graph TD
-    classDef emerald fill:#ecfdf5,stroke:#059669,stroke-width:2px,color:#064e3b,font-weight:bold;
-    classDef mint fill:#f0fdf4,stroke:#10b981,stroke-width:2px,color:#047857,font-weight:bold;
-    classDef amber fill:#fffbeb,stroke:#f59e0b,stroke-width:2px,color:#92400e,font-weight:bold;
-    classDef sky fill:#f0f9ff,stroke:#0284c7,stroke-width:2px,color:#0369a1,font-weight:bold;
+    classDef emerald fill:#047857,stroke:#10b981,stroke-width:2px,color:#ffffff,font-weight:bold;
+    classDef teal fill:#0f766e,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold;
+    classDef amber fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#ffffff,font-weight:bold;
+    classDef sky fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold;
 
     subgraph Client ["🖥️ Client Presentation Layer (Next.js 16 + React 19)"]
         UI["App Router & Hybrid Components"]:::emerald
@@ -133,9 +135,9 @@ graph TD
     end
 
     subgraph Auth ["🔐 Authentication Engine (BetterAuth)"]
-        BA["BetterAuth Server Engine"]:::mint
-        OAuthGoogle["Google OAuth 2.0"]:::mint
-        OAuthGH["GitHub OAuth 2.0"]:::mint
+        BA["BetterAuth Server Engine"]:::teal
+        OAuthGoogle["Google OAuth 2.0"]:::teal
+        OAuthGH["GitHub OAuth 2.0"]:::teal
         DB[("Embedded SQLite Store")]:::amber
     end
 
@@ -154,9 +156,9 @@ graph TD
     Transformer --> PrimaryAPI
     PrimaryAPI -.->|Failover| ReplicaAPI
 
-    style Client fill:#fbfcfb,stroke:#059669,stroke-width:1.5px,color:#065f46
-    style Auth fill:#fbfcfb,stroke:#10b981,stroke-width:1.5px,color:#047857
-    style Data fill:#fbfcfb,stroke:#0284c7,stroke-width:1.5px,color:#0369a1
+    style Client fill:transparent,stroke:#047857,stroke-width:1.5px,color:inherit
+    style Auth fill:transparent,stroke:#0f766e,stroke-width:1.5px,color:inherit
+    style Data fill:transparent,stroke:#0369a1,stroke-width:1.5px,color:inherit
 ```
 
 ---
@@ -173,7 +175,7 @@ graph TD
 
 <p align="center">
   <img src="https://img.shields.io/badge/Architecture-Modular_App_Router-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Architecture" />
-  <img src="https://img.shields.io/badge/Security-Zero_Secret_Leaks-059669?style=for-the-badge&logo=securityscorecard&logoColor=white" alt="Security" />
+  <img src="https://img.shields.io/badge/Security-Server--Side_Auth-047857?style=for-the-badge&logo=securityscorecard&logoColor=white" alt="Security" />
   <img src="https://img.shields.io/badge/Performance-Turbopack_Engine-0284c7?style=for-the-badge&logo=speedtest&logoColor=white" alt="Performance" />
   <img src="https://img.shields.io/badge/Typography-Hind_Siliguri-7C3AED?style=for-the-badge&logo=google-fonts&logoColor=white" alt="Typography" />
 </p>
@@ -187,12 +189,12 @@ graph TD
 | ⚡ **Core Framework** | [**Next.js 16**](https://nextjs.org/) | App Router, Turbopack Bundler, Server/Client Hybrid Components | [![Next.js](https://img.shields.io/badge/Next.js-16.4.0-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/) |
 | ⚛️ **UI Library** | [**React 19**](https://react.dev/) | React Server Actions, Suspense Boundaries, use() Hook API | [![React](https://img.shields.io/badge/React-19.3.0-087EA4?style=flat-square&logo=react&logoColor=white)](https://react.dev/) |
 | 🔷 **Language** | [**TypeScript 5**](https://www.typescriptlang.org/) | Strict Compile-Time Type Safety, Shared Domain Interfaces | [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) |
-| 🎨 **Styling Engine** | [**Tailwind CSS v4**](https://tailwindcss.com/) | Modern CSS Variables, Custom Marquee Keyframes, Responsive Grid | [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) |
-| 🔐 **Authentication** | [**BetterAuth**](https://better-auth.com/) | Credentials Auth, Google OAuth 2.0, GitHub OAuth 2.0, Session Guard | [![BetterAuth](https://img.shields.io/badge/BetterAuth-1.7.7-10B981?style=flat-square&logo=auth0&logoColor=white)](https://better-auth.com/) |
+| 🎨 **Styling Engine** | [**Tailwind CSS v4**](https://tailwindcss.com/) | Modern CSS Variables, Custom Marquee Keyframes, Responsive Grid | [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-0284C7?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) |
+| 🔐 **Authentication** | [**BetterAuth**](https://better-auth.com/) | Credentials Auth, Google OAuth 2.0, GitHub OAuth 2.0, Session Guard | [![BetterAuth](https://img.shields.io/badge/BetterAuth-1.7.7-047857?style=flat-square&logo=auth0&logoColor=white)](https://better-auth.com/) |
 | 🗄️ **Data Persistence** | [**Better-SQLite3**](https://github.com/WiseLibs/better-sqlite3) | Serverless-Compatible Embedded SQLite Session & User Store | [![SQLite](https://img.shields.io/badge/SQLite-v3-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org/) |
-| 🌐 **Cloud Hosting** | [**Netlify Edge**](https://www.netlify.com/) | Serverless Edge Network, Instant Invalidation, Automated CI/CD | [![Netlify](https://img.shields.io/badge/Netlify-CI%2FCD-00C7B7?style=flat-square&logo=netlify&logoColor=white)](https://www.netlify.com/) |
+| 🌐 **Cloud Hosting** | [**Netlify Edge**](https://www.netlify.com/) | Serverless Edge Network, Instant Invalidation, Automated CI/CD | [![Netlify](https://img.shields.io/badge/Netlify-CI%2FCD-0E1E25?style=flat-square&logo=netlify&logoColor=00C7B7)](https://www.netlify.com/) |
 | 💎 **Iconography** | [**Lucide React**](https://lucide.dev/) | Ultra-Lightweight Pixel-Perfect Vector Icon Library | [![Lucide](https://img.shields.io/badge/Lucide-1.52-F43F5E?style=flat-square&logo=feather&logoColor=white)](https://lucide.dev/) |
-| 🔔 **Notifications** | [**React Hot Toast**](https://react-hot-toast.com/) | Accessible, Non-Blocking Interactive User Toast Notifications | [![React Hot Toast](https://img.shields.io/badge/Hot_Toast-2.6-F59E0B?style=flat-square&logo=safari&logoColor=white)](https://react-hot-toast.com/) |
+| 🔔 **Notifications** | [**React Hot Toast**](https://react-hot-toast.com/) | Accessible, Non-Blocking Interactive User Toast Notifications | [![React Hot Toast](https://img.shields.io/badge/Hot_Toast-2.6-B45309?style=flat-square&logo=safari&logoColor=white)](https://react-hot-toast.com/) |
 
 ---
 
@@ -201,10 +203,10 @@ graph TD
 <div align="center">
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Pattern-Feature--Sliced_App_Router-059669?style=for-the-badge&logo=blueprint&logoColor=white" alt="Pattern" />
+  <img src="https://img.shields.io/badge/Pattern-Feature--Sliced_App_Router-047857?style=for-the-badge&logo=blueprint&logoColor=white" alt="Pattern" />
   <img src="https://img.shields.io/badge/Modules-Decoupled_Components-0284c7?style=for-the-badge&logo=dependabot&logoColor=white" alt="Modules" />
   <img src="https://img.shields.io/badge/TypeScript-100%25_Type_Safe-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="Type Safe" />
-  <img src="https://img.shields.io/badge/Styles-Tailwind_v4_Tokens-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Styles" />
+  <img src="https://img.shields.io/badge/Styles-Tailwind_v4_Tokens-0284C7?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Styles" />
 </p>
 
 </div>
@@ -224,7 +226,7 @@ graph TD
 | 🛡️ **`src/context/`** | **Global State Management** | `AuthContext.tsx` | Persistent multi-tab auth session provider and toast notification dispatch |
 | ⚙️ **`src/lib/`** | **Core Services & Utilities** | `api.ts`, `auth.ts`, `utils.ts` | Dual-replica failover API client and Bengali numeral converter |
 | 📐 **`src/types/`** | **Domain Type Definitions** | `index.ts` | Strict TypeScript domain contracts (`Product`, `Category`, `User`) |
-| 🖼️ **`public/`** | **Static CDN Assets** | `hero.png`, `favicon.ico`, `screenshots/` | Optimized responsive images and application showcase media |
+| 🖼️ **`public/`** | **Static Assets & Screenshots** | `bazar-hero.png`, `screenshots/` | Optimized responsive images and application showcase media |
 | 🔧 **Configuration** | **Infrastructure & Tooling** | `netlify.toml`, `next.config.ts` | Turbopack loaders, HTTP security headers, and automated CI/CD |
 
 <br />
@@ -236,7 +238,6 @@ graph TD
 bazar-dor/
 ├── public/                       # Static public assets & documentation media
 │   ├── bazar-hero.png            # Hero visual artwork
-│   ├── favicon.ico               # Branded application favicon
 │   └── screenshots/              # High-resolution application preview images
 │       ├── hero-preview.png      # Hero & marquee ticker showcase
 │       ├── risers-fallers.png    # Top 6 risers & fallers display
@@ -253,6 +254,7 @@ bazar-dor/
 │   │   │   └── update/           # Self-service profile editing
 │   │   ├── signin/               # Authentication entry point
 │   │   ├── signup/               # New user onboarding
+│   │   ├── favicon.ico           # Branded application favicon
 │   │   ├── globals.css           # Global CSS variables, animations & marquee
 │   │   ├── layout.tsx            # Root layout, fonts & toast container
 │   │   ├── not-found.tsx         # Custom branded Bengali 404 error page
@@ -290,7 +292,7 @@ bazar-dor/
 <p align="center">
   <img src="https://img.shields.io/badge/Runtime-Node.js_20+-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node" />
   <img src="https://img.shields.io/badge/Package_Manager-npm_|_pnpm_|_yarn-CB3837?style=for-the-badge&logo=npm&logoColor=white" alt="npm" />
-  <img src="https://img.shields.io/badge/Setup_Duration-~2_Minutes-059669?style=for-the-badge&logo=clock&logoColor=white" alt="Setup Duration" />
+  <img src="https://img.shields.io/badge/Setup_Duration-~2_Minutes-047857?style=for-the-badge&logo=clock&logoColor=white" alt="Setup Duration" />
   <img src="https://img.shields.io/badge/Port-localhost:3000-0284c7?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Port" />
 </p>
 
@@ -366,10 +368,10 @@ npm run start
 <div align="center">
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Security_Score-A+_Hardened-059669?style=for-the-badge&logo=securityscorecard&logoColor=white" alt="Security Score" />
+  <img src="https://img.shields.io/badge/Security-Hardened_Defaults-047857?style=for-the-badge&logo=securityscorecard&logoColor=white" alt="Security" />
   <img src="https://img.shields.io/badge/Headers-OWASP_Top_10_Aligned-0284c7?style=for-the-badge&logo=shield&logoColor=white" alt="Headers" />
   <img src="https://img.shields.io/badge/Cookies-HttpOnly_•_SameSite_Lax-7C3AED?style=for-the-badge&logo=cookie&logoColor=white" alt="Cookies" />
-  <img src="https://img.shields.io/badge/Uptime-Dual--Replica_Resilience-10B981?style=for-the-badge&logo=statuspage&logoColor=white" alt="Resilience" />
+  <img src="https://img.shields.io/badge/Uptime-Dual--Replica_Resilience-047857?style=for-the-badge&logo=statuspage&logoColor=white" alt="Resilience" />
 </p>
 
 </div>
@@ -380,7 +382,7 @@ npm run start
 
 | Security Pillar | Technical Mechanism | Threat / Vulnerability Mitigated | Enforcement Level |
 | :--- | :--- | :--- | :---: |
-| 🛡️ **Zero Secret Leakage** | All OAuth credentials and secret tokens strictly quarantined to serverless functions (Zero `NEXT_PUBLIC_` exposures) | Credential harvesting, API key scraping, unauthorized token issuance | `100% Serverless Enforced` |
+| 🛡️ **Zero Public Secret Exposure** | All OAuth credentials and private tokens strictly quarantined to server-side functions (Zero `NEXT_PUBLIC_` exposures) | Credential harvesting, API key scraping, unauthorized token issuance | `100% Server-Side Enforced` |
 | 🌐 **HTTP Security Headers** | Built-in security policies injected directly via `next.config.ts`: `X-Frame-Options: SAMEORIGIN`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy`, and `HSTS` | Clickjacking attacks, MIME confusion exploits, cross-origin information leakage | `Global Edge Enforced` |
 | 🍪 **Hardened Session Cookies** | BetterAuth session cookies default to `HttpOnly`, `SameSite: Lax`, and mandatory `Secure` in production environments | Cross-Site Scripting (XSS) session theft, CSRF session hijackings | `Cryptographically Signed` |
 | 🔄 **Dual-Replica API Failover** | Automatic retry mechanism switching to secondary Cloudflare Workers replica upon upstream anomaly | Network timeouts, edge server downtime, data provider outages | `Self-Healing Failover` |
@@ -393,26 +395,35 @@ npm run start
 <div align="center">
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Architecture-RESTful_JSON-059669?style=for-the-badge&logo=fastapi&logoColor=white" alt="REST" />
+  <img src="https://img.shields.io/badge/Architecture-RESTful_JSON-047857?style=for-the-badge&logo=fastapi&logoColor=white" alt="REST" />
   <img src="https://img.shields.io/badge/Format-application%2Fjson-0284c7?style=for-the-badge&logo=json&logoColor=white" alt="JSON" />
-  <img src="https://img.shields.io/badge/CDN_Edge-Cloudflare_Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare" />
-  <img src="https://img.shields.io/badge/Failover-Auto_Replica_Retry-10B981?style=for-the-badge&logo=statuspage&logoColor=white" alt="Failover" />
+  <img src="https://img.shields.io/badge/CDN_Edge-Cloudflare_Workers-C75E0A?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare" />
+  <img src="https://img.shields.io/badge/Failover-Auto_Replica_Retry-047857?style=for-the-badge&logo=statuspage&logoColor=white" alt="Failover" />
 </p>
 
 </div>
 
 <br />
 
-| Method | Endpoint Route | Parameters / Payload | Description | Response Type | Status |
+### 📡 Upstream Edge REST API (Cloudflare Workers)
+
+| Method | Endpoint Route | Source / Host | Description | Sample Query / Live Data | Status |
+| :---: | :--- | :--- | :--- | :---: | :---: |
+| [![GET](https://img.shields.io/badge/GET-047857?style=flat-square&logo=http&logoColor=white)](https://api.api-store.workers.dev/api/bazardor/categories) | `/categories` | Edge Worker | Retrieves complete list of commodity categories | [View Live JSON](https://api.api-store.workers.dev/api/bazardor/categories) | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-047857?style=flat-square&logo=http&logoColor=white)](https://api.api-store.workers.dev/api/bazardor/categories/chal) | `/categories/:slug` | Edge Worker | Fetches specific category details and icon | [View Live JSON](https://api.api-store.workers.dev/api/bazardor/categories/chal) | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-047857?style=flat-square&logo=http&logoColor=white)](https://api.api-store.workers.dev/api/bazardor/products) | `/products` | Edge Worker | Retrieves all commodities with today's prices & 24h delta | [View Live JSON](https://api.api-store.workers.dev/api/bazardor/products) | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-047857?style=flat-square&logo=http&logoColor=white)](https://api.api-store.workers.dev/api/bazardor/products?category=chal) | `/products?category=:slug` | Edge Worker | Filters commodities under a specific category slug | [View Live JSON](https://api.api-store.workers.dev/api/bazardor/products?category=chal) | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-047857?style=flat-square&logo=http&logoColor=white)](https://api.api-store.workers.dev/api/bazardor/products/1) | `/products/:id` | Edge Worker | Returns product analytics and multi-bazaar pricing matrix | [View Live JSON](https://api.api-store.workers.dev/api/bazardor/products/1) | `200 OK` |
+
+<br />
+
+### 🔐 Next.js BetterAuth Endpoints
+
+| Method | Endpoint Route | Host | Description | Response Type | Status |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/categories` | `None` | Retrieves complete list of commodity categories | `Category[]` | `200 OK` |
-| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/categories/:slug` | `:slug` (string) | Fetches specific category details and icon | `Category` | `200 OK` |
-| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/products` | `None` | Retrieves all commodities with today's prices & 24h delta | `Product[]` | `200 OK` |
-| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/products?category=:slug` | `category` (query) | Filters commodities under a specific category slug | `Product[]` | `200 OK` |
-| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/products/:id` | `:id` (string / slug) | Returns product analytics and multi-bazaar pricing matrix | `ProductDetail` | `200 OK` |
-| [![POST](https://img.shields.io/badge/POST-0284c7?style=flat-square&logo=postman&logoColor=white)](https://bazar-d0r.netlify.app/) | `/api/auth/sign-in/email` | `{ email, password }` | Authenticates existing user credentials | `UserSession` | `200 OK` |
-| [![POST](https://img.shields.io/badge/POST-0284c7?style=flat-square&logo=postman&logoColor=white)](https://bazar-d0r.netlify.app/) | `/api/auth/sign-in/social` | `{ provider, callbackURL }` | Initiates OAuth 2.0 handshake for Google or GitHub | `{ url, redirect }` | `200 OK` |
-| [![GET](https://img.shields.io/badge/GET-059669?style=flat-square&logo=http&logoColor=white)](https://bazar-d0r.netlify.app/) | `/api/auth/get-session` | `Session Cookie` | Validates session token and returns logged-in user | `UserSession` | `200 OK` |
+| [![POST](https://img.shields.io/badge/POST-0284c7?style=flat-square&logo=postman&logoColor=white)](#) | `/api/auth/sign-in/email` | Next.js Serverless | Authenticates existing user credentials | `UserSession` | `200 OK` |
+| [![POST](https://img.shields.io/badge/POST-0284c7?style=flat-square&logo=postman&logoColor=white)](#) | `/api/auth/sign-in/social` | Next.js Serverless | Initiates OAuth 2.0 handshake for Google or GitHub | `{ url, redirect }` | `200 OK` |
+| [![GET](https://img.shields.io/badge/GET-047857?style=flat-square&logo=http&logoColor=white)](#) | `/api/auth/get-session` | Next.js Serverless | Validates session token and returns logged-in user | `UserSession` | `200 OK` |
 
 <br />
 
@@ -458,8 +469,8 @@ npm run start
 <div align="center">
 
 <p align="center">
-  <img src="https://img.shields.io/badge/License-MIT-F59E0B?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License" />
-  <img src="https://img.shields.io/badge/Contributions-Welcome-059669?style=for-the-badge&logo=git&logoColor=white" alt="Contributions Welcome" />
+  <img src="https://img.shields.io/badge/License-MIT-B45309?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="MIT License" />
+  <img src="https://img.shields.io/badge/Contributions-Welcome-047857?style=for-the-badge&logo=git&logoColor=white" alt="Contributions Welcome" />
   <img src="https://img.shields.io/badge/Status-Active_Production-0284c7?style=for-the-badge&logo=statuspage&logoColor=white" alt="Active" />
 </p>
 
@@ -473,7 +484,7 @@ You are free to use, modify, distribute, and integrate this software into privat
 
 <br /><br />
 
-[![Live Application](https://img.shields.io/badge/🌐_Launch_Live_Platform-https%3A%2F%2Fbazar--d0r.netlify.app%2F-059669?style=for-the-badge)](https://bazar-d0r.netlify.app/)
+[![Live Application](https://img.shields.io/badge/🌐_Launch_Live_Platform-bazar--d0r.netlify.app-047857?style=for-the-badge)](https://bazar-d0r.netlify.app/)
 &nbsp;&nbsp;
 [![GitHub Repository](https://img.shields.io/badge/💻_Star_on_GitHub-24292E?style=for-the-badge&logo=github)](https://github.com/mahfuzhasan2700/Bazar-Dor)
 
@@ -482,4 +493,3 @@ You are free to use, modify, distribute, and integrate this software into privat
 <sub>© 2026 BazarDor Platform. All rights reserved.</sub>
 
 </div>
-

@@ -39,36 +39,49 @@ export function formatBanglaUnit(unit: string): string {
   }
 }
 
-export function getTodayBanglaDate(): string {
-  const days = [
-    "রবিবার",
-    "সোমবার",
-    "মঙ্গলবার",
-    "বুধবার",
-    "বৃহস্পতিবার",
-    "শুক্রবার",
-    "শনিবার",
-  ];
-  const months = [
-    "জানুয়ারি",
-    "ফেব্রুয়ারি",
-    "মার্চ",
-    "এপ্রিল",
-    "মে",
-    "জুন",
-    "জুলাই",
-    "আগস্ট",
-    "সেপ্টেম্বর",
-    "অক্টোবর",
-    "নভেম্বর",
-    "ডিসেম্বর",
-  ];
+export function getTodayBanglaDate(date: Date = new Date()): string {
+  try {
+    return new Intl.DateTimeFormat("bn-BD", {
+      timeZone: "Asia/Dhaka",
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  } catch {
+    const days = [
+      "রবিবার",
+      "সোমবার",
+      "মঙ্গলবার",
+      "বুধবার",
+      "বৃহস্পতিবার",
+      "শুক্রবার",
+      "শনিবার",
+    ];
+    const months = [
+      "জানুয়ারি",
+      "ফেব্রুয়ারি",
+      "মার্চ",
+      "এপ্রিল",
+      "মে",
+      "জুন",
+      "জুলাই",
+      "আগস্ট",
+      "সেপ্টেম্বর",
+      "অক্টোবর",
+      "নভেম্বর",
+      "ডিসেম্বর",
+    ];
 
-  const now = new Date();
-  const dayName = days[now.getDay()];
-  const dateNum = toBanglaNumber(now.getDate());
-  const monthName = months[now.getMonth()];
-  const yearNum = toBanglaNumber(now.getFullYear());
+    // Fallback: Compute date in Asia/Dhaka (+6 UTC offset)
+    const utc = date.getTime() + date.getTimezoneOffset() * 60000;
+    const dhakaDate = new Date(utc + 6 * 3600000);
 
-  return `${dayName}, ${dateNum} ${monthName}, ${yearNum}`;
+    const dayName = days[dhakaDate.getDay()];
+    const dateNum = toBanglaNumber(dhakaDate.getDate());
+    const monthName = months[dhakaDate.getMonth()];
+    const yearNum = toBanglaNumber(dhakaDate.getFullYear());
+
+    return `${dayName}, ${dateNum} ${monthName}, ${yearNum}`;
+  }
 }

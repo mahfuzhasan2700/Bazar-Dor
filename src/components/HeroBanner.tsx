@@ -1,23 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import { getTodayBanglaDate } from "@/lib/utils";
+import BanglaDate from "@/components/BanglaDate";
 import { ArrowDown } from "lucide-react";
 
 export default function HeroBanner() {
-  const banglaDate = getTodayBanglaDate();
-
   return (
     <section className="bg-gradient-to-b from-emerald-50/50 to-white py-10 sm:py-14 border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           {/* Left Text Content */}
           <div className="md:col-span-7 space-y-4 sm:space-y-5 text-center md:text-left">
-            <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-800 text-xs sm:text-sm font-semibold"
-              suppressHydrationWarning
-            >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-800 text-xs sm:text-sm font-semibold">
               <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-              {banglaDate}
+              <BanglaDate />
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-tight">

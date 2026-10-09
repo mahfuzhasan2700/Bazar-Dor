@@ -19,7 +19,7 @@ export default function PriceTicker({ products = [] }: PriceTickerProps) {
   const tickerItems = [...products, ...products];
 
   return (
-    <div className="bg-emerald-50/70 border-b border-emerald-100 overflow-hidden py-1.5 text-xs">
+    <div className="bg-emerald-50/70 overflow-hidden py-1.5 text-xs">
       <div className="flex animate-marquee items-center gap-6">
         {tickerItems.map((item, index) => {
           const isUp = item.change?.dir === "up";
@@ -39,9 +39,9 @@ export default function PriceTicker({ products = [] }: PriceTickerProps) {
               <span
                 className={`flex items-center font-semibold text-[11px] px-1 py-0.5 rounded ${
                   isUp
-                    ? "text-emerald-700 bg-emerald-100/60"
+                    ? "text-red-600 bg-red-100/60"
                     : isDown
-                    ? "text-red-700 bg-red-100/60"
+                    ? "text-emerald-700 bg-emerald-100/60"
                     : "text-gray-600 bg-gray-100"
                 }`}
               >

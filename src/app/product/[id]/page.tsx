@@ -204,16 +204,16 @@ export default function ProductDetailPage({
             <div
               className={`px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1 ${
                 isUp
-                  ? "bg-emerald-100 text-emerald-800"
+                  ? "bg-red-50 text-red-600"
                   : isDown
-                  ? "bg-red-100 text-red-800"
+                  ? "bg-emerald-50 text-emerald-700"
                   : "bg-gray-200 text-gray-700"
               }`}
             >
               {isUp ? (
-                <TrendingUp className="w-3.5 h-3.5" />
+                <TrendingUp className="w-3.5 h-3.5 text-red-600" />
               ) : isDown ? (
-                <TrendingDown className="w-3.5 h-3.5" />
+                <TrendingDown className="w-3.5 h-3.5 text-emerald-700" />
               ) : null}
               <span>
                 {isUp ? "▲ " : isDown ? "▼ " : "— "}

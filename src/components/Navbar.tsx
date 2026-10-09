@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { getTodayBanglaDate } from "@/lib/utils";
+import BanglaDate from "@/components/BanglaDate";
 import { User as UserIcon, LogOut, ChevronDown } from "lucide-react";
 
 const CATEGORIES = [
@@ -23,34 +23,30 @@ export default function Navbar() {
   const pathname = usePathname();
   const { user, signOut } = useAuth();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const banglaDate = getTodayBanglaDate();
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-xs">
+    <header className="sticky top-0 z-40 bg-white border-b border-gray-100/60 shadow-xs">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Top Bar: Brand, Date, Auth Controls */}
-        <div className="flex items-center justify-between py-3 border-b border-gray-100">
+        <div className="flex items-center justify-between py-3">
           {/* Logo & Dynamic Bangla Date */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8 flex items-center justify-center">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#09793c] flex items-center justify-center p-2 shadow-xs shrink-0">
               <Image
                 src="/logo-icon.png"
                 alt="বাজার দর লোগো"
-                width={32}
-                height={32}
+                width={26}
+                height={26}
                 className="object-contain"
                 priority
               />
             </div>
             <div>
-              <div className="text-xl sm:text-2xl font-bold tracking-tight text-emerald-800 flex items-center gap-1">
+              <div className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 flex items-center gap-1">
                 বাজার দর
               </div>
-              <p
-                className="text-[11px] sm:text-xs text-gray-500 font-medium"
-                suppressHydrationWarning
-              >
-                {banglaDate}
+              <p className="text-[11px] sm:text-xs text-gray-500 font-medium">
+                <BanglaDate />
               </p>
             </div>
           </Link>
