@@ -130,7 +130,8 @@
     'titleColor': '#ffffff',
     'edgeLabelBackground': '#0f172a',
     'clusterBkg': '#0f172a33',
-    'clusterBorder': '#334155'
+    'clusterBorder': '#334155',
+    'fontSize': '14px'
   }
 }}%%
 graph TD
@@ -139,21 +140,21 @@ graph TD
     classDef amber fill:#b45309,stroke:#f59e0b,stroke-width:2px,color:#ffffff,font-weight:bold;
     classDef sky fill:#0369a1,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold;
 
-    subgraph Client ["🖥️ Client Presentation Layer (Next.js 16 + React 19)"]
+    subgraph Client ["🖥️ Client Presentation Layer"]
         UI["App Router & Hybrid Components"]:::emerald
         Ticker["Hardware Marquee Ticker"]:::emerald
         Sort["Bengali Numeric Sorting Engine"]:::emerald
         Protected["Route Guard & Next.js 16 Proxy"]:::emerald
     end
 
-    subgraph Auth ["🔐 Authentication Engine (BetterAuth)"]
+    subgraph Auth ["🔐 Authentication Engine"]
         BA["BetterAuth Server Engine"]:::teal
         OAuthGoogle["Google OAuth 2.0"]:::teal
         OAuthGH["GitHub OAuth 2.0"]:::teal
         DB[("MongoDB Atlas & Resilient Store")]:::amber
     end
 
-    subgraph Data ["📊 Resilient Commodity Data Layer"]
+    subgraph Data ["📊 Commodity Data Layer"]
         PrimaryAPI["Primary Edge API (Cloudflare Workers)"]:::sky
         ReplicaAPI["Fallback Replica API"]:::sky
         Transformer["Bengali Digit & Unit Converter"]:::emerald
@@ -168,9 +169,9 @@ graph TD
     Transformer --> PrimaryAPI
     PrimaryAPI -.->|Failover| ReplicaAPI
 
-    style Client fill:#064e3b26,stroke:#10b981,stroke-width:2px,color:#ffffff,font-weight:bold
-    style Auth fill:#0f766e26,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold
-    style Data fill:#0369a126,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold
+    style Client fill:#064e3b26,stroke:#10b981,stroke-width:2px,color:#ffffff
+    style Auth fill:#0f766e26,stroke:#2dd4bf,stroke-width:2px,color:#ffffff
+    style Data fill:#0369a126,stroke:#38bdf8,stroke-width:2px,color:#ffffff
 
     linkStyle default stroke:#94a3b8,stroke-width:2px
 ```
