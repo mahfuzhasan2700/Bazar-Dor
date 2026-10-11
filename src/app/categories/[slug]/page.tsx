@@ -20,7 +20,6 @@ export default function CategoryPage({
   const slug = resolvedParams.slug;
 
   const [products, setProducts] = useState<Product[]>([]);
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [category, setCategory] = useState<Category | null>(null);
   const [sortBy, setSortBy] = useState<SortOption>("default");
   const [isLoading, setIsLoading] = useState(true);
@@ -33,8 +32,6 @@ export default function CategoryPage({
           getCategories(),
           getAllProducts(),
         ]);
-
-        setAllProducts(allProdsData);
 
         const currentCat = categoriesData.find(
           (c) => c.slug.toLowerCase() === slug.toLowerCase() || c.id === slug

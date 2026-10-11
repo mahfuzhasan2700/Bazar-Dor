@@ -21,6 +21,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const saveUser = (userData: User | null) => {
+    setUser(userData);
+    if (typeof window !== "undefined") {
+      if (userData) {
+        localStorage.setItem("bazardor_user", JSON.stringify(userData));
+        // Set session token cookie for middleware authentication
+        document.cookie =
+          "better-auth.session_token=" +
+          encodeURIComponent(userData.id) +
+          "; path=/; max-age=604800; SameSite=Lax";
+      } else {
+        localStorage.removeItem("bazardor_user");
+        document.cookie =
+          "better-auth.session_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC; SameSite=Lax";
+      }
+    }
+  };
+
   // Restore user session on mount directly via BetterAuth
   useEffect(() => {
     async function initSession() {
@@ -52,15 +70,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
     initSession();
   }, []);
-
-  const saveUser = (userData: User | null) => {
-    setUser(userData);
-    if (userData) {
-      localStorage.setItem("bazardor_user", JSON.stringify(userData));
-    } else {
-      localStorage.removeItem("bazardor_user");
-    }
-  };
 
   const signIn = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
@@ -113,8 +122,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       toast.error("ইমেইল বা পাসওয়ার্ড সঠিক নয়!");
       return false;
-    } catch (error: any) {
-      toast.error(error?.message || "লগইন ব্যর্থ হয়েছে!");
+    } catch (error: unknown) {
+      const msg = error instanceof Error ? error.message : "লগইন ব্যর্থ হয়েছে!";
+      toast.error(msg);
       return false;
     } finally {
       setIsLoading(false);
@@ -163,8 +173,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে! অনুগ্রহ করে লগইন করুন।");
       return true;
-    } catch (error: any) {
-      toast.error(error?.message || "রেজিস্ট্রেশন ব্যর্থ হয়েছে!");
+    } catch (error: unknown) {
+      const msg = error instanceof Error ? error.message : "রেজিস্ট্রেশন ব্যর্থ হয়েছে!";
+      toast.error(msg);
       return false;
     } finally {
       setIsLoading(false);
@@ -199,12 +210,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       return true;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(`BetterAuth social login error for ${provider}:`, error);
-      toast.error(
-        error?.message ||
-          `${provider === "google" ? "Google" : "GitHub"} লগইন ব্যর্থ হয়েছে!`
-      );
+      const msg =
+        error instanceof Error
+          ? error.message
+          : `${provider === "google" ? "Google" : "GitHub"} লগইন ব্যর্থ হয়েছে!`;
+      toast.error(msg);
       return false;
     } finally {
       setIsLoading(false);

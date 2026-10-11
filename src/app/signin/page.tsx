@@ -9,7 +9,8 @@ import toast from "react-hot-toast";
 function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const redirectUrl = searchParams.get("redirect") || "/";
+  const redirectUrl =
+    searchParams.get("callbackUrl") || searchParams.get("redirect") || "/";
   const { signIn, socialSignIn } = useAuth();
 
   const [email, setEmail] = useState("");

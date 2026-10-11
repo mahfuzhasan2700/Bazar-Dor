@@ -12,13 +12,17 @@ export default function ProfileUpdatePage() {
   const { user, isLoading, updateUser } = useAuth();
   const [name, setName] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
+
+  if (user && !hasInitialized) {
+    setName(user.name);
+    setHasInitialized(true);
+  }
 
   useEffect(() => {
     if (!isLoading && !user) {
       toast.error("তথ্য পরিবর্তন করতে আগে লগইন করুন!");
-      router.push("/signin?redirect=/profile/update");
-    } else if (user) {
-      setName(user.name);
+      router.push("/signin?callbackUrl=/profile/update");
     }
   }, [user, isLoading, router]);
 

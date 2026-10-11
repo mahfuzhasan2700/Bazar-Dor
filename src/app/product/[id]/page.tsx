@@ -4,16 +4,12 @@ import React, { useEffect, useState, use } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import { getProductByIdOrSlug, getAllProducts } from "@/lib/api";
+import { getProductByIdOrSlug } from "@/lib/api";
 import { Product } from "@/types";
 import { toBanglaNumber, formatBanglaUnit } from "@/lib/utils";
 import toast from "react-hot-toast";
 import {
-  TrendingUp,
-  TrendingDown,
   ArrowLeft,
-  Store,
-  MapPin,
   ShieldAlert,
 } from "lucide-react";
 
@@ -28,7 +24,6 @@ export default function ProductDetailPage({
   const { user, isLoading: authLoading } = useAuth();
 
   const [product, setProduct] = useState<Product | null>(null);
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // Protected route check
@@ -43,12 +38,8 @@ export default function ProductDetailPage({
     async function loadProduct() {
       setIsLoading(true);
       try {
-        const [prod, allProds] = await Promise.all([
-          getProductByIdOrSlug(idOrSlug),
-          getAllProducts(),
-        ]);
+        const prod = await getProductByIdOrSlug(idOrSlug);
         setProduct(prod);
-        setAllProducts(allProds);
       } catch (err) {
         console.error("Error loading product:", err);
       } finally {

@@ -7,10 +7,11 @@ const handler = toNextJsHandler(auth);
 export async function GET(req: NextRequest) {
   try {
     return await handler.GET(req);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Internal auth error";
     console.error("[BetterAuth GET Error]:", error);
     return NextResponse.json(
-      { error: error?.message || "Internal auth error", code: "INTERNAL_ERROR" },
+      { error: msg, code: "INTERNAL_ERROR" },
       { status: 500 }
     );
   }
@@ -19,12 +20,12 @@ export async function GET(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     return await handler.POST(req);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const msg = error instanceof Error ? error.message : "Internal auth error";
     console.error("[BetterAuth POST Error]:", error);
     return NextResponse.json(
-      { error: error?.message || "Internal auth error", code: "INTERNAL_ERROR" },
+      { error: msg, code: "INTERNAL_ERROR" },
       { status: 500 }
     );
   }
 }
-

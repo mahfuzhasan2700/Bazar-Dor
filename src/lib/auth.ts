@@ -1,61 +1,83 @@
 import { betterAuth } from "better-auth";
+import { MongoClient } from "mongodb";
+import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import Database from "better-sqlite3";
 import path from "path";
 import os from "os";
 
-// In serverless environments like Vercel, write to temp dir
-const dbPath =
-  process.env.NODE_ENV === "production"
-    ? path.join(os.tmpdir(), "auth.db")
-    : "auth.db";
+const mongoUri = process.env.MONGODB_URI;
 
-const db = new Database(dbPath);
+function getDatabaseConfig() {
+  if (
+    mongoUri &&
+    (mongoUri.startsWith("mongodb://") || mongoUri.startsWith("mongodb+srv://")) &&
+    !mongoUri.includes("<username>")
+  ) {
+    try {
+      const client = new MongoClient(mongoUri);
+      const dbName = process.env.MONGODB_DB_NAME || "bazardor";
+      const db = client.db(dbName);
+      return mongodbAdapter(db, { client });
+    } catch (err) {
+      console.warn("MongoDB initialization warning, falling back to SQLite:", err);
+    }
+  }
 
-// Ensure all BetterAuth core tables exist automatically
-db.exec(`
-  CREATE TABLE IF NOT EXISTS user (
-    id TEXT PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL,
-    emailVerified INTEGER NOT NULL DEFAULT 0,
-    image TEXT,
-    createdAt DATETIME NOT NULL,
-    updatedAt DATETIME NOT NULL
-  );
-  CREATE TABLE IF NOT EXISTS session (
-    id TEXT PRIMARY KEY,
-    expiresAt DATETIME NOT NULL,
-    token TEXT UNIQUE NOT NULL,
-    createdAt DATETIME NOT NULL,
-    updatedAt DATETIME NOT NULL,
-    ipAddress TEXT,
-    userAgent TEXT,
-    userId TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE
-  );
-  CREATE TABLE IF NOT EXISTS account (
-    id TEXT PRIMARY KEY,
-    accountId TEXT NOT NULL,
-    providerId TEXT NOT NULL,
-    userId TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
-    accessToken TEXT,
-    refreshToken TEXT,
-    idToken TEXT,
-    accessTokenExpiresAt DATETIME,
-    refreshTokenExpiresAt DATETIME,
-    scope TEXT,
-    password TEXT,
-    createdAt DATETIME NOT NULL,
-    updatedAt DATETIME NOT NULL
-  );
-  CREATE TABLE IF NOT EXISTS verification (
-    id TEXT PRIMARY KEY,
-    identifier TEXT NOT NULL,
-    value TEXT NOT NULL,
-    expiresAt DATETIME NOT NULL,
-    createdAt DATETIME NOT NULL,
-    updatedAt DATETIME NOT NULL
-  );
-`);
+  // Fallback to SQLite database in environments where MongoDB is not yet connected
+  const dbPath =
+    process.env.NODE_ENV === "production"
+      ? path.join(os.tmpdir(), "auth.db")
+      : "auth.db";
+
+  const db = new Database(dbPath);
+
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS user (
+      id TEXT PRIMARY KEY,
+      name TEXT NOT NULL,
+      email TEXT UNIQUE NOT NULL,
+      emailVerified INTEGER NOT NULL DEFAULT 0,
+      image TEXT,
+      createdAt DATETIME NOT NULL,
+      updatedAt DATETIME NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS session (
+      id TEXT PRIMARY KEY,
+      expiresAt DATETIME NOT NULL,
+      token TEXT UNIQUE NOT NULL,
+      createdAt DATETIME NOT NULL,
+      updatedAt DATETIME NOT NULL,
+      ipAddress TEXT,
+      userAgent TEXT,
+      userId TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE
+    );
+    CREATE TABLE IF NOT EXISTS account (
+      id TEXT PRIMARY KEY,
+      accountId TEXT NOT NULL,
+      providerId TEXT NOT NULL,
+      userId TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
+      accessToken TEXT,
+      refreshToken TEXT,
+      idToken TEXT,
+      accessTokenExpiresAt DATETIME,
+      refreshTokenExpiresAt DATETIME,
+      scope TEXT,
+      password TEXT,
+      createdAt DATETIME NOT NULL,
+      updatedAt DATETIME NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS verification (
+      id TEXT PRIMARY KEY,
+      identifier TEXT NOT NULL,
+      value TEXT NOT NULL,
+      expiresAt DATETIME NOT NULL,
+      createdAt DATETIME NOT NULL,
+      updatedAt DATETIME NOT NULL
+    );
+  `);
+
+  return db;
+}
 
 const getBaseURL = () => {
   if (process.env.NODE_ENV === "production") {
@@ -77,7 +99,7 @@ export const auth = betterAuth({
   secret:
     process.env.BETTER_AUTH_SECRET ||
     "bazar_dor_default_secure_secret_key_2026",
-  database: db,
+  database: getDatabaseConfig(),
   baseURL: getBaseURL(),
   trustedOrigins: [
     "https://bazar-dor-perseus11.vercel.app",

@@ -1,22 +1,28 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import toast from "react-hot-toast";
+import { Edit3 } from "lucide-react";
 
 export default function ProfilePage() {
   const router = useRouter();
   const { user, isLoading, signOut, updateUser } = useAuth();
   const [name, setName] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
+
+  if (user && !hasInitialized) {
+    setName(user.name);
+    setHasInitialized(true);
+  }
 
   useEffect(() => {
     if (!isLoading && !user) {
       toast.error("প্রোফাইল দেখতে অনুগ্রহ করে আগে লগইন করুন!");
-      router.push("/signin?redirect=/profile");
-    } else if (user) {
-      setName(user.name);
+      router.push("/signin?callbackUrl=/profile");
     }
   }, [user, isLoading, router]);
 
@@ -53,8 +59,8 @@ export default function ProfilePage() {
         </p>
       </div>
 
-      {/* Card 1: User Profile Card matching Image 2 */}
-      <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs flex items-center justify-between gap-4">
+      {/* Card 1: User Profile Card matching Image 2 & Challenge C3 */}
+      <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           {user.image ? (
             <img
@@ -78,31 +84,49 @@ export default function ProfilePage() {
           </div>
         </div>
 
-        {/* Sign Out Button matching Image 2 */}
-        <button
-          type="button"
-          onClick={() => signOut()}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#d03739] text-[#d03739] hover:bg-red-50 text-xs sm:text-sm font-semibold transition cursor-pointer shrink-0"
-        >
-          <svg
-            className="w-4 h-4 text-[#d03739] shrink-0"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        {/* Action Buttons: Challenge C3 Update Information Link + Sign Out */}
+        <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-center">
+          <Link
+            href="/profile/update"
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#09793c] hover:bg-[#076833] text-white text-xs sm:text-sm font-semibold transition shadow-xs cursor-pointer"
           >
-            <path d="M9 14L4 9l5-5" />
-            <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11" />
-          </svg>
-          <span>সাইন আউট</span>
-        </button>
+            <Edit3 className="w-4 h-4" />
+            <span>তথ্য আপডেট করুন</span>
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => signOut()}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#d03739] text-[#d03739] hover:bg-red-50 text-xs sm:text-sm font-semibold transition cursor-pointer"
+          >
+            <svg
+              className="w-4 h-4 text-[#d03739] shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 14L4 9l5-5" />
+              <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11" />
+            </svg>
+            <span>সাইন আউট</span>
+          </button>
+        </div>
       </div>
 
       {/* Card 2: Information Form matching Image 2 */}
       <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs space-y-4">
-        <h3 className="text-base font-bold text-gray-900">তথ্য</h3>
+        <div className="flex items-center justify-between">
+          <h3 className="text-base font-bold text-gray-900">তথ্য</h3>
+          <Link
+            href="/profile/update"
+            className="text-xs text-[#09793c] hover:underline font-semibold"
+          >
+            আলাদা পেজে তথ্য পরিবর্তন করুন →
+          </Link>
+        </div>
 
         <form onSubmit={handleUpdate} className="space-y-4">
           <div>

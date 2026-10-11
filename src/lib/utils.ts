@@ -22,6 +22,16 @@ export function toBanglaNumber(value: number | string | undefined | null): strin
     .join("");
 }
 
+export const toBengaliNumber = toBanglaNumber;
+
+export function formatPrice(price: number | string | undefined | null): string {
+  if (price === undefined || price === null) return "০";
+  const num = typeof price === "string" ? parseFloat(price) : price;
+  if (isNaN(num)) return "০";
+  const localized = num.toLocaleString("en-IN");
+  return toBanglaNumber(localized);
+}
+
 export function formatBanglaUnit(unit: string): string {
   switch (unit?.toLowerCase()) {
     case "kg":
@@ -37,6 +47,8 @@ export function formatBanglaUnit(unit: string): string {
       return unit ? `প্রতি ${unit}` : "প্রতি কেজি";
   }
 }
+
+export const getUnitBn = formatBanglaUnit;
 
 export function getTodayBanglaDate(date: Date = new Date()): string {
   try {
@@ -84,3 +96,5 @@ export function getTodayBanglaDate(date: Date = new Date()): string {
     return `${dayName}, ${dateNum} ${monthName}, ${yearNum}`;
   }
 }
+
+export const getBanglaDate = getTodayBanglaDate;

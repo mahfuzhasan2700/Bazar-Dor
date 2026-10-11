@@ -32,7 +32,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="bn" className={`${hindSiliguri.variable} ${notoSansBengali.variable}`} suppressHydrationWarning>
+    <html
+      lang="bn"
+      data-theme="light"
+      className={`${hindSiliguri.variable} ${notoSansBengali.variable}`}
+      suppressHydrationWarning
+    >
       <body
         className="min-h-screen flex flex-col bg-[#edf2ee] text-[#1c2621] antialiased"
         suppressHydrationWarning

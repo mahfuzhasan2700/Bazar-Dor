@@ -11,17 +11,23 @@ interface PriceTickerProps {
 }
 
 export default function PriceTicker({ products }: PriceTickerProps) {
-  const [items, setItems] = useState<Product[]>(products || []);
+  const [fetchedItems, setFetchedItems] = useState<Product[]>([]);
 
   useEffect(() => {
-    if (products && products.length > 0) {
-      setItems(products);
-    } else {
+    if (!products || products.length === 0) {
+      let isMounted = true;
       getAllProducts().then((data) => {
-        if (data && data.length > 0) setItems(data);
+        if (isMounted && data && data.length > 0) {
+          setFetchedItems(data);
+        }
       });
+      return () => {
+        isMounted = false;
+      };
     }
   }, [products]);
+
+  const items = products && products.length > 0 ? products : fetchedItems;
 
   // If no products passed yet, display placeholder or empty
   if (!items || items.length === 0) {
