@@ -121,6 +121,18 @@
 ## 🏛️ System Architecture
 
 ```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryTextColor': '#ffffff',
+    'lineColor': '#94a3b8',
+    'textColor': '#f8fafc',
+    'titleColor': '#ffffff',
+    'edgeLabelBackground': '#0f172a',
+    'clusterBkg': '#0f172a33',
+    'clusterBorder': '#334155'
+  }
+}}%%
 graph TD
     classDef emerald fill:#047857,stroke:#10b981,stroke-width:2px,color:#ffffff,font-weight:bold;
     classDef teal fill:#0f766e,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold;
@@ -156,9 +168,11 @@ graph TD
     Transformer --> PrimaryAPI
     PrimaryAPI -.->|Failover| ReplicaAPI
 
-    style Client fill:transparent,stroke:#047857,stroke-width:1.5px,color:inherit
-    style Auth fill:transparent,stroke:#0f766e,stroke-width:1.5px,color:inherit
-    style Data fill:transparent,stroke:#0369a1,stroke-width:1.5px,color:inherit
+    style Client fill:#064e3b26,stroke:#10b981,stroke-width:2px,color:#ffffff,font-weight:bold
+    style Auth fill:#0f766e26,stroke:#2dd4bf,stroke-width:2px,color:#ffffff,font-weight:bold
+    style Data fill:#0369a126,stroke:#38bdf8,stroke-width:2px,color:#ffffff,font-weight:bold
+
+    linkStyle default stroke:#94a3b8,stroke-width:2px
 ```
 
 ---
