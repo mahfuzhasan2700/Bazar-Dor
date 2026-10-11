@@ -102,8 +102,8 @@
 | 📈 **Daily Price Velocity (Risers/Fallers)** | Automated 24h mathematical delta evaluation algorithm | Highlights the top 6 price spikes and discounts to guide smart purchasing | `Statistical Analytics` |
 | 📊 **Multi-Bazaar Pricing Matrix** | Statistical computation of Min, Max, and Average market rates | Granular price comparison across wholesale and retail hubs with best-market badges | `Dynamic Aggregation` |
 | 🏷️ **Native Bengali Numeral Sorter** | Unicode numeral parser converting Bengali digits (`০-৯`) into numeric floats | Accurate ascending and descending price sorting without unicode collation bugs | `Custom Sorter Engine` |
-| 🔐 **OAuth 2.0 & Session Management** | BetterAuth edge runtime with SQLite session store | Frictionless email credentials and one-click Google & GitHub social authentication | `BetterAuth + OAuth` |
-| 📱 **Fluid Responsive Ergonomics** | Tailwind CSS v4 design tokens with Hind Siliguri typography | Optimized cross-device layout with accessible 404 recovery page | `Tailwind v4 + Font` |
+| 🔐 **OAuth 2.0 & Session Management** | BetterAuth edge runtime with MongoDB Atlas adapter | Frictionless email credentials and one-click Google & GitHub social authentication | `BetterAuth + MongoDB` |
+| 📱 **Fluid Responsive Ergonomics** | Tailwind CSS v4 & DaisyUI tokens with Hind Siliguri typography | Optimized cross-device layout with accessible 404 recovery page | `Tailwind v4 + DaisyUI` |
 
 <br />
 
@@ -113,8 +113,8 @@
 * 📈 **Daily Volatility Analytics**: Top Risers (**▲ আজ দাম বেড়েছে**) showcase commodities under inflationary pressure, while Top Fallers (**▼ আজ দাম কমেছে**) highlight savings opportunities.
 * 📊 **Multi-Bazaar Statistical Cards**: Dynamic calculation of **Minimum Price**, **Average Market Price**, and **Maximum Price**, accompanied by an automatic **Best Market** indicator badge.
 * 🏷️ **Bengali Numeral Sorting Engine**: Parses and normalizes Bengali numeral glyphs (`০-৯`) into numeric values, enabling accurate sorting (`ডিফল্ট`, `দাম: কম থেকে বেশি`, and `দাম: বেশি থেকে কম`) without collation glitches.
-* 🔐 **Secure OAuth 2.0 & Profile Management**: BetterAuth edge integration enabling credentials and one-click Google & GitHub social login with context-aware route shielding.
-* 📱 **Tailwind v4 & Bengali Typography**: High-legibility **Hind Siliguri** font paired with fluid Tailwind CSS v4 design tokens and an accessible custom 404 error page.
+* 🔐 **Secure OAuth 2.0 & MongoDB Atlas**: BetterAuth edge integration enabling credentials and one-click Google & GitHub social login with MongoDB Atlas database adapter and Next.js 16 route shielding (`proxy.ts`).
+* 📱 **Tailwind v4 & DaisyUI Typography**: High-legibility **Hind Siliguri** font paired with fluid Tailwind CSS v4 + DaisyUI component tokens and an accessible custom 404 error page.
 
 ---
 
@@ -131,14 +131,14 @@ graph TD
         UI["App Router & Hybrid Components"]:::emerald
         Ticker["Hardware Marquee Ticker"]:::emerald
         Sort["Bengali Numeric Sorting Engine"]:::emerald
-        Protected["Route Guard & Session Context"]:::emerald
+        Protected["Route Guard & Next.js 16 Proxy"]:::emerald
     end
 
     subgraph Auth ["🔐 Authentication Engine (BetterAuth)"]
         BA["BetterAuth Server Engine"]:::teal
         OAuthGoogle["Google OAuth 2.0"]:::teal
         OAuthGH["GitHub OAuth 2.0"]:::teal
-        DB[("Embedded SQLite Store")]:::amber
+        DB[("MongoDB Atlas & Resilient Store")]:::amber
     end
 
     subgraph Data ["📊 Resilient Commodity Data Layer"]
@@ -168,7 +168,7 @@ graph TD
 <div align="center">
 
 <a href="https://skillicons.dev">
-  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,sqlite,nodejs,vercel,git,github,vscode&theme=dark" alt="Tech Stack Icons" />
+  <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,mongodb,sqlite,nodejs,vercel,git,github,vscode&theme=dark" alt="Tech Stack Icons" />
 </a>
 
 <br /><br />
@@ -189,9 +189,9 @@ graph TD
 | ⚡ **Core Framework** | [**Next.js 16**](https://nextjs.org/) | App Router, Turbopack Bundler, Server/Client Hybrid Components | [![Next.js](https://img.shields.io/badge/Next.js-16.4.0-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/) |
 | ⚛️ **UI Library** | [**React 19**](https://react.dev/) | React Server Actions, Suspense Boundaries, use() Hook API | [![React](https://img.shields.io/badge/React-19.3.0-087EA4?style=flat-square&logo=react&logoColor=white)](https://react.dev/) |
 | 🔷 **Language** | [**TypeScript 5**](https://www.typescriptlang.org/) | Strict Compile-Time Type Safety, Shared Domain Interfaces | [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/) |
-| 🎨 **Styling Engine** | [**Tailwind CSS v4**](https://tailwindcss.com/) | Modern CSS Variables, Custom Marquee Keyframes, Responsive Grid | [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-0284C7?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) |
-| 🔐 **Authentication** | [**BetterAuth**](https://better-auth.com/) | Credentials Auth, Google OAuth 2.0, GitHub OAuth 2.0, Session Guard | [![BetterAuth](https://img.shields.io/badge/BetterAuth-1.7.7-047857?style=flat-square&logo=auth0&logoColor=white)](https://better-auth.com/) |
-| 🗄️ **Data Persistence** | [**Better-SQLite3**](https://github.com/WiseLibs/better-sqlite3) | Serverless-Compatible Embedded SQLite Session & User Store | [![SQLite](https://img.shields.io/badge/SQLite-v3-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org/) |
+| 🎨 **Styling Engine** | [**Tailwind CSS v4**](https://tailwindcss.com/) & [**DaisyUI**](https://daisyui.com/) | Modern CSS Variables, DaisyUI Components, Custom Marquee Keyframes, Responsive Grid | [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-0284C7?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![DaisyUI](https://img.shields.io/badge/DaisyUI-v5-570DF8?style=flat-square&logo=daisyui&logoColor=white)](https://daisyui.com/) |
+| 🔐 **Authentication** | [**BetterAuth**](https://better-auth.com/) | Credentials Auth, Google OAuth 2.0, GitHub OAuth 2.0, Route Shield | [![BetterAuth](https://img.shields.io/badge/BetterAuth-1.7.7-047857?style=flat-square&logo=auth0&logoColor=white)](https://better-auth.com/) |
+| 🗄️ **Data Persistence** | [**MongoDB Atlas**](https://www.mongodb.com/atlas) & [**SQLite**](https://github.com/WiseLibs/better-sqlite3) | BetterAuth MongoDB Adapter with Resilient Local SQLite Session Fallback | [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://mongodb.com/) [![SQLite](https://img.shields.io/badge/SQLite-v3-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org/) |
 | 🌐 **Cloud Hosting** | [**Vercel Edge Network**](https://vercel.com/) | Serverless Global Edge, Instant Invalidation, Zero-Config CI/CD | [![Vercel](https://img.shields.io/badge/Vercel-CI%2FCD-000000?style=flat-square&logo=vercel&logoColor=white)](https://vercel.com/) |
 | 💎 **Iconography** | [**Lucide React**](https://lucide.dev/) | Ultra-Lightweight Pixel-Perfect Vector Icon Library | [![Lucide](https://img.shields.io/badge/Lucide-1.52-F43F5E?style=flat-square&logo=feather&logoColor=white)](https://lucide.dev/) |
 | 🔔 **Notifications** | [**React Hot Toast**](https://react-hot-toast.com/) | Accessible, Non-Blocking Interactive User Toast Notifications | [![React Hot Toast](https://img.shields.io/badge/Hot_Toast-2.6-B45309?style=flat-square&logo=safari&logoColor=white)](https://react-hot-toast.com/) |
