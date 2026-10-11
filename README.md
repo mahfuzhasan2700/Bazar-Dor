@@ -217,14 +217,15 @@ graph TD
 
 | Module / Directory | Primary Responsibility | Key Files & Artifacts | Architectural Highlight |
 | :--- | :--- | :--- | :--- |
-| 🌐 **`src/app/`** | **App Router Pages & Views** | `page.tsx`, `layout.tsx`, `not-found.tsx` | Server/Client hybrid rendering with React 19 concurrent boundaries |
+| 🌐 **`src/app/`** | **App Router Pages & Views** | `page.tsx`, `layout.tsx`, `loading.tsx`, `not-found.tsx` | Server/Client hybrid rendering with React 19 concurrent boundaries & streaming skeletons |
+| 🛡️ **`src/proxy.ts`** | **Next.js 16 Route Protection Proxy** | `proxy.ts` | Edge-level session interception safeguarding `/product/:path*` & `/profile/:path*` |
 | 🔐 **`src/app/api/auth/`** | **BetterAuth API Gateway** | `[...all]/route.ts` | Serverless catch-all handler for credentials and OAuth 2.0 callbacks |
-| 🏷️ **`src/app/categories/`** | **Dynamic Category Catalog** | `[slug]/page.tsx` | Parametric routing with native Bengali numeral numeric price sorting |
-| 📊 **`src/app/product/`** | **Protected Analytics View** | `[id]/page.tsx` | Route-guarded comparative market tables and KPI statistics |
-| 👤 **`src/app/profile/`** | **Account & Identity Hub** | `page.tsx`, `update/page.tsx` | Self-service profile management with live session state reflection |
-| 🧩 **`src/components/`** | **Modular UI Component Library** | `Navbar`, `PriceTicker`, `ProductCard` | Micro-interaction hover cards and hardware-accelerated marquee ticker |
+| 🏷️ **`src/app/categories/`** | **Dynamic Category Catalog** | `[slug]/page.tsx`, `[slug]/loading.tsx` | Parametric routing with native Bengali numeral numeric price sorting |
+| 📊 **`src/app/product/`** | **Protected Analytics View** | `[id]/page.tsx`, `[id]/loading.tsx` | Route-guarded comparative market tables and KPI statistics |
+| 👤 **`src/app/profile/`** | **Account & Identity Hub** | `page.tsx`, `update/page.tsx` | Self-service profile management with live session state reflection & Challenge C3 route |
+| 🧩 **`src/components/`** | **Modular UI Component Library** | `Navbar`, `PriceTicker`, `ProductCard`, `ProductSkeleton` | Micro-interaction hover cards and hardware-accelerated marquee ticker |
 | 🛡️ **`src/context/`** | **Global State Management** | `AuthContext.tsx` | Persistent multi-tab auth session provider and toast notification dispatch |
-| ⚙️ **`src/lib/`** | **Core Services & Utilities** | `api.ts`, `auth.ts`, `utils.ts` | Dual-replica failover API client and Bengali numeral converter |
+| ⚙️ **`src/lib/`** | **Core Services & Utilities** | `mongodb.ts`, `api.ts`, `auth.ts`, `utils.ts` | MongoDB Atlas pooling, failover API client, and Bengali numeral converter |
 | 📐 **`src/types/`** | **Domain Type Definitions** | `index.ts` | Strict TypeScript domain contracts (`Product`, `Category`, `User`) |
 | 🖼️ **`public/`** | **Static Assets & Screenshots** | `bazar-hero.png`, `screenshots/` | Optimized responsive images and application showcase media |
 | 🔧 **Configuration** | **Infrastructure & Tooling** | `next.config.ts`, `package.json` | Turbopack loaders, HTTP security headers, and automated CI/CD |
@@ -249,18 +250,27 @@ bazar-dor/
 │   ├── app/                      # Next.js App Router root
 │   │   ├── api/auth/[...all]/    # BetterAuth serverless API catch-all
 │   │   ├── categories/[slug]/    # Category catalog with numeric price sorting
+│   │   │   ├── loading.tsx       # Category page streaming loading skeleton
+│   │   │   └── page.tsx          # Category view & Challenge C1 numeric sorter
+│   │   ├── category/[slug]/      # Singular canonical category alias route
 │   │   ├── product/[id]/         # Protected product details & market breakdown
+│   │   │   ├── loading.tsx       # Product detail streaming loading skeleton
+│   │   │   └── page.tsx          # Multi-bazaar table & pricing analytics
+│   │   ├── products/             # Canonical products catalog alias
 │   │   ├── profile/              # User profile & account overview
-│   │   │   └── update/           # Self-service profile editing
+│   │   │   ├── update/           # Challenge C3: Dedicated profile update page
+│   │   │   └── page.tsx          # User profile view with update trigger
 │   │   ├── signin/               # Authentication entry point
 │   │   ├── signup/               # New user onboarding
 │   │   ├── favicon.ico           # Branded application favicon
-│   │   ├── globals.css           # Global CSS variables, animations & marquee
-│   │   ├── layout.tsx            # Root layout, fonts & toast container
+│   │   ├── globals.css           # Tailwind CSS v4 & DaisyUI plugin directives
+│   │   ├── layout.tsx            # Root layout, Google fonts, DaisyUI theme & toaster
+│   │   ├── loading.tsx           # Home page initial loading skeleton
 │   │   ├── not-found.tsx         # Custom branded Bengali 404 error page
 │   │   └── page.tsx              # Home page (Hero, Risers, Fallers, Grid)
 │   ├── components/               # Reusable UI component modules
-│   │   ├── Footer.tsx            # Footer navigation & copyright
+│   │   ├── BanglaDate.tsx        # Midnight-aware real-time dynamic Bengali date
+│   │   ├── Footer.tsx            # Footer navigation & disclaimer
 │   │   ├── HeroBanner.tsx        # Hero banner with dynamic search triggers
 │   │   ├── Navbar.tsx            # Navigation bar & authentication state
 │   │   ├── PriceTicker.tsx       # Infinite continuous marquee ticker
@@ -271,10 +281,12 @@ bazar-dor/
 │   ├── lib/                      # Core business logic & utility modules
 │   │   ├── api.ts                # Fault-tolerant commodity data service
 │   │   ├── auth-client.ts        # Client-side BetterAuth connector
-│   │   ├── auth.ts               # Server-side BetterAuth configuration
+│   │   ├── auth.ts               # Server-side BetterAuth with MongoDB Atlas
+│   │   ├── mongodb.ts            # MongoDB Atlas connection singleton
 │   │   └── utils.ts              # Bengali numeral & unit localization engine
-│   └── types/                    # Shared TypeScript interfaces & types
-│       └── index.ts
+│   ├── types/                    # Shared TypeScript interfaces & types
+│   │   └── index.ts
+│   └── proxy.ts                  # Next.js 16 Edge Route Protection Proxy
 ├── next.config.ts                # Next.js bundler & HTTP security headers
 ├── package.json
 └── README.md
@@ -328,10 +340,17 @@ cp .env.example .env.local
 Populate the configuration values in `.env.local`:
 ```env
 # -------------------------------------------------------------
+# MongoDB Atlas Database Configuration
+# -------------------------------------------------------------
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/bazardor?retryWrites=true&w=majority
+MONGODB_DB_NAME=bazardor
+
+# -------------------------------------------------------------
 # BetterAuth Core Settings
 # -------------------------------------------------------------
 BETTER_AUTH_SECRET=your_secure_random_key_here
 BETTER_AUTH_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 # -------------------------------------------------------------
 # Optional: GitHub OAuth (https://github.com/settings/developers)
