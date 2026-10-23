@@ -13,7 +13,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link
-      href={`/product/${product.id}`}
+      href={`/product/${product.slug}`}
       className="group bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-xs hover:border-emerald-200 transition-all duration-300 flex flex-col justify-between cursor-pointer"
     >
       <div>
@@ -33,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
 
-      {/* Price Row & Change Badge matching Image 1, 3, 4, 5 */}
+      {/* Price Row & Change Badge */}
       <div className="mt-4 flex items-end justify-between">
         <div>
           <span className="block text-[11px] text-gray-400 font-normal">
@@ -45,7 +45,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
         </div>
 
-        {/* Change Indicator matching Image 1 & 3 */}
+        {/* Change Indicator */}
         <div
           className={`text-xs font-semibold flex items-center gap-1 px-2 py-0.5 rounded-md ${
             isUp

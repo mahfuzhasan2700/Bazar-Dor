@@ -29,7 +29,6 @@ export default function PriceTicker({ products }: PriceTickerProps) {
 
   const items = products && products.length > 0 ? products : fetchedItems;
 
-  // If no products passed yet, display placeholder or empty
   if (!items || items.length === 0) {
     return null;
   }
@@ -47,7 +46,7 @@ export default function PriceTicker({ products }: PriceTickerProps) {
           return (
             <Link
               key={`${item.id}-${index}`}
-              href={`/product/${item.id}`}
+              href={`/product/${item.slug}`}
               className="flex items-center gap-1.5 shrink-0 hover:opacity-80 transition cursor-pointer"
             >
               <span>{item.image || item.categoryIcon}</span>
