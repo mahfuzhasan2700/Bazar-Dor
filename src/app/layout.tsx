@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri, Noto_Sans_Bengali } from "next/font/google";
+import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
-import { AuthProvider } from "@/context/AuthContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 
 const hindSiliguri = Hind_Siliguri({
-  weight: ["300", "400", "500", "600", "700"],
   subsets: ["bengali", "latin"],
-  variable: "--font-hind-siliguri",
-  display: "swap",
-});
-
-const notoSansBengali = Noto_Sans_Bengali({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["bengali"],
-  variable: "--font-noto-bengali",
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -32,33 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="bn"
-      data-theme="light"
-      className={`${hindSiliguri.variable} ${notoSansBengali.variable}`}
-      suppressHydrationWarning
-    >
-      <body
-        className="min-h-screen flex flex-col bg-[#edf2ee] text-[#1c2621] antialiased"
-        suppressHydrationWarning
-      >
-        <AuthProvider>
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              duration: 3500,
-              style: {
-                background: "#1c2621",
-                color: "#ffffff",
-                fontSize: "14px",
-                borderRadius: "12px",
-              },
-            }}
-          />
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </AuthProvider>
+    <html lang="bn" data-theme="light">
+      <body className={`${hindSiliguri.className} antialiased min-h-screen flex flex-col bg-[#edf2ee] text-[#1c2621]`}>
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <Toaster position="top-center" />
       </body>
     </html>
   );

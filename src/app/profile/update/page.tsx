@@ -3,28 +3,24 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
+import { useSession, authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 
 export default function ProfileUpdatePage() {
   const router = useRouter();
-  const { user, isLoading, updateUser } = useAuth();
+  const { data: session, isPending } = useSession();
   const [name, setName] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
-  const [hasInitialized, setHasInitialized] = useState(false);
-
-  if (user && !hasInitialized) {
-    setName(user.name);
-    setHasInitialized(true);
-  }
 
   useEffect(() => {
-    if (!isLoading && !user) {
+    if (!isPending && !session?.user) {
       toast.error("তথ্য পরিবর্তন করতে আগে লগইন করুন!");
       router.push("/signin?callbackUrl=/profile/update");
+    } else if (session?.user?.name) {
+      setName(session.user.name);
     }
-  }, [user, isLoading, router]);
+  }, [session, isPending, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -34,26 +30,42 @@ export default function ProfileUpdatePage() {
     }
 
     setIsUpdating(true);
-    const success = await updateUser(name.trim());
-    setIsUpdating(false);
+    try {
+      const { error } = await authClient.updateUser({
+        name: name.trim(),
+      });
 
-    if (success) {
-      router.push("/profile");
+      if (error) {
+        toast.error(error.message || "আপডেট ব্যর্থ!");
+      } else {
+        toast.success("প্রোফাইল আপডেট হয়েছে! 🎉");
+        router.push("/profile");
+      }
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "আপডেট ব্যর্থ!";
+      toast.error(msg);
+    } finally {
+      setIsUpdating(false);
     }
   };
 
-  if (isLoading || !user) {
+  if (isPending) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center space-y-3">
-        <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin" />
         <p className="text-xs text-gray-500 font-medium">লোড হচ্ছে...</p>
       </div>
     );
   }
 
+  const user = session?.user;
+  if (!user) {
+    return null;
+  }
+
   return (
     <div className="max-w-md mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-sm space-y-6">
+      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-100 shadow-xs space-y-6">
         <div className="flex items-center gap-2">
           <Link
             href="/profile"
@@ -92,10 +104,10 @@ export default function ProfileUpdatePage() {
           <button
             type="submit"
             disabled={isUpdating}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white font-semibold text-sm transition shadow-sm cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white font-semibold text-sm transition shadow-xs cursor-pointer"
           >
             <CheckCircle2 className="w-4 h-4" />
-            <span>{isUpdating ? "আপডেট হচ্ছে..." : "Update Information"}</span>
+            <span>{isUpdating ? "আপডেট হচ্ছে..." : "তথ্য আপডেট করুন"}</span>
           </button>
         </form>
       </div>

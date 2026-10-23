@@ -1,76 +1,74 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
+import { useSession, signOut } from "@/lib/auth-client";
 import toast from "react-hot-toast";
-import { Edit3 } from "lucide-react";
+import { Edit3, LogOut, User as UserIcon } from "lucide-react";
 
 export default function ProfilePage() {
   const router = useRouter();
-  const { user, isLoading, signOut, updateUser } = useAuth();
-  const [name, setName] = useState("");
-  const [isUpdating, setIsUpdating] = useState(false);
-  const [hasInitialized, setHasInitialized] = useState(false);
-
-  if (user && !hasInitialized) {
-    setName(user.name);
-    setHasInitialized(true);
-  }
+  const { data: session, isPending } = useSession();
 
   useEffect(() => {
-    if (!isLoading && !user) {
+    if (!isPending && !session?.user) {
       toast.error("প্রোফাইল দেখতে অনুগ্রহ করে আগে লগইন করুন!");
       router.push("/signin?callbackUrl=/profile");
     }
-  }, [user, isLoading, router]);
+  }, [session, isPending, router]);
 
-  if (isLoading || !user) {
+  if (isPending) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-6 text-center space-y-3">
-        <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
-        <p className="text-xs text-gray-500 font-medium">লোড হচ্ছে...</p>
+        <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin" />
+        <p className="text-xs text-gray-500 font-medium">প্রোফাইল লোড হচ্ছে...</p>
       </div>
     );
   }
 
-  const handleUpdate = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim()) {
-      toast.error("নাম ফাঁকা রাখা যাবে না!");
-      return;
-    }
+  const user = session?.user;
+  if (!user) {
+    return null;
+  }
 
-    setIsUpdating(true);
-    await updateUser(name.trim());
-    setIsUpdating(false);
+  const handleSignOut = async () => {
+    try {
+      await signOut({
+        fetchOptions: {
+          onSuccess: () => {
+            toast.success("সাইন আউট সফল!");
+            router.push("/");
+          },
+        },
+      });
+    } catch {
+      toast.error("সাইন আউটে সমস্যা হয়েছে!");
+    }
   };
 
   return (
     <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-6">
-      {/* Header outside Card matching Image 2 */}
       <div className="space-y-1">
         <h1 className="text-xl sm:text-2xl font-bold text-gray-900">
           আমার প্রোফাইল
         </h1>
         <p className="text-xs sm:text-sm text-gray-500">
-          আপনার অ্যাকাউন্টের তথ্য এখানে দেখুন।
+          আপনার অ্যাকাউন্টের তথ্যাবলী এখানে দেখুন।
         </p>
       </div>
 
-      {/* Card 1: User Profile Card matching Image 2 & Challenge C3 */}
       <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           {user.image ? (
             <img
               src={user.image}
-              alt={user.name}
-              className="w-16 h-16 rounded-xl object-cover shrink-0"
+              alt={user.name || "User"}
+              className="w-16 h-16 rounded-2xl object-cover shrink-0 border border-emerald-200"
             />
           ) : (
-            <div className="w-16 h-16 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl shrink-0">
-              {user.name.charAt(0).toUpperCase()}
+            <div className="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-2xl shrink-0">
+              {user.name?.charAt(0).toUpperCase() || "U"}
             </div>
           )}
 
@@ -96,65 +94,36 @@ export default function ProfilePage() {
 
           <button
             type="button"
-            onClick={() => signOut()}
+            onClick={handleSignOut}
             className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-[#d03739] text-[#d03739] hover:bg-red-50 text-xs sm:text-sm font-semibold transition cursor-pointer"
           >
-            <svg
-              className="w-4 h-4 text-[#d03739] shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M9 14L4 9l5-5" />
-              <path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11" />
-            </svg>
+            <LogOut className="w-4 h-4" />
             <span>সাইন আউট</span>
           </button>
         </div>
       </div>
 
-      {/* Card 2: Information Form matching Image 2 */}
+      {/* Account Details */}
       <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs space-y-4">
-        <div className="flex items-center justify-between">
-          <h3 className="text-base font-bold text-gray-900">তথ্য</h3>
-          <Link
-            href="/profile/update"
-            className="text-xs text-[#09793c] hover:underline font-semibold"
-          >
-            আলাদা পেজে তথ্য পরিবর্তন করুন →
-          </Link>
-        </div>
+        <h3 className="text-base font-bold text-gray-900 flex items-center gap-2">
+          <UserIcon className="w-4 h-4 text-emerald-700" />
+          <span>অ্যাকাউন্ট বিবরণী</span>
+        </h3>
 
-        <form onSubmit={handleUpdate} className="space-y-4">
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-xs sm:text-sm font-semibold text-gray-800 mb-1.5"
-            >
-              নাম
-            </label>
-            <input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              placeholder="আপনার নাম"
-              className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#09793c]/20 focus:border-[#09793c] transition bg-white"
-            />
+        <div className="divide-y divide-gray-100 text-xs sm:text-sm">
+          <div className="py-2.5 flex justify-between">
+            <span className="text-gray-500">নাম</span>
+            <span className="font-semibold text-gray-800">{user.name}</span>
           </div>
-
-          <button
-            type="submit"
-            disabled={isUpdating}
-            className="w-full py-2.5 rounded-lg bg-[#09793c] hover:bg-[#076833] active:bg-[#065b2c] disabled:opacity-50 text-white font-semibold text-sm transition shadow-xs cursor-pointer"
-          >
-            {isUpdating ? "আপডেট হচ্ছে..." : "আপডেট"}
-          </button>
-        </form>
+          <div className="py-2.5 flex justify-between">
+            <span className="text-gray-500">ইমেইল</span>
+            <span className="font-semibold text-gray-800">{user.email}</span>
+          </div>
+          <div className="py-2.5 flex justify-between">
+            <span className="text-gray-500">অ্যাকাউন্ট স্ট্যাটাস</span>
+            <span className="font-semibold text-emerald-700">সক্রিয়</span>
+          </div>
+        </div>
       </div>
     </div>
   );
