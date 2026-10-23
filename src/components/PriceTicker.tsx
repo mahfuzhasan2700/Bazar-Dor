@@ -37,7 +37,7 @@ export default function PriceTicker({ products }: PriceTickerProps) {
   const tickerItems = [...items, ...items];
 
   return (
-    <div className="bg-emerald-50/70 border-y border-emerald-100/50 overflow-hidden py-1.5 text-xs">
+    <div className="bg-white border-y border-gray-100 overflow-hidden py-1.5 text-xs">
       <div className="flex animate-marquee items-center gap-6">
         {tickerItems.map((item, index) => {
           const isUp = item.change?.dir === "up";

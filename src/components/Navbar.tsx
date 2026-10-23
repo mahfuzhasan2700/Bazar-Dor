@@ -195,17 +195,17 @@ export default function Navbar() {
         </div>
 
         {/* Second Row: Category Links Desktop */}
-        <nav className="hidden lg:flex items-center gap-1 py-2 border-t border-gray-100 overflow-x-auto no-scrollbar">
+        <nav className="hidden lg:flex items-center gap-1.5 py-2.5 border-t border-gray-100 overflow-x-auto no-scrollbar">
           {categories.map((cat) => {
             const isActive = pathname === `/category/${cat.slug}`;
             return (
               <Link
                 key={cat.id || cat.slug}
                 href={`/category/${cat.slug}`}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition flex items-center gap-1.5 ${
+                className={`px-3.5 py-1 rounded-full text-xs font-medium whitespace-nowrap transition flex items-center gap-1.5 ${
                   isActive
                     ? "bg-[#09793c] text-white shadow-xs"
-                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                 }`}
               >
                 <span>{cat.icon}</span>

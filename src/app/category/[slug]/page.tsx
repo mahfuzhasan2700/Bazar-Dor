@@ -67,21 +67,10 @@ export default function CategoryPage({
   });
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 space-y-8">
-      {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-xs text-gray-500">
-        <Link href="/" className="hover:text-emerald-700 transition">
-          হোম
-        </Link>
-        <span className="text-gray-400">&gt;</span>
-        <span className="text-gray-700 font-medium">
-          {category?.nameBn || slug}
-        </span>
-      </div>
-
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
       {/* Category Header Card */}
-      <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xs flex items-center gap-4">
-        <div className="w-14 h-14 rounded-2xl bg-[#f4f7f4] border border-gray-100 flex items-center justify-center text-3xl shrink-0 shadow-xs">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-xs flex items-center gap-4">
+        <div className="w-14 h-14 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-3xl shrink-0 shadow-xs">
           {category?.icon || "🛒"}
         </div>
         <div>
@@ -105,7 +94,7 @@ export default function CategoryPage({
               id="sort-select"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="appearance-none bg-gray-50 border border-gray-200 text-xs sm:text-sm rounded-xl pl-3.5 pr-8 py-2 text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 cursor-pointer"
+              className="appearance-none bg-white border border-gray-200 text-xs sm:text-sm rounded-xl pl-3.5 pr-8 py-2 text-gray-800 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 cursor-pointer"
             >
               <option value="default">ডিফল্ট</option>
               <option value="price_asc">দাম: কম থেকে বেশি</option>
@@ -114,6 +103,11 @@ export default function CategoryPage({
             <ChevronDown className="w-4 h-4 text-gray-500 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
         </div>
+      </div>
+
+      {/* Total Products Indicator text matching Category.png */}
+      <div className="text-xs sm:text-sm text-gray-500 font-normal px-1 -mb-2">
+        মোট {toBanglaNumber(products.length)}টি পণ্য দেখানো হচ্ছে
       </div>
 
       {/* Product List or Skeleton or Empty State */}

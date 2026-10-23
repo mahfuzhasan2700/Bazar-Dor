@@ -36,20 +36,19 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Price Row & Change Badge */}
       <div className="mt-4 flex items-end justify-between">
         <div>
-          <span className="block text-[11px] text-gray-400 font-normal">
+          <span className="block text-[11px] text-gray-500 font-normal">
             আজকের দাম
           </span>
           <span className="text-base sm:text-lg font-bold text-gray-900">
-            {toBanglaNumber(product.today)}{" "}
-            <span className="text-xs font-normal text-gray-700">টাকা</span>
+            {toBanglaNumber(product.today)} টাকা
           </span>
         </div>
 
-        {/* Change Indicator */}
+        {/* Change Indicator Pill */}
         <div
-          className={`text-xs font-semibold flex items-center gap-1 px-2 py-0.5 rounded-md ${
+          className={`text-xs font-semibold flex items-center gap-1 px-2.5 py-0.5 rounded-full ${
             isUp
-              ? "text-[#d03739] bg-red-50"
+              ? "text-[#d03739] bg-rose-50"
               : isDown
               ? "text-[#05893e] bg-emerald-50"
               : "text-gray-500 bg-gray-100"
